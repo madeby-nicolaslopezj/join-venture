@@ -1,0 +1,23 @@
+<template name="ventureFileAttribute">
+	<div>
+		{{# if isDisabled }}
+			{{# if getFile }}
+				{{# with getFile }}
+					<p>
+						<a href="{{ pathFor 'project.files.show' _id=projectId fileId=_id }}">
+							<span class="fa-stack fa-lg">
+								<i class="fa fa-circle fa-stack-2x"></i>
+								<i class="fa {{ getIcon }} fa-stack-1x fa-inverse"></i>
+							</span>
+							<b>{{ name }}</b>
+						</a>
+					</p>
+				{{/ with }}
+			{{ else }}
+				<p class="help-block">No file</p>
+			{{/ if }}
+		{{ else }}
+		<select class="selectize" {{ this.atts }} placeholder="To select a file you have to upload it in the files tab"></select>
+		{{/ if }}
+	</div>
+</template>

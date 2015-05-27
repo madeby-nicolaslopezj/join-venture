@@ -1,0 +1,31 @@
+# Meteor packages used by this project, one per line.
+#
+# 'meteor add' and 'meteor remove' will edit this file for you,
+# but you can also edit it by hand.
+
+meteor-platform
+http
+accounts-oauth
+accounts-base
+accounts-password
+accounts-ui
+accounts-google
+jonperl:accounts-linkedin
+service-configuration
+useraccounts:bootstrap
+less
+iron:router
+zimme:iron-router-active
+aldeed:autoform@5.1.1
+aldeed:collection2
+meteorhacks:subs-manager
+dburles:collection-helpers
+reywood:publish-composite
+aslagle:reactive-table
+matb33:collection-hooks
+meteorhacks:aggregate
+copleykj:livestamp
+lepozepo:s3@=4.1.3
+mizzao:user-status
+rajit:bootstrap3-datepicker
+aldeed:autoform-bs-datepicker

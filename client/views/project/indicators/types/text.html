@@ -1,0 +1,26 @@
+<template name="projectIndicatorsTypes_text">
+	<div class="panel panel-{{ color }} indicator-text">
+		<div class="panel-heading panel-colorize">	
+			<div class="panel-actions pull-right panel-actions-reveal">
+				<span class="panel-actions-reveal-hide animated fadeInRight">
+					<span class="panel-action">
+						<a href="{{ pathFor 'project.indicators.addData' indicatorId=_id _id=projectId }}">
+							<i class="fa fa-pencil"></i>
+						</a>
+					</span>
+					<span class="panel-action">
+						<a href="{{ pathFor 'project.indicators.edit' indicatorId=_id _id=projectId }}">
+							<i class="fa fa-cog"></i>
+						</a>
+					</span>
+				</span>
+				&nbsp;&nbsp;
+				<i class="fa fa-bars panel-actions-reveal-icon"></i>
+			</div>
+			<h3 class="panel-title">{{ title }}</h3>
+		</div>
+		<div class="panel-body">
+			{{{ parse text=currentData.text showImages=true }}}
+		</div>
+	</div>
+</template>

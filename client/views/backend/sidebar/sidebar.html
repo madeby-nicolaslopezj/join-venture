@@ -1,0 +1,41 @@
+<template name="backendSidebar">
+	{{> sidebarHeader }}
+	<div class="oc-sidebar-content" id="collapseAvatarLeft">
+		<ul class="nav nav-stacked oc-sidebar-nav" id="collapseNavbarLeft2">
+			<li class="{{ isActiveRoute regex='backend.projects' }}">
+				<a class="collapsed"
+				href="{{ pathFor 'backend.projects.index' }}">
+					<i class="oc-partial-icon fa fa-dashboard"></i>
+					<span class="oc-partial-menu-item">
+						Projects
+					</span>
+				</a>
+			</li>
+			<li class="{{ isActiveRoute regex='backend.users' }}">
+				<a class="collapsed"
+				href="{{ pathFor 'backend.users.index' }}">
+					<i class="oc-partial-icon fa fa-users"></i>
+					<span class="oc-partial-menu-item">
+						Users
+					</span>
+				</a>
+			</li>
+			<li class="{{ isActiveRoute regex='backend.investors' }}">
+				<a class="collapsed"
+				href="{{ pathFor 'backend.investors.index' }}">
+					<i class="oc-partial-icon fa fa-money"></i>
+					<span class="oc-partial-menu-item">
+						Investors
+					</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+	<div class="oc-partial-hidden">
+		<div class="padded">
+			<a class="btn btn-black-dk btn-block" href="{{ pathFor 'admin.users.edit' }}">
+				<span class="text-dark-lt">Back</span>
+			</a>
+		</div>
+	</div>
+</template>

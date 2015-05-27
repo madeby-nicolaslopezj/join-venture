@@ -1,0 +1,29 @@
+<template name="projectPostsCreate">
+	<div class="row">
+		<div class="col-sm-6">
+		 	<h3 class="em-page-header v-mid-row thin">
+		 		<i class="fa fa-rss text-gradient-info-dk"></i>
+		 		<span class="text-gradient-info-dk">
+		 			New Post
+		 		</span>
+		 	</h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-8 col-sm-offset-2">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					{{# autoForm collection="Posts" id="projectPostsCreateForm" type="insert" }}
+						<input type="hidden" value="{{ getProjectId }}" data-schema-key="projectId">
+						<input type="hidden" value="{{ getUserId }}" data-schema-key="userId">
+						{{# each afFieldNames omitFields="projectId,userId" }}
+							{{> afQuickField name=this.name options=afOptionsFromSchema}}
+						{{/ each }}
+						<a class="btn btn-default" href="{{ pathFor 'project.posts.index' }}">Back</a>
+						<button class="btn btn-primary" type="submit">Post</button>
+					{{/ autoForm }}
+				</div>
+			</div>
+		</div>
+	</div>
+</template>

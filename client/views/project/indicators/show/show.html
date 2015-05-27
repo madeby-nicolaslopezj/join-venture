@@ -1,0 +1,17 @@
+<template name="projectIndicatorsShow">
+	<div class="row">
+		<div class="col-sm-6">
+		 	<h3 class="em-page-header v-mid-row thin">
+		 		<i class="fa fa-dashboard text-gradient-info-dk"></i>
+		 		<span class="text-gradient-info-dk">
+		 			Indicator
+		 		</span>
+		 	</h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+			{{> Template.dynamic template=indicator.getTemplate data=indicator }}
+		</div>
+	</div>
+</template>

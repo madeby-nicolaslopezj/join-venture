@@ -1,0 +1,73 @@
+<template name="adminProjectsIndex">
+	{{# if currentUser.isInvestor }}
+		{{> interestedProjects }}
+	{{/ if }}
+	<div class="row">
+		<div class="col-sm-6">
+		 	<h3 class="em-page-header v-mid-row thin">
+		 		<i class="fa fa-dashboard text-gradient-info-dk"></i>
+		 		<span class="text-gradient-info-dk">
+		 			My Projects
+		 		</span>
+		 	</h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+
+			<div class="row">
+				{{# each currentUser.projects }}
+					{{> adminProjectsIndexItem }}
+				{{/ each }}
+				{{# each currentUser.invitations }}
+					{{> adminProjectsIndexInvitation }}
+				{{/ each }}
+			</div>
+			<hr>
+			<p>
+				<i>
+					<a href="{{ pathFor 'admin.projects.create' }}" class="btn btn-primary">
+						New Project
+					</a>
+				</i>
+			</p>
+		</div>
+	</div>
+
+	<br><br>
+
+</template>
+
+<template name="adminProjectsIndexItem">
+	<div class="col-sm-6 col-md-4 col-lg-3">
+		<div class="panel panel-dark">
+			<div class="panel-body panel-colorize gradient-diag1">
+				<div class="padded">
+					<h3>{{ description.name }}</h3>
+					<h5>{{ myRole.role }}</h5>
+					<div class="vpadded">
+						<a class="btn panel-lt btn-long btn-sm"
+						href="{{ pathFor 'project.index' }}">Go</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+
+<template name="adminProjectsIndexInvitation">
+	<div class="col-sm-6 col-md-4 col-lg-3">
+		<div class="panel panel-info">
+			<div class="panel-body panel-colorize gradient-diag1 no-padding-top">
+				<div class="padded tile-normal">
+					<h3>{{ description.name }}</h3>
+					<h5>{{ myRole.type }} - {{ myRole.role }}</h5>
+					<div class="vpadded text-right">
+						<button class="btn panel-lt btn-sm btn-deny">Deny</button>
+						<button class="btn panel-lt btn-sm btn-accept">Accept</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>

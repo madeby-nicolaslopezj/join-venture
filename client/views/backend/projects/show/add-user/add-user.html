@@ -1,0 +1,23 @@
+<template name="backendProjectsShowAddUser">
+	<div class="row">
+		<div class="col-sm-6">
+			{{# autoForm collection="Roles" id="backendProjectsShowAddUserForm" type="insert" }}
+				<input type="hidden" value="{{ projectId }}" data-schema-key="projectId">
+				<input type="hidden" data-schema-key="userId">
+
+				<div class="form-group">
+					<label>User Email</label>
+					<div class="input-group">
+						<input class="form-control email-search">
+						<span class="input-group-addon found-status">no</span>
+					</div>
+				</div>
+
+				{{# each afFieldNames omitFields="projectId,userId" }}
+					{{> afQuickField name=this.name options=afOptionsFromSchema}}
+				{{/ each }}
+				<button class="btn btn-primary" type="submit">Add</button>
+			{{/ autoForm }}
+		</div>
+	</div>
+</template>

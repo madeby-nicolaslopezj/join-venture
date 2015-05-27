@@ -1,0 +1,250 @@
+<template name="projectTasksShow">
+	<div class="row">
+		<div class="col-sm-6">
+		 	<h3 class="em-page-header v-mid-row thin">
+		 		<i class="fa fa-files-o text-gradient-info-dk"></i>
+		 		<span class="text-gradient-info-dk">
+		 			{{ task.title }}
+		 		</span>
+		 		<small>
+		 			{{# if task.isOpen }}
+			 		<span class="label label-success">open</span>
+			 		{{ else }}
+			 		<span class="label label-danger">closed</span>
+			 		{{/ if }}
+		 		</small>
+		 	</h3>
+		 	<p>
+		 		
+		 	</p>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-7">
+			{{# each task.tasksEvents }}
+				{{# if typeIs 'comment' }}
+					{{> projectTasksShowEventComment }}
+				{{/ if }}
+				{{# if typeIs 'close' }}
+					{{> projectTasksShowEventClose }}
+				{{/ if }}
+				{{# if typeIs 'reopen' }}
+					{{> projectTasksShowEventReopen }}
+				{{/ if }}
+				{{# if typeIs 'assign' }}
+					{{> projectTasksShowEventAssign }}
+				{{/ if }}
+				{{# if typeIs 'unassign' }}
+					{{> projectTasksShowEventUnassign }}
+				{{/ if }}
+				{{# if typeIs 'tag' }}
+					{{> projectTasksShowEventTag }}
+				{{/ if }}
+				{{# if typeIs 'untag' }}
+					{{> projectTasksShowEventUntag }}
+				{{/ if }}
+			{{/ each }}
+			{{> projectTasksShowComment }}
+		</div>
+		<div class="col-sm-5">
+			<div class="panel panel-primary">
+				<div class="panel-body">
+					<div class="form-group">
+						<label>Tags</label>
+						<input name="tags" class="form-control" value="{{ task.joinedTags }}">
+					</div>
+					<div class="form-group">
+						<label>Asignees</label>
+						<select name="assignees[]" class="form-control" multiple placeholder="Select Users">
+							{{# each roles 'entrepreneur' }}
+								<option value="{{ userId }}" {{ isAssign }}>
+									{{# with getUser userId }}
+										{{ name }}
+									{{/ with }}
+								</option>
+							{{/ each }}
+						</select>
+					</div>
+					<div class="form-group">
+						<label>Due Date</label>
+						<input id="datetimepicker1" type="text" class="form-control datetimepick" value="{{ dueDate }}">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+
+<template name="projectTasksShowEventComment">
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<div class="user">
+				{{# with getUser userId }}
+					<b>{{ name }}</b> commented
+				{{/ with }}
+				{{ livestamp createdAt }}
+			</div>
+		</div>
+		<div class="panel-body">
+
+			<div class="comment">
+				{{{ parse comment }}}
+			</div>
+		</div>
+	</div>
+</template>
+<template name="projectTasksShowEventClose">
+	<div class="row">
+		<div class="col-xs-2 text-center">
+			<span class="fa-stack fa-lg">
+				<i class="fa fa-fw fa-circle fa-stack-2x" style="color: red"></i>
+				<i class="fa fa-fw fa-ban fa-stack-1x fa-inverse"></i>
+			</span>
+		</div>
+		<div class="col-xs-10">
+			<div class="user" style="margin-top: 6px;">
+				{{# with getUser userId }}
+					<b>{{ name }}</b> closed this task
+				{{/ with }}
+				{{ livestamp createdAt }}
+			</div>
+		</div>
+	</div>
+	<br>
+</template>
+<template name="projectTasksShowEventReopen">
+	<div class="row">
+		<div class="col-xs-2 text-center">
+			<span class="fa-stack fa-lg">
+				<i class="fa fa-fw fa-circle fa-stack-2x" style="color: green"></i>
+				<i class="fa fa-fw fa-exclamation fa-stack-1x fa-inverse"></i>
+			</span>
+		</div>
+		<div class="col-xs-10">
+			<div class="user" style="margin-top: 6px;">
+				{{# with getUser userId }}
+					<b>{{ name }}</b> reopened this task
+				{{/ with }}
+				{{ livestamp createdAt }}
+			</div>
+		</div>
+	</div>
+	<br>
+</template>
+<template name="projectTasksShowEventAssign">
+	<div class="row">
+		<div class="col-xs-2 text-center">
+			<span class="fa-stack fa-lg">
+				<i class="fa fa-fw fa-circle fa-stack-2x fa-inverse"></i>
+				<i class="fa fa-fw fa-male fa-stack-1x"></i>
+			</span>
+		</div>
+		<div class="col-xs-10">
+			<div class="user" style="margin-top: 6px;">
+				{{# if selfAssign }}
+					{{# with getUser userId }}
+						<b>{{ name }}</b> self-assigned this
+					{{/ with }}
+				{{ else }}
+					{{# with getUser assignedId }}
+						<b>{{ name }}</b> was assigned by
+					{{/ with }}
+					{{# with getUser userId }}
+						<b>{{ name }}</b>
+					{{/ with }}
+				{{/ if }}
+				{{ livestamp createdAt }}
+			</div>
+		</div>
+	</div>
+	<br>
+</template>
+<template name="projectTasksShowEventUnassign">
+	<div class="row">
+		<div class="col-xs-2 text-center">
+			<span class="fa-stack fa-lg">
+				<i class="fa fa-fw fa-circle fa-stack-2x fa-inverse"></i>
+				<i class="fa fa-fw fa-male fa-stack-1x"></i>
+				<i class="fa fa-fw fa-ban fa-stack-2x"></i>
+			</span>
+		</div>
+		<div class="col-xs-10">
+			<div class="user" style="margin-top: 6px;">
+				{{# if selfAssign }}
+					{{# with getUser userId }}
+						<b>{{ name }}</b> removed their assignment
+					{{/ with }}
+				{{ else }}
+					{{# with getUser assignedId }}
+						<b>{{ name }}</b> was unassigned by
+					{{/ with }}
+					{{# with getUser userId }}
+						<b>{{ name }}</b>
+					{{/ with }}
+				{{/ if }}
+				{{ livestamp createdAt }}
+			</div>
+		</div>
+	</div>
+	<br>
+</template>
+<template name="projectTasksShowEventTag">
+	<div class="row">
+		<div class="col-xs-2 text-center">
+			<span class="fa-stack fa-lg">
+				<i class="fa fa-fw fa-circle fa-stack-2x fa-inverse"></i>
+				<i class="fa fa-fw fa-tag fa-stack-1x"></i>
+			</span>
+		</div>
+		<div class="col-xs-10">
+			<div class="user" style="margin-top: 6px;">
+				{{# with getUser userId }}
+					<b>{{ name }}</b> added the
+				{{/ with }}
+				<span class="label label-primary">{{ tag }}</span> tag
+				{{ livestamp createdAt }}
+			</div>
+		</div>
+	</div>
+	<br>
+</template>
+<template name="projectTasksShowEventUntag">
+	<div class="row">
+		<div class="col-xs-2 text-center">
+			<span class="fa-stack fa-lg">
+				<i class="fa fa-fw fa-circle fa-stack-2x fa-inverse"></i>
+				<i class="fa fa-fw fa-tag fa-stack-1x"></i>
+				<i class="fa fa-fw fa-ban fa-stack-2x"></i>
+			</span>
+		</div>
+		<div class="col-xs-10">
+			<div class="user" style="margin-top: 6px;">
+				{{# with getUser userId }}
+					<b>{{ name }}</b> removed the
+				{{/ with }}
+				<span class="label label-primary">{{ tag }}</span> tag
+				{{ livestamp createdAt }}
+			</div>
+		</div>
+	</div>
+	<br>
+</template>
+
+<template name="projectTasksShowComment">
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<div class="form-group">
+				{{> textarea name="comment" placeholder="Leave a comment" }}
+			</div>
+			<div class="form-group pull-right">
+				{{# if task.isOpen }}
+					<button class="btn btn-default">Close task</button>
+				{{ else }}
+					<button class="btn btn-default">Reopen task</button>
+				{{/ if }}
+				<button class="btn btn-primary">Comment</button>
+			</div>
+		</div>
+	</div>
+</template>

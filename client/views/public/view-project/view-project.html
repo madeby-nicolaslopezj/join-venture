@@ -1,0 +1,73 @@
+<template name="publicViewProject">
+  {{# with project }}
+    <h1 class="text-center">{{ description.name }}</h1>
+    <p class="text-center"><a href="{{ pathFor 'admin.projects.index' }}">go back</a></p>
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            {{# autoForm collection="Projects" doc=this id="publicViewProjectDisplay" type="update" }}
+              {{# each afFieldNames name="description" omitFields="description.name,description.legal" }}
+                <h3>{{#if this.labelText}}{{this.labelText}}{{else}}{{afFieldLabelText name=this.name}}{{/if}}</h3>
+                <table class="table table-hover">
+                  <tbody>
+                    {{# each afFieldNames name=this.name }}
+                      <tr>
+                        <td>{{#if this.labelText}}{{this.labelText}}{{else}}{{afFieldLabelText name=this.name}}{{/if}}</td>
+                        {{# if isFile }}
+                          <td>
+                            {{# with getFile }}
+                              <a href="{{ url }}" target="_BLANK">
+                                <span class="fa-stack">
+                                  <i class="fa fa-fw fa-circle fa-stack-2x"></i>
+                                  <i class="fa fa-fw {{ getIcon }} fa-stack-1x fa-inverse"></i>
+                                </span>
+                              </a>
+                            {{/ with }}
+                          </td>
+                        {{ else }}
+                          {{# if isArrayOfTexts }}
+                            <td>
+                              {{# each getValue name }}
+                                <p>{{ this }}</p>
+                              {{/ each }}
+                            </td>
+                          {{/ if }}
+                          {{# if isArrayOfObjects }}
+                            <td>
+                              {{# afEachArrayItem }}
+                                {{# each afFieldNames name=this.name }}
+                                  <p>
+                                    <b>{{#if this.labelText}}{{this.labelText}}{{else}}{{afFieldLabelText name=this.name}}{{/if}}</b>:
+                                    {{ getValue name }}
+                                  </p>
+                                {{/ each }}
+                                {{# unless isArrayItemLast }}
+                                  <hr>
+                                {{/ unless }}
+                              {{/ afEachArrayItem }}
+                            </td>
+                          {{/ if }}
+                          {{# if isText }}
+                            <td>{{ getValue name }}</td>
+                          {{/ if }}
+                          {{# if isNumber }}
+                            <td>{{ getValue name }}</td>
+                          {{/ if }}
+                        {{/ if }}
+                      </tr>
+                    {{/ each }}
+                  </tbody>
+                </table>
+              {{/ each }}
+            {{/ autoForm }}
+          </div>
+        </div>
+      </div>
+    </div>
+  {{/ with }}
+</template>
+
+<template name="displayObject">
+  this
+</template>

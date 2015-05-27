@@ -1,0 +1,26 @@
+<template name="backendUsersShowInvestor">
+  <div class="row">
+    <div class="col-sm-6">
+      <p>Interested Projects</p>
+      {{# each user.investorProfile.interestedProjects }}
+        <div>
+          {{# with getProject this }}
+            <h4>{{ description.name }}</h4>
+            <p>ID: <code>{{ _id }}</code></p>
+          {{/ with }}
+          <hr>
+        </div>
+      {{/ each }}
+    </div>
+    <div class="col-sm-6">
+      <p>Projects with permissions (put the projects id)</p>
+      {{> quickForm collection=collection doc=user id="backendUsersShowInvestorFormviewableProjects" fields="viewableProjects" type="update" }}
+    </div>
+  </div>
+
+  <hr>
+  <h3>Data</h3>
+	{{# autoForm collection=collection doc=user id="backendUsersShowInvestorForm" type="disabled" }}
+		{{> afQuickFields name="investorProfile"}}
+	{{/ autoForm }}
+</template>

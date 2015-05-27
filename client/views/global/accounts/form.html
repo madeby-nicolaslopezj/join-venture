@@ -1,0 +1,48 @@
+<template name="accountsForm">
+	{{#unless hide}}
+		<div class="at-form">
+			{{#if showTitle}}
+				<h3 class="text-center"><span class="thin">{{ title }}</span></h3>
+				<br>
+			{{/if}}
+			{{#if showOauthServices}}
+				{{> atOauth}}
+			{{/if}}
+			{{#if showServicesSeparator}}
+				{{> atSep}}
+			{{/if}}
+			{{#if showError}}
+				{{> atError}}
+			{{/if}}
+			{{#if showResult}}
+				{{> atResult}}
+			{{/if}}
+			{{#if showPwdForm}}
+				<div class="at-pwd-form">
+					<form role="form" id="at-pwd-form" novalidate action="#" method="POST">
+						<fieldset {{disabled}}>
+							{{#each fields}}
+								{{> atInput}}
+							{{/each}}
+							{{#if showForgotPasswordLink}}
+								{{> atPwdLink}}
+							{{/if}}
+							<button type="submit" class="at-btn submit btn btn-lg btn-block btn-success {{submitDisabled}}" id="at-btn">
+								{{buttonText}}
+							</button>
+						</fieldset>
+					</form>
+				</div>
+			{{/if}}
+			{{#if showSignInLink}}
+				{{> atSigninLink}}
+			{{/if}}
+			{{#if showSignUpLink}}
+				{{> atSignupLink}}
+			{{/if}}
+			{{#if showTermsLink}}
+				{{> atTermsLink}}
+			{{/if}}
+		</div>
+	{{/unless}}
+</template>

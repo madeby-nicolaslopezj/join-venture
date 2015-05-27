@@ -1,0 +1,62 @@
+<template name="projectFilesShow">
+	<div class="row">
+		<div class="col-sm-6">
+		 	<h3 class="em-page-header v-mid-row thin">
+		 		<i class="fa fa-files-o text-gradient-info-dk"></i>
+		 		<span class="text-gradient-info-dk">
+		 			File 
+		 			<small>
+		 				{{ file.name }}
+		 			</small>
+		 		</span>
+		 	</h3>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div class="row">
+						{{# if file.isImage }}
+						<div class="col-sm-5">
+							<img class="img-responsive" src="{{ file.url }}">
+						</div>
+						{{ else }}
+						{{/ if }}
+						<div class="col-sm-7">
+							<div class="form-group">
+								<h4>
+									<span class="fa-stack">
+										<i class="fa fa-fw fa-circle fa-stack-2x"></i>
+										<i class="fa fa-fw {{ file.getIcon }} fa-stack-1x fa-inverse"></i>
+									</span>
+									#{{ file._id }}
+								</h4>
+							</div>
+							<div class="form-group">
+								<label>Name</label>
+								<p><b>{{ file.name }}</b></p>
+							</div>
+							<div class="form-group">
+								<label>Url</label>
+								<p>
+									<a href="{{ file.url }}">{{ file.url }}</a>
+								</p>
+							</div>
+							<div class="form-group">
+								<label>Tags</label>
+								<input name="tags" class="form-control" value="{{ file.joinedTags }}">
+							</div>
+							<br>
+							<div class="form-group">
+								<a class="btn btn-default" href="{{ pathFor 'project.files.index' }}">Back</a>
+								<button class="btn btn-danger btn-delete">Delete</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>

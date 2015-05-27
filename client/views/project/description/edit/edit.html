@@ -1,0 +1,73 @@
+<template name="projectDescriptionEdit">
+	<div class="row">
+		<div class="col-sm-6">
+		 	<h3 class="em-page-header v-mid-row thin">
+		 		<i class="fa fa-edit text-gradient-info-dk"></i>
+		 		<span class="text-gradient-info-dk">
+		 			Description
+		 		</span>
+		 	</h3>
+		</div>
+	</div>
+
+	<div class="row project-description-edit">
+		<div class="col-sm-12">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					{{# if lastestReview.isDenied }}
+						<p>
+							Comments from review 
+							<a href="{{ pathFor 'project.review.show' reviewId=lastestReview._id }}">
+								<b>
+									#{{ lastestReview._id }}
+								</b>
+							</a>
+						</p>
+						{{# with lastestReview }}
+							{{# each commentsForKey 'general' }}
+								{{> projectReviewCommentsComment }}
+							{{/ each }}
+							{{# unless commentsForKey 'general' }}
+								<p class="help-block"><i>No general comments</i></p>
+							{{/ unless }}
+						{{/ with }}
+					{{/ if }}
+					
+					{{# autoForm collection="Projects" doc=this id="projectDescriptionEditForm" type="update" }}
+						{{> afQuickField name='description.name' }}
+						<hr>
+						<div class="form-categories">
+							{{# each getCategories }}
+								<a class="btn btn-xs {{ isActiveCategory }}" category="{{ key }}">{{ title }}</a>
+							{{/ each }}
+						</div>
+						<hr>
+						{{# if getActiveCategory }}
+							{{# each afFieldNames name=getActiveCategory }}
+									<div class="row">
+										<div class="col-sm-8">
+											{{> afQuickField name=this.name options=afOptionsFromSchema }}
+										</div>
+										<div class="col-sm-4">
+											{{# with getReview }}
+												{{# if isDenied }}
+													{{# each commentsForKey key }}
+														{{> projectReviewCommentsComment }}
+													{{/ each }}
+													{{# unless commentsForKey key }}
+														<p class="help-block"><i>No comments</i></p>
+													{{/ unless }}
+												{{/ if }}
+											{{/ with }}
+										</div>
+									</div>
+									<hr>
+							{{/ each }}
+						{{/ if }}
+						<button class="projectDescriptionEditFormSubmit btn btn-primary" type="submit">Save</button>
+					{{/ autoForm }}
+				</div>
+			</div>
+		</div>
+	</div>
+</template>

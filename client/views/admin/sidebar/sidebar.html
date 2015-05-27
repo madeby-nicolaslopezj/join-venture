@@ -1,0 +1,52 @@
+<template name="adminSidebar">
+	{{> sidebarHeader }}
+
+	<div class="oc-sidebar-content" id="collapseAvatarLeft">
+		<ul class="nav nav-stacked oc-sidebar-nav" id="collapseNavbarLeft2">
+			{{# if currentUser.isInvestor }}
+			<li class="{{ isActiveRoute regex='admin.users.invest' }}">
+				<a class="collapsed" href="{{ pathFor 'admin.users.invest' }}">
+					<i class="oc-partial-icon fa fa-suitcase"></i>
+					<span class="oc-partial-menu-item">
+						Investor Profile
+					</span>
+				</a>
+			</li>
+			{{/ if }}
+			<li class="{{ isActiveRoute regex='admin.projects' }}">
+				<a class="collapsed" href="{{ pathFor 'admin.projects.index' }}">
+					<i class="oc-partial-icon fa fa-dashboard"></i>
+					<span class="oc-partial-menu-item">
+						Projects
+					</span>
+				</a>
+			</li>
+			<li class="{{ isActiveRoute regex='admin.users.edit' }}">
+				<a class="collapsed" href="{{ pathFor 'admin.users.edit' }}">
+					<i class="oc-partial-icon fa fa-user"></i>
+					<span class="oc-partial-menu-item">
+						Personal Info
+					</span>
+				</a>
+			</li>
+			<li class="{{ isActiveRoute regex='admin.users.password' }}">
+				<a class="collapsed" href="{{ pathFor 'admin.users.password' }}">
+					<i class="oc-partial-icon fa fa-cog"></i>
+					<span class="oc-partial-menu-item">
+						Configuration
+					</span>
+				</a>
+			</li>
+			{{# if getMe.isAdmin }}
+			<li>
+				<a class="collapsed" href="{{ pathFor 'backend.projects.index' }}">
+					<i class="oc-partial-icon fa fa-eye"></i>
+					<span class="oc-partial-menu-item">
+						Backend
+					</span>
+				</a>
+			</li>
+			{{/ if }}
+		</ul>
+	</div>
+</template>

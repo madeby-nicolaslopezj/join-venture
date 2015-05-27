@@ -1,0 +1,30 @@
+<template name="backendProjectsShowRoles">
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<table class="table table-hover">
+				<thead>
+					<tr class="row-mid">
+						<th>User</th>
+						<th>Name</th>
+						<th>Role</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					{{# each project.roles }}
+						<tr class="row-mid">
+							<td>
+								<a href="{{ pathFor 'backend.users.show' _id=userId }}">
+									{{ userId }}
+								</a>
+							</td>
+							<td>{{ user.profile.firstName }} {{ user.profile.lastName }}</td>
+							<td>{{ role }} - {{ type }}</td>
+							<td><button class="btn btn-danger remove-btn {{# unless canBeRemoved }} disabled {{/ unless }}">Remove</button></td>
+						</tr>
+					{{/ each }}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</template>

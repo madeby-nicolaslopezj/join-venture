@@ -1,0 +1,44 @@
+<template name="projectMailsShow">
+	{{# Layout template="projectMailsLayout" }}
+		{{# with mail }}
+			<div class="panel-body">
+				<!--
+				<div class="btn-group pull-right">
+					<button type="button" class="btn btn-default">
+						<i class="fa fa-reply"></i>
+					</button>
+					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="#"><i class="fa fa-reply pull-right"></i> Reply</a></li>
+						<li><a href="#"><i class="fa fa-arrow-right pull-right"></i> Forward</a></li>
+						<li class="divider"></li>
+						<li><a href="#">Mark as unread</a></li>
+						<li><a href="#">Delete</a></li>
+						<li><a href="#">Print</a></li>
+					</ul>
+				</div>
+				-->
+				<h3 class="no-margin-top thin">{{ subject }}</h3>
+				<p>
+					<span class="pull-right">{{ formatDate date=createdAt format="LLL" }} ({{ livestamp createdAt }})</span>
+					<h5>
+						{{# with getUser userId }}
+							{{ name }}
+							<small>
+								{{# with roleInProject getProjectId }}
+									{{ role }}
+								{{/ with }}
+							</small>
+						{{/ with }}
+					</h5>
+				</p>
+				<hr>
+				<div>
+					{{{ parse message }}}
+				</div>
+			</div>
+		{{/ with }}
+	{{/ Layout}}
+</template>

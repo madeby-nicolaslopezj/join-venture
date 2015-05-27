@@ -1,0 +1,23 @@
+<template name="projectMailsLayout">
+	<div class="row">
+		<div class="col-sm-2">
+			{{# if isActiveRoute regex='project.mails.create' }}
+				<a href="{{ pathFor 'project.mails.index' }}" class="btn btn-white btn-block">
+					<i class="fa fa-arrow-left"></i> Back
+				</a>
+			{{ else }}
+				<a href="{{ pathFor 'project.mails.create' }}" class="btn btn-primary btn-block">
+					<i class="fa fa-pencil"></i> Compose
+				</a>
+			{{/ if }}
+			{{> projectMailsSidebar }}
+		</div>
+		<div class="col-sm-10">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					{{> yield }}
+				</div>
+			</div>
+		</div>
+	</div>
+</template>

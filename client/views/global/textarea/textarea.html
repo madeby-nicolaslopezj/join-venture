@@ -1,0 +1,64 @@
+<template name="textarea">
+	{{# if this.atts }}
+		<textarea class="mention form-control" {{this.atts}}>{{this.value}}</textarea>
+	{{ else }}
+		<textarea name="{{ name }}" placeholder="{{ placeholder }}" rows="{{ rows }}" class="mention form-control">{{this.value}}</textarea>
+	{{/ if }}
+	<p class="help-block text-right insert-help"><span title="Insert a person">@</span> <span title="Insert a file">#</span> <span title="Insert a task">$</span></p>
+</template>
+
+<template name="parseUser">
+	<span class="parse-user">
+		<a href="">
+			<b>{{ name }}</b>
+		</a>
+	</span>
+</template>
+
+<template name="parseFile">
+	{{# if shouldShowImage }}
+		<img src="{{ url }}" class="img-responsive">
+	{{ else }}
+		<a href="{{ pathFor 'project.files.show' _id=projectId fileId=_id }}">
+			<div class="parse-file">
+				<span class="fa-stack fa-lg">
+					<i class="fa fa-circle fa-stack-2x"></i>
+					<i class="fa {{ getIcon }} fa-stack-1x fa-inverse"></i>
+				</span>
+				<br>
+				<b>{{ name }}</b>
+			</div>
+		</a>
+	{{/ if }}
+</template>
+
+<template name="parseTask">
+	<a href="{{ pathFor 'project.tasks.show' _id=projectId taskId=_id }}">
+		<div class="parse-task">
+			<span class="fa-stack fa-lg">
+				{{# if isOpen }}
+					<i class="fa fa-circle fa-stack-2x" style="color: green"></i>
+					<i class="fa fa-exclamation fa-stack-1x fa-inverse"></i>
+				{{ else }}
+					<i class="fa fa-circle fa-stack-2x" style="color: red"></i>
+					<i class="fa fa-ban fa-stack-1x fa-inverse"></i>
+				{{/ if }}
+			</span>
+			<br>
+			<b>{{ title }}</b>
+		</div>
+	</a>
+</template>
+
+<template name="parseIndicator">
+	<a href="{{ pathFor 'project.indicators.show' _id=projectId indicatorId=_id }}">
+		<div class="parse-indicator">
+			<span class="fa-stack fa-lg">
+				<i class="fa fa-circle fa-stack-2x"></i>
+				<i class="fa fa-bar-chart-o fa-stack-1x fa-inverse"></i>
+			</span>
+			<br>
+			<b>{{ title }}</b>
+		</div>
+	</a>
+</template>

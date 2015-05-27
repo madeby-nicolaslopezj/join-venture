@@ -1,0 +1,25 @@
+<template name="projectIndicatorsIndex">
+	<div class="row">
+		<div class="col-sm-6">
+		 	<h3 class="em-page-header v-mid-row thin">
+		 		<i class="fa fa-dashboard text-gradient-info-dk"></i>
+		 		<span class="text-gradient-info-dk">
+		 			Dashboard
+		 			<small>
+		 				<a href="{{ pathFor 'project.indicators.create' }}">
+		 					Add indicators
+		 				</a>
+		 			</small>
+		 		</span>
+		 	</h3>
+		</div>
+	</div>
+	<div class="row indicators-container">
+		<div class="col-sm-3 example-width"></div>
+		{{# each indicators }}
+			<div class="item {{ getCol }}">
+				{{> Template.dynamic template=getTemplate }}
+			</div>
+		{{/ each }}
+	</div>
+</template>

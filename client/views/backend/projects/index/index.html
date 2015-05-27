@@ -1,0 +1,23 @@
+<template name="backendProjectsIndex">
+	<div class="row">
+		<div class="col-sm-6">
+		 	<h3 class="em-page-header v-mid-row thin">
+		 		<i class="fa fa-flask text-gradient-info-dk"></i>
+		 		<span class="text-gradient-info-dk">
+		 			Projects
+		 		</span>
+		 	</h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div class="table-responsive">
+						{{> reactiveTable settings=settings }}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>

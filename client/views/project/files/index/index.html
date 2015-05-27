@@ -1,0 +1,60 @@
+<template name="projectFilesIndex">
+	<div class="row">
+		<div class="col-sm-6">
+		 	<h3 class="em-page-header v-mid-row thin">
+		 		<i class="fa fa-files-o text-gradient-info-dk"></i>
+		 		<span class="text-gradient-info-dk">
+		 			Files 
+		 			<small>
+		 				<a class="btn btn-primary btn-xs" href="{{ pathFor 'project.files.create' }}">Upload</a>
+		 			</small>
+		 		</span>
+		 	</h3>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div class="table-responsive">
+						<table class="table table-clean datatable">
+							<thead>
+								<tr class="row-mid">
+									<th>Id</th>
+									<th>Name</th>
+									<th>Tags</th>
+								</tr>
+							</thead>
+							<tbody>
+								{{# each files }}
+									<tr class="row-mid">
+										<td>
+											<a href="{{ pathFor 'project.files.show' _id=projectId fileId=_id }}">
+												<span class="fa-stack">
+													<i class="fa fa-fw fa-circle fa-stack-2x"></i>
+													<i class="fa fa-fw {{ getIcon }} fa-stack-1x fa-inverse"></i>
+												</span>
+												<b>
+													#{{ _id }}
+												</b>
+											</a>
+										</td>
+										<td>
+											{{ name }}
+										</td>
+										<td>
+											{{# each tags }}
+												<span tag="{{ this }}" class="label-tag label label-primary">{{ this }}</span>
+											{{/ each }}
+										</td>
+									</tr>
+								{{/ each }}
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>

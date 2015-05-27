@@ -1,0 +1,54 @@
+<template name="projectReviewComments">
+	<div>
+		<div class="row">
+			<div class="col-sm-12">
+				{{# each commentsForKey 'general' }}
+					{{> projectReviewCommentsComment }}
+				{{/ each }}
+				{{# unless commentsForKey 'general' }}
+					<p class="help-block"><i>No general comments</i></p>
+				{{/ unless }}
+				{{# if shouldRespond }}
+					{{> projectReviewCommentsInput key='general' }}
+				{{/ if }}
+			</div>
+		</div>
+	</div>
+	{{# each attributes }}
+		<hr>
+		<div>
+			<label><b>{{ label }}</b></label>
+			<div class="row">
+				<div class="col-sm-12">
+					{{# each commentsForKey key }}
+						{{> projectReviewCommentsComment }}
+					{{/ each }}
+					{{# unless commentsForKey key }}
+						<p class="help-block"><i>No comments</i></p>
+					{{/ unless }}
+					{{# if shouldRespond }}
+						{{> projectReviewCommentsInput }}
+					{{/ if }}
+				</div>
+			</div>
+		</div>
+	{{/ each }}
+</template>
+
+<template name="projectReviewCommentsInput">
+	<div class="clearfix">
+		<div class="form-group">
+			<textarea rel="autosize" placeholder="Comment" class="form-control"></textarea>
+		</div>
+		<button class="btn btn-danger">Comment</button>
+	</div>
+</template>
+
+<template name="projectReviewCommentsComment">
+	<div class="alert alert-danger">
+		{{# with getUser userId }}
+			<p><strong>{{ profile.firstName }} {{ profile.lastName }}</strong> <i>{{ getRole }}</i></p>
+		{{/ with }}
+		<p>{{{ nl2br content }}}</p>
+	</div>
+</template>

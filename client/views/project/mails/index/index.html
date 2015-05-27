@@ -1,0 +1,40 @@
+<template name="projectMailsIndex">
+	{{# Layout template="projectMailsLayout" }}
+		<table class="table table-striped tablesaw tablesaw-stack" data-mode="stack">
+			<thead>
+				<tr>
+					<th class="inbox-toggles">
+						<label class="text-muted">
+							<i class="fa fa-star-o fa-lg"></i>
+						</label>
+					</th>
+					<th>Sender</th>
+					<th>Subject</th>
+					<th>Date</th>
+				</tr>
+			</thead>
+			<tbody>
+				{{# each mails }}
+					{{> projectMailsIndexRow }}
+				{{/ each }}
+			</tbody>
+		</table>
+	{{/ Layout}}
+</template>
+
+<template name="projectMailsIndexRow">
+	<tr class="inbox-row">
+		<td class="inbox-toggles"></td>
+		<td class="inbox-name">
+			{{# with getUser userId }}
+				{{ name }}
+			{{/ with }}
+		</td>
+		<td class="inbox-email">
+			<strong>{{ subject }}</strong>
+		</td>
+		<td class="hidden-xs inbox-info">
+			{{ shortDate createdAt }}
+		</td>
+	</tr>
+</template>

@@ -1,0 +1,74 @@
+<template name="projectRolesIndex">
+	<div class="row">
+		<div class="col-sm-6">
+		 	<h3 class="em-page-header v-mid-row thin">
+		 		<i class="fa fa-flask text-gradient-info-dk"></i>
+		 		<span class="text-gradient-info-dk">
+		 			Roles
+		 			{{# if canInvite }}
+			 			<small>
+			 				<a href="{{ pathFor 'project.roles.invite' }}">
+			 					Invite
+			 				</a>
+			 			</small>
+		 			{{/ if }}
+		 		</span>
+		 	</h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<table class="table table-hover">
+						<thead>
+							<tr class="row-mid">
+								<th>Role</th>
+								<th>Name</th>
+							</tr>
+						</thead>
+						<tbody>
+							{{# each rolesAndInvitations }}
+								<tr class="row-mid">
+									<td>
+										{{# if user.status.online }}
+											<small rel="tooltip" title="Online">
+												<i class="fa fa-circle text-gradient-success-dk"></i>
+											</small>
+										{{ else }}
+											<small rel="tooltip" title="Last login {{ timeago user.status.lastLogin.date }}">
+												<i class="fa fa-circle text-gradient-danger-dk"></i>
+											</small>
+										{{/ if }}
+										<b>{{ role }}</b>
+										<small>
+											<span class="text-gradient-info-dk">{{ type }}</span>
+										</small>
+										
+									</td>
+									<td>
+										{{ user.profile.firstName }} {{ user.profile.lastName }}
+										{{# unless accepted }}
+											<small>
+												<span class="text-gradient-danger-dk">pending</span>
+											</small>
+										{{/ unless }}
+										{{# if project.canInvite }}
+											{{# if typeIs 'entrepreneur' }}
+												{{# unless itsMe userId }}
+													<div class="pull-right">
+														<button class="close delete-role">&times;</button>
+													</div>
+												{{/ unless }}
+											{{/ if }}
+										{{/ if }}
+									</td>
+								</tr>
+							{{/ each }}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>

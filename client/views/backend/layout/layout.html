@@ -1,0 +1,23 @@
+<template name="backendLayout">
+	<div class="oc-lg-squeeze-push oc-md-squeeze-push oc-sm-squeeze-push oc-xs-push-push">
+		<div id="oc-wrapper" class="oc-wrapper
+				 oc-lg-open-left oc-md-open-left oc-sm-partial-left
+				 oc-lg-left-squeeze oc-md-left-squeeze oc-sm-left-squeeze oc-xs-left-push
+				 oc-lg-right-push oc-md-right-push oc-sm-right-push oc-xs-right-push
+				 ">
+			<div class="oc-push oc-scroll">
+				<aside id="main-oc-sidebar-left" class="oc-sidebar oc-sidebar-left oc-sidebar-fixed">
+					<div class="nano-content">
+						{{> backendSidebar }}
+					</div>
+				</aside>
+				<div id="main-oc-container" class="oc-container">
+					{{> header }}
+					<div class="container-fluid backend">
+						{{> yield }}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>

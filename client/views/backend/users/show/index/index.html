@@ -1,0 +1,50 @@
+<template name="backendUsersShowIndex">
+	{{# if user.profile.picture }}
+		<center>
+			<img src="{{ user.profile.picture }}" style="max-height: 200px;">
+			<br><br><br>
+		</center>
+	{{/ if }}
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>User Information</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="row-mid">
+				<td><b>ID</b></td>
+				<td>{{ user.name }}</td>
+			</tr>
+			<tr class="row-mid">
+				<td><b>Rut</b></td>
+				<td>{{ user.profile.rut }}</td>
+			</tr>
+			<tr class="row-mid">
+				<td><b>Email</b></td>
+				<td>
+					{{# each user.emails }}
+						{{ address }} 
+						{{# if verified }}
+							<span class="label label-primary">verified</span>
+						{{ else }}
+							<span class="label label-danger">unverified</span>
+						{{/ if }}
+					{{/ each }}
+				</td>
+			</tr>
+			<tr class="row-mid">
+				<td><b>Phone</b></td>
+				<td>{{ user.profile.phone }}</td>
+			</tr>
+			<tr class="row-mid">
+				<td><b>Website</b></td>
+				<td>{{ user.profile.website }}</td>
+			</tr>
+			<tr class="row-mid">
+				<td><b>Description</b></td>
+				<td>{{ user.profile.description }}</td>
+			</tr>
+		</tbody>
+	</table>
+</template>

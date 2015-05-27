@@ -1,0 +1,18 @@
+<template name="projectMessagesNewConversation">
+	{{# Layout template="projectMessagesLayout" }}
+		<div class="conversation">
+			<div class="conversation-title">
+				<input class="form-control" placeholder="Subject">
+			</div>
+			<div class="conversation-content">
+				
+			</div>
+			<div class="conversation-footer clearfix">
+				<div class="form-group">
+					{{> textarea name="message" autosize=false }}
+				</div>
+				<button class="btn btn-primary pull-right">Send</button>
+			</div>
+		</div>
+	{{/ Layout}}
+</template>

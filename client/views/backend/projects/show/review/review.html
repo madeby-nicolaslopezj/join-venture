@@ -1,0 +1,12 @@
+<template name="backendProjectsShowReview">
+	<div class="row">
+		<div class="col-sm-6">
+			{{# autoForm collection="Projects" id="backendProjectsShowReviewForm" type="update" doc=project }}
+				{{# each afFieldNames name="reviewStatus" }}
+					{{> afQuickField name=this.name options=afOptionsFromSchema}}
+				{{/ each }}
+				<button class="btn btn-primary" type="submit">Save</button>
+			{{/ autoForm }}
+		</div>
+	</div>
+</template>

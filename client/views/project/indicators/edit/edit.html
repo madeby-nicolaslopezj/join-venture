@@ -1,0 +1,27 @@
+<template name="projectIndicatorsEdit">
+	<div class="row">
+		<div class="col-sm-6">
+		 	<h3 class="em-page-header v-mid-row thin">
+		 		<i class="fa fa-dashboard text-gradient-info-dk"></i>
+		 		<span class="text-gradient-info-dk">
+		 			Edit Indicators
+		 		</span>
+		 	</h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-8 col-sm-offset-2">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					{{# autoForm collection="Indicators" doc=indicator id="projectIndicatorsEditForm" type="update" }}
+						{{# each afFieldNames omitFields="projectId,userId" }}
+							{{> afQuickField name=this.name options=afOptionsFromSchema}}
+						{{/ each }}
+						<a class="btn btn-default" href="{{ pathFor 'project.indicators.index' }}">Back</a>
+						<button class="btn btn-primary" type="submit">Save</button>
+					{{/ autoForm }}
+				</div>
+			</div>
+		</div>
+	</div>
+</template>

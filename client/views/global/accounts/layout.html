@@ -1,0 +1,42 @@
+<template name="accountsLayout">
+	<div class="em-page-center-parent accountsLayout">
+		<div class="em-page-center">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4">
+
+						<div class="actionable" id="actionable-sign-in">
+							<div class="actionable-front component-shadow">
+								<div class="panel">
+									<div class="panel-body">
+										{{> accountsForm }}
+									</div>
+								</div>
+							</div>
+							<div class="actionable-back component-shadow bg-white padded">
+							</div>
+						</div>
+
+						<div class="text-center copyrights text-white">
+							&copy; 2015 Venture Capital. All Rights Reserved
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<style type="text/css">
+		html, body {
+			height: inherit;
+		}
+		body {
+			background-color: transparent;
+		}
+		html {
+			background-color: black;
+			background-image: url(https://farm8.staticflickr.com/7538/15369455184_888f5abfa6_k.jpg);
+			background-size: cover;
+			background-position: center;
+		}
+	</style>
+</template>

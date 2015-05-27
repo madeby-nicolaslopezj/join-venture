@@ -1,0 +1,33 @@
+<template name="backendProjectsShow">
+	<div class="row">
+		<div class="col-sm-6">
+		 	<h3 class="em-page-header v-mid-row thin">
+		 		<i class="fa fa-flask text-gradient-info-dk"></i>
+		 		<span class="text-gradient-info-dk">
+		 			{{ project.description.name }}
+		 		</span>
+		 	</h3>
+		</div>
+	</div>
+	<div class="panel panel-primary">
+		<div class="panel-header panel-handle panel-colorize">
+			<ul class="nav nav-tabs nav-justified-only">
+				<li class="{{ isActiveView 'Index' }}">
+					<a href="#" data-template="Index">Information</a>
+				</li>
+				<li class="{{ isActiveView 'Review' }}">
+					<a href="#" data-template="Review">Review</a>
+				</li>
+				<li class="{{ isActiveView 'Roles' }}">
+					<a href="#" data-template="Roles">Roles</a>
+				</li>
+				<li class="{{ isActiveView 'AddUser' }}">
+					<a href="#" data-template="AddUser">Add User</a>
+				</li>
+			</ul>
+		</div>
+		<div class="panel-body">
+			{{> Template.dynamic template=activeView }}
+		</div>
+	</div>
+</template>

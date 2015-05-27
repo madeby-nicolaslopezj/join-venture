@@ -1,0 +1,134 @@
+.conversation {
+	img {
+		margin: 5px 0;
+		border-radius: 10px;
+	}
+	.file, .task {
+		float: right;
+		margin: 5px 0;
+		background-color: white;
+		border-radius: 15px;
+		height: 30px;
+		padding: 5px 10px;
+		a {
+			color: black;
+			font-weight: bold;
+		}
+	}
+	.task {
+		float: right;
+		margin: 5px 0;
+		background-color: white;
+		border-radius: 18px;
+		height: 36px;
+		padding: 5px 10px;
+		a {
+			color: black;
+			font-weight: bold;
+		}
+	}
+	.parse-user {
+		a {
+			color: white;
+		}
+	}
+	.left {
+		.parse-user {
+			a {
+				color: black;
+			}
+		}
+	}
+}
+
+.conversation-title {
+	padding: 15px;
+	font-size: 14px;
+}
+
+
+.conversation-content {
+	height: 0px;
+	padding: 15px;
+	background-color: #f2f4f8;
+	overflow-y: scroll;
+
+	.projectMessagesConversationText {
+		margin-bottom: 15px;
+
+		.sender {
+			margin-bottom: 5px;
+			display: none;
+		}
+		.content {
+			margin-top: -14px;
+			max-width: 60%;
+			padding: 5px 10px;
+			border-radius: 15px;
+			float: left;
+			color: #43494d;
+			background-color: #e4e4e4;
+			
+		}
+
+		&.right {
+			.sender {
+				text-align: right;
+			}
+			.content {
+				float: right;
+				color: #fff;
+				background-color: rgb(23, 123, 187);
+			}
+		}
+
+		&.right {
+			.content {
+				border-top-right-radius: 3px;
+				border-bottom-right-radius: 3px;
+			}
+			&.first {
+				.content {
+					border-top-right-radius: 15px;
+				}
+			}
+			&.last {
+				.content {
+					border-bottom-right-radius: 15px;
+				}
+			}
+		}
+
+		&.left {
+			.content {
+				border-top-left-radius: 3px;
+				border-bottom-left-radius: 3px;
+			}
+			&.first {
+				.content {
+					border-top-left-radius: 15px;
+				}
+			}
+			&.last {
+				.content {
+					border-bottom-left-radius: 15px;
+				}
+			}
+		}
+
+		&.first {
+			.sender {
+				display: block;
+			}
+			.content {
+				margin-top: 0px;
+			}
+		}
+
+		
+	}
+}
+
+.conversation-footer {
+	padding: 15px;
+}

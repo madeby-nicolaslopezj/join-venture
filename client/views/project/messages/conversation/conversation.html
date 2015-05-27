@@ -1,0 +1,71 @@
+<template name="projectMessagesConversation">
+	{{# Layout template="projectMessagesLayout" }}
+		<div class="conversation">
+			<div class="conversation-title">
+				{{ conversation }}
+			</div>
+			<div class="conversation-content">
+				{{# each messages }}
+					{{> projectMessagesConversationText }}
+				{{/ each }}
+			</div>
+			<div class="conversation-footer clearfix">
+				<div class="form-group">
+					{{> textarea name="message" autosize=false }}
+				</div>
+				<button class="btn btn-primary pull-right">Send</button>
+			</div>
+		</div>
+	{{/ Layout}}
+</template>
+
+<template name="projectMessagesConversationText">
+	<div class="projectMessagesConversationText 
+	{{# if itsMe userId }}right{{ else }}left{{/ if }}
+	{{# if isFirst }}first{{/ if }}
+	{{# if isLast }}last{{/ if }}
+	{{# if isBetween }}between{{/ if }}">
+		<span class="help-block sender">{{# with getUser userId }}{{ name }}{{/ with }}:</span>
+		<div class="clearfix">
+			<div class="content">
+				{{{ parse text=text fileTemplate="messageFile" taskTemplate="messageTask" }}}
+			</div>
+		</div>
+	</div>
+</template>
+
+<template name="messageFile">
+	{{# if isImage }}
+		<img class="img-responsive" src="{{ url }}">
+	{{ else }}
+		<div class="clearfix">
+			<div class="file">
+				<a href="{{ url }}">
+					<i class="fa fa-fw fa-lg {{ getIcon }}"></i>
+					{{ name }}
+				</a>
+			</div>
+		</div>
+	{{/ if }}
+</template>
+
+<template name="messageTask">
+	<div class="clearfix">
+		<span class="task">
+			<a href="{{ pathFor 'project.tasks.show' _id=projectId taskId=_id }}">
+				{{# if isOpen }}
+					<span class="fa-stack">
+						<i class="fa fa-fw fa-circle fa-stack-2x" style="color: green"></i>
+						<i class="fa fa-fw fa-exclamation fa-stack-1x fa-inverse"></i>
+					</span>
+				{{ else }}
+					<span class="fa-stack">
+						<i class="fa fa-fw fa-circle fa-stack-2x" style="color: red"></i>
+						<i class="fa fa-fw fa-ban fa-stack-1x fa-inverse"></i>
+					</span>
+				{{/ if }}
+				<b>{{ title }}</b>
+			</a>
+		</span>
+	</div>
+</template>

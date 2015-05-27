@@ -1,0 +1,18 @@
+<template name="projectMailsCreate">
+	{{# Layout template="projectMailsLayout" }}
+		<h3 class="no-margin-top thin">Compose</h3>
+		<div class="row">
+			{{# autoForm collection="Mails" id="projectMailsCreateForm" type="insert" }}
+				<input type="hidden" value="{{ getProjectId }}" data-schema-key="projectId">
+				<input type="hidden" value="{{ getUserId }}" data-schema-key="userId">
+				{{# each afFieldNames omitFields="projectId,userId" }}
+					<br>
+					{{> afQuickField name=this.name options=afOptionsFromSchema template="bootstrap3-horizontal" label-class="col-sm-1" input-col-class="col-sm-11" }}
+				{{/ each }}
+				<div class="col-sm-11 col-sm-offset-1">
+					<button class="btn btn-primary" type="submit"><i class="fa fa-paper-plane"></i> Send</button>
+				</div>
+			{{/ autoForm }}
+		</div>
+	{{/ Layout}}
+</template>

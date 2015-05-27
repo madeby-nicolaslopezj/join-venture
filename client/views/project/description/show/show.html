@@ -1,0 +1,32 @@
+<template name="projectDescriptionShow">
+	<div class="row">
+		<div class="col-sm-6">
+		 	<h3 class="em-page-header v-mid-row thin">
+		 		<i class="fa fa-flask text-gradient-info-dk"></i>
+		 		<span class="text-gradient-info-dk">
+		 			Description 
+		 		</span>
+		 		<a class="btn btn-primary btn-xs" href="{{ pathFor 'project.description.edit' }}">Edit</a>
+		 	</h3>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					{{# autoForm collection="Projects" doc=this id="projectDescriptionEditForm" type="disabled" }}
+						{{# each afFieldNames name="description" }}
+							<div class="row">
+								<div class="col-sm-12">
+									{{> afQuickField name=this.name options=afOptionsFromSchema }}
+								</div>
+							</div>
+							<hr>
+						{{/ each }}
+					{{/ autoForm }}
+				</div>
+			</div>
+		</div>
+	</div>
+</template>

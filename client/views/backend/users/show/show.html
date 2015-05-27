@@ -1,0 +1,38 @@
+<template name="backendUsersShow">
+	<div class="row">
+		<div class="col-sm-6">
+		 	<h3 class="em-page-header v-mid-row thin">
+		 		<i class="fa fa-user text-gradient-info-dk"></i>
+		 		<span class="text-gradient-info-dk">
+		 			{{ user.profile.firstName }} {{ user.profile.lastName }}
+		 		</span>
+		 	</h3>
+		</div>
+	</div>
+	<div class="panel panel-primary">
+		<div class="panel-header panel-handle panel-colorize">
+			<ul class="nav nav-tabs nav-justified-only">
+				<li class="{{ isActiveView 'Index' }}">
+					<a href="#" data-template="Index">Information</a>
+				</li>
+				{{# if user.isInvestor }}
+				<li class="{{ isActiveView 'Investor' }}">
+					<a href="#" data-template="Investor">Investor</a>
+				</li>
+				{{/ if }}
+				<li class="{{ isActiveView 'Roles' }}">
+					<a href="#" data-template="Roles">Roles</a>
+				</li>
+				<li class="{{ isActiveView 'AddToProject' }}">
+					<a href="#" data-template="AddToProject">Add To Project</a>
+				</li>
+				<li class="{{ isActiveView 'Raw' }}">
+					<a href="#" data-template="Raw">Raw Data</a>
+				</li>
+			</ul>
+		</div>
+		<div class="panel-body">
+			{{> Template.dynamic template=activeView }}
+		</div>
+	</div>
+</template>

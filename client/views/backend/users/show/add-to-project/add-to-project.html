@@ -1,0 +1,13 @@
+<template name="backendUsersShowAddToProject">
+	<div class="row">
+		<div class="col-sm-6">
+			{{# autoForm collection="Roles" id="backendUsersShowAddToProjectForm" type="insert" }}
+				<input type="hidden" value="{{ userId }}" data-schema-key="userId">
+				{{# each afFieldNames omitFields="userId" }}
+					{{> afQuickField name=this.name options=afOptionsFromSchema}}
+				{{/ each }}
+				<button class="btn btn-primary" type="submit">Add</button>
+			{{/ autoForm }}
+		</div>
+	</div>
+</template>

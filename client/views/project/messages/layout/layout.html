@@ -1,0 +1,14 @@
+<template name="projectMessagesLayout">
+	<div class="panel panel-primary projectMessagesLayout">
+		<div class="panel-body no-padding">
+			<div class="row">
+				<div class="col-sm-4 messages-sidebar">
+					{{> projectMessagesSidebar }}
+				</div>
+				<div class="col-sm-8 messages-content">
+					{{> yield }}
+				</div>
+			</div>
+		</div>
+	</div>
+</template>

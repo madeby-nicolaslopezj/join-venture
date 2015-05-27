@@ -1,0 +1,99 @@
+<template name="projectTasksIndex">
+	<div class="row">
+		<div class="col-sm-6">
+		 	<h3 class="em-page-header v-mid-row thin">
+		 		<i class="fa fa-check-square-o text-gradient-info-dk"></i>
+		 		<span class="text-gradient-info-dk">
+		 			Tasks 
+		 			<small>
+		 				<a href="{{ pathFor 'project.tasks.create' }}">Create</a>
+		 			</small>
+		 		</span>
+		 	</h3>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-7">
+			<div class="panel panel-default">
+				<div class="panel-body no-padding">
+					<nav class="navmenu navmenu-full">
+						<ul class="nav navmenu-nav">
+							{{# each tasks }}
+								<li class="tasks-list-item">
+									<a href="{{ pathFor 'project.tasks.show' _id=projectId taskId=_id }}">
+										<div class="icon text-center" style="height: 60px;">
+											{{# if isOpen }}
+												<span class="fa-stack fa-lg">
+													<i class="fa fa-fw fa-circle fa-stack-2x" style="color: green"></i>
+													<i class="fa fa-fw fa-exclamation fa-stack-1x fa-inverse"></i>
+												</span>
+											{{ else }}
+												<span class="fa-stack fa-lg">
+													<i class="fa fa-fw fa-circle fa-stack-2x" style="color: red"></i>
+													<i class="fa fa-fw fa-ban fa-stack-1x fa-inverse"></i>
+												</span>
+											{{/ if }}
+										</div>
+										<div class="content">
+											<div>
+												<span class="title">
+													{{ title }}
+												</span>
+												<span class="tags">
+													{{# each tags }}
+														<span tag="{{ this }}" class="label-tag label label-primary">{{ this }}</span>
+													{{/ each }}
+												</span>
+											</div>
+											<div class="assignees">
+												<p>
+													{{# each assignees }}
+														{{# with getUser this }}
+															<span class="label-assignee label label-success">{{ name }}</span>
+														{{/ with }}
+													{{/ each }}
+												</p>
+											</div>
+											<div class="date">
+												Created {{ livestamp createdAt }}
+											</div>
+										</div>
+									</a>
+								</li>
+							{{/ each }}
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-5">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div class="form-group">
+						<label>Tags</label>
+						<select name="tags[]" class="form-control" multiple placeholder="Filter by tags">
+							{{# each tasksTags }}
+								<option value="{{ this }}">
+									{{ this }}
+								</option>
+							{{/ each }}
+						</select>
+					</div>
+					<div class="form-group">
+						<label>Asignees</label>
+						<select name="assignees[]" class="form-control" multiple placeholder="Filter by assignees">
+							{{# each roles 'entrepreneur' }}
+								<option value="{{ userId }}" {{ isAssign }}>
+									{{# with getUser userId }}
+										{{ name }}
+									{{/ with }}
+								</option>
+							{{/ each }}
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>

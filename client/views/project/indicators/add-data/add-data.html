@@ -1,0 +1,67 @@
+<template name="projectIndicatorsAddData">
+	<div class="row">
+		<div class="col-sm-6">
+		 	<h3 class="em-page-header v-mid-row thin">
+		 		<i class="fa fa-dashboard text-gradient-info-dk"></i>
+		 		<span class="text-gradient-info-dk">
+		 			Edit Data
+		 			<small>
+		 				{{ indicator.title }}
+		 			</small>
+		 		</span>
+		 	</h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-8 col-sm-offset-2">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					{{# if displayAsTable }}
+						{{# autoForm  template="bootstrap3-inline" collection="IndicatorsStates" doc=indicator.currentData id="projectIndicatorsAddDataForm" type="insert" }}
+							<input type="hidden" value="{{ getIndicatorId }}" data-schema-key="indicatorId">
+							<input type="hidden" value="{{ getUserId }}" data-schema-key="userId">
+
+							{{# each afFieldNames fields=fields }}
+								{{> afQuickField name=this.name options=afOptionsFromSchema}}
+							{{/ each }}
+
+							<a class="btn btn-default" href="{{ pathFor 'project.indicators.index' }}">Back</a>
+							<button class="btn btn-primary" type="submit">Save</button>
+						{{/ autoForm }}
+					{{ else }}
+						{{# autoForm collection="IndicatorsStates" doc=indicator.currentData id="projectIndicatorsAddDataForm" type="insert" }}
+							<input type="hidden" value="{{ getIndicatorId }}" data-schema-key="indicatorId">
+							<input type="hidden" value="{{ getUserId }}" data-schema-key="userId">
+
+							{{# each afFieldNames fields=fields }}
+								{{> afQuickField name=this.name options=afOptionsFromSchema}}
+							{{/ each }}
+
+							<a class="btn btn-default" href="{{ pathFor 'project.indicators.index' }}">Back</a>
+							<button class="btn btn-primary" type="submit">Save</button>
+						{{/ autoForm }}
+					{{/ if }}
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+
+
+<template name="projectIndicatorsAddDatalinegraph">
+	{{#afEachArrayItem name='linegraph' }}
+	<li class="list-group-item autoform-array-item">
+		<div>
+			<div class="autoform-remove-item-wrap">
+				<button type="button" class="btn btn-primary autoform-remove-item"><span class="glyphicon glyphicon-minus"></span></button>
+			</div>
+			<div class="autoform-array-item-body">
+				{{> afQuickField name='linegraph.$.title' label=false options=afOptionsFromSchema}}
+			</div>
+		</div>
+	</li>
+	{{/afEachArrayItem}}
+	<li class="list-group-item">
+		<button type="button" class="btn btn-primary autoform-add-item" data-autoform-field="{{this.atts.name}}"><span class="glyphicon glyphicon-plus"></span></button>
+	</li>
+</template>

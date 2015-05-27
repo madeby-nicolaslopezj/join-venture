@@ -1,0 +1,60 @@
+<template name="projectPostsIndex">
+	<div class="row">
+		<div class="col-sm-6">
+		 	<h3 class="em-page-header v-mid-row thin">
+		 		<i class="fa fa-rss text-gradient-info-dk"></i>
+		 		<span class="text-gradient-info-dk">
+		 			Timeline
+		 			<small>
+		 				<a href="{{ pathFor 'project.posts.create' }}">
+		 					New
+		 				</a>
+		 			</small>
+		 		</span>
+		 	</h3>
+		</div>
+	</div>
+	{{# with firstPost }}
+		<div class="row hidden-xs">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="timeline-top">
+					{{> projectPostsIndexItem }}
+				</div>
+			</div>
+		</div>
+	{{/ with }}
+	<ul class="timeline timeline-mid-light-dk timeline-badges-success-lt">
+		{{# with firstPost }}
+			<li class="visible-xs item">
+				<div class="timeline-badge"></div>
+				{{> projectPostsIndexItem }}
+			</li>
+		{{/ with }}
+		{{# each timeline }}
+			<li class="{{ class }} item">
+				<div class="timeline-badge"></div>
+				{{> projectPostsIndexItem }}
+			</li>
+		{{/ each }}
+		<li class="clearfix" style="float: none;"></li>
+	</ul>
+</template>
+
+<template name="projectPostsIndexItem">
+	<div class="panel panel-default projectPostsIndexItem">
+		<div class="panel-heading panel-colorize">
+			<div class="panel-title">
+				<span class="mid">
+					{{ title }}
+					{{# with getUser userId }}
+						<small class="text-muted">{{ name }}</small>
+					{{/ with }}
+				</span>
+			</div>
+			<span class="pull-right text-semi"><i class="icm icm-clock"></i> <span>{{ livestamp createdAt }}</span></span>
+		</div>
+		<div class="panel-body panel-colorize">
+			{{{ parse text=content showImages=true }}}
+		</div>
+	</div>
+</template>

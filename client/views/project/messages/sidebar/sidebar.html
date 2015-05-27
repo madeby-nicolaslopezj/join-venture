@@ -1,0 +1,26 @@
+<template name="projectMessagesSidebar">
+	<nav class="navmenu navmenu-full projectMessagesSidebar">
+		<ul class="nav navmenu-nav">
+			<li class="{{ isActiveRoute regex='project.messages.newConversation' }}">
+				<a href="{{ pathFor 'project.messages.newConversation' }}">
+					New Conversation
+				</a>
+			</li>
+			{{# each conversations }}
+			<li class="nav-conversation {{ isActivePath regex=urlForConversation }}">
+				<a href="{{ pathFor 'project.messages.conversation' conversationSlug=conversationSlug _id=projectId }}">
+					<div class="title">
+						{{ conversation }}
+					</div>
+					<div class="preview">
+						{{ text }}
+					</div>
+					<div class="date">
+						{{ livestamp createdAt }}
+					</div>
+				</a>
+			</li>
+			{{/ each }}
+		</ul>
+	</nav>
+</template>

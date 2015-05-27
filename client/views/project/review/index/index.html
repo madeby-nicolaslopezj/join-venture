@@ -1,0 +1,42 @@
+<template name="projectReviewIndex">
+	<div class="row">
+		<div class="col-sm-6">
+		 	<h3 class="em-page-header v-mid-row thin">
+		 		<i class="fa fa-flask text-gradient-info-dk"></i>
+		 		<span class="text-gradient-info-dk">
+		 			Review
+		 		</span>
+		 	</h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="wizard-steps">
+				<div class="wizard-step">
+					<div class="badge {{# if reviewStatus.analist }}badge-success{{ else }}badge-danger{{/ if }} badge-empty" title="Analist Review"></div>
+				</div>
+				<div class="wizard-step">
+					<div class="badge {{# if reviewStatus.expert }}badge-success{{ else }}badge-danger{{/ if }} badge-empty" title="Expert Review"></div>
+				</div>
+				<div class="wizard-step">
+					<div class="badge {{# if reviewStatus.comission }}badge-success{{ else }}badge-danger{{/ if }} badge-empty" title="Comission Review"></div>
+				</div>
+			</div>
+			{{# if lastestReview }}
+				{{> projectReviewShow review=lastestReview }}
+			{{ else }}
+				<div class="alert alert-danger">
+					<p>You project must be reviewed to active the full site</p>
+				</div>
+			{{/ if }}
+			{{# if canSubmitReview }}
+				{{> projectReviewCreate }}
+			{{/ if }}
+		</div>
+	</div>
+	<p class="text-center">
+		<a href="{{ pathFor 'project.review.history' }}">
+			View History
+		</a>
+	</p>
+</template>

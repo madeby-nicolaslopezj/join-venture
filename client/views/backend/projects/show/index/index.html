@@ -1,0 +1,13 @@
+<template name="backendProjectsShowIndex">
+	<div class="row">
+		<div class="col-sm-4">
+			<p><b>Id:</b></p>
+			<p>{{ project._id }}</p>
+			<p>
+				<a class="btn btn-primary" href="{{ pathFor 'project.index' _id=project._id }}">
+					Go
+				</a>
+			</p>
+		</div>
+	</div>
+</template>
