@@ -10,7 +10,6 @@ accounts-base
 accounts-password
 accounts-ui
 accounts-google
-pauli:accounts-linkedin
 service-configuration
 useraccounts:bootstrap
 less
