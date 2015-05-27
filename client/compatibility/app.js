@@ -97456,7 +97456,7 @@ _.mixin({
   clearMenus = function(e) {
     var $this, menuPartial, toggle;
     $this = $(e.target);
-    menuPartial = ".oc-" + (Mq.screen()) + "-partial-left";
+    menuPartial = ".oc-" + (BSE.Utils.Mq.screen().replace("'", '').replace("'", '')) + "-partial-left";
     if (!$this.closest(menuPartial).length) {
       return;
     }
@@ -97494,7 +97494,7 @@ _.mixin({
     var $this, $wrapper, menuPartial, partial;
     $this = $(this);
     $wrapper = $this.closest('.oc-wrapper');
-    menuPartial = "oc-" + (BSE.Utils.Mq.screen()) + "-partial-left";
+    menuPartial = "oc-" + (BSE.Utils.Mq.screen().replace("'", '').replace("'", '')) + "-partial-left";
     partial = $wrapper.size && $wrapper.hasClass(menuPartial);
     if (partial) {
       return clearMenus({
@@ -99745,7 +99745,7 @@ $.fn.editabletypes.selectize = Constructor;
   hide = Collapse.prototype.hide;
 
   Collapse.prototype.inOcPartial = function() {
-    return this.$element.closest(".oc-" + (Mq.screen()) + "-partial-left").length;
+    return this.$element.closest(".oc-" + (BSE.Utils.Mq.screen().replace("'", '').replace("'", '')) + "-partial-left").length;
   };
 
   Collapse.prototype.hideActives = function() {

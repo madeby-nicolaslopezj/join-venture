@@ -10,7 +10,7 @@ accounts-base
 accounts-password
 accounts-ui
 accounts-google
-jonperl:accounts-linkedin
+pauli:accounts-linkedin
 service-configuration
 useraccounts:bootstrap
 less
