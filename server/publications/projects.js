@@ -14,10 +14,11 @@ Meteor.publishComposite('projects', function() {
 });
 
 Meteor.publishComposite('project', function(projectId) {
+	var userId = this.userId;
 	return {
 		find: function() {
-			if ((Meteor.users.findOne(this.userId).isAdmin()) ||
-				(Roles.find({ projectId: projectId, userId: this.userId, accepted: true }).count() != 0)) {
+			if ((Meteor.users.findOne(userId).isAdmin()) ||
+				(Roles.find({ projectId: projectId, userId: userId, accepted: true }).count() != 0)) {
 				return Projects.find({ _id: projectId });
 			} else {
 				return;

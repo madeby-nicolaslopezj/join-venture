@@ -16,15 +16,12 @@ Projects.allow({
 		}
 
 		return true;
-	},
-	remove: function (userId, doc) {
-		return userId === doc.createdBy;
 	}
 });
 
 Projects.allow({
 	remove: function (userId, doc) {
-		if (Meteor.users.findOne(userId).isAdmin()) {
+		if (Meteor.users.findOne(userId) && Meteor.users.findOne(userId).isAdmin()) {
 			return true;
 		}
 	}
