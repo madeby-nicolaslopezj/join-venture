@@ -19,7 +19,13 @@ Projects.allow({
 	},
 	remove: function (userId, doc) {
 		return userId === doc.createdBy;
-	},
-	fetch: ['createdBy']
+	}
 });
 
+Projects.allow({
+	remove: function (userId, doc) {
+		if (Meteor.users.findOne(userId).isAdmin()) {
+			return true;
+		}
+	}
+});
