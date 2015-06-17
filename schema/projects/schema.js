@@ -59,6 +59,13 @@ ProjectsDescriptionSchema = new SimpleSchema({
 		optional: true,
 		label: 'Business',
 	},
+	'business.logo': {
+		type: String,
+		optional: true,
+		autoform: {
+			type: 'venture_file'
+		}
+	},
 	'business.tweet': {
 		type: String,
 		label: "Tweet of the business",
@@ -235,7 +242,7 @@ ProjectsDescriptionSchema = new SimpleSchema({
 			type: 'textarea'
 		}
 	},
-	'actualStateAndProyections.inversionStage': {
+	'actualStateAndProyections.investmentStage': {
 		type: String,
 		optional: true,
 		autoform: {

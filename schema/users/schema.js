@@ -94,7 +94,7 @@ UsersInvestorProfileSchema = new SimpleSchema({
             options: {
                 'Idea': 'Ideas',
                 'Start Up': 'Start Up',
-                'Functioning': 'Functioning',
+                'Profitable': 'Profitable',
                 'Growing': 'Growing',
                 'Mature': 'Mature',
             }
