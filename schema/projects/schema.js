@@ -6,21 +6,21 @@ ProjectsDescriptionSchema = new SimpleSchema({
 			label: false
 		}
 	},
-	marketAndOportunity: {
+	marketAndOpportunity: {
 		type: Object,
 		optional: true,
-		label: 'Market and Oportunity'
+		label: 'Market and Opportunity'
 	},
-	'marketAndOportunity.oportunity': {
+	'marketAndOpportunity.opportunity': {
 		type: String,
 		optional: true,
-		label: 'Describe the oportunity',
+		label: 'Describe the opportunity',
 		max: 1200,
 		autoform: {
 			type: 'textarea'
 		}
 	},
-	'marketAndOportunity.industry': {
+	'marketAndOpportunity.industry': {
 		type: String,
 		optional: true,
 		autoform: {
@@ -37,16 +37,16 @@ ProjectsDescriptionSchema = new SimpleSchema({
 			}
 		}
 	},
-	'marketAndOportunity.referencesLinksOfTheMarket': {
+	'marketAndOpportunity.referencesLinksOfTheMarket': {
 		type: [Object],
 		optional: true,
 	},
-	'marketAndOportunity.referencesLinksOfTheMarket.$.link': {
+	'marketAndOpportunity.referencesLinksOfTheMarket.$.link': {
 		type: String,
 		label: "Link",
 		optional: true,
 	},
-	'marketAndOportunity.referencesLinksOfTheMarket.$.description': {
+	'marketAndOpportunity.referencesLinksOfTheMarket.$.description': {
 		type: String,
 		label: "Description",
 		optional: true,
