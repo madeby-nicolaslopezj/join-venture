@@ -17,7 +17,14 @@
 
 			<div class="row">
 				{{# each currentUser.projects }}
-					{{> adminProjectsIndexItem }}
+					{{# if itsApproved }}
+						{{> adminProjectsIndexItem }}
+					{{/ if }}
+				{{/ each }}
+				{{# each currentUser.projects }}
+					{{# unless itsApproved }}
+						{{> adminProjectsInReviewIndexItem }}
+					{{/ unless }}
 				{{/ each }}
 				{{# each currentUser.invitations }}
 					{{> adminProjectsIndexInvitation }}
@@ -49,6 +56,24 @@
 						<a class="btn panel-lt btn-long btn-sm"
 						href="{{ pathFor 'project.index' }}">Go</a>
 					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+
+<template name="adminProjectsInReviewIndexItem">
+	<div class="col-sm-6 col-md-4 col-lg-3">
+		<div class="panel panel-danger">
+			<div class="panel-body panel-colorize gradient-diag1">
+				<div class="padded">
+					<h3>{{ description.name }}</h3>
+					<h5>{{ myRole.role }}</h5>
+					<div class="vpadded">
+						<a class="btn panel-lt btn-long btn-sm"
+						href="{{ pathFor 'project.index' }}">Go</a>
+					</div>
+					<p><i>{{ nextReviewType }} review</i></p>
 				</div>
 			</div>
 		</div>
