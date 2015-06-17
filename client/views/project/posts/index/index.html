@@ -50,11 +50,27 @@
 						<small class="text-muted">{{ name }}</small>
 					{{/ with }}
 				</span>
+				<small>
+					<a href="#" class="edit-btn">Edit</a>
+				</small>
 			</div>
-			<span class="pull-right text-semi"><i class="icm icm-clock"></i> <span>{{ livestamp createdAt }}</span></span>
+			<span class="pull-right text-semi">
+				<i class="icm icm-clock"></i> 
+				<span>{{ livestamp createdAt }}</span>
+			</span>
 		</div>
 		<div class="panel-body panel-colorize">
-			{{{ parse text=content showImages=true }}}
+			{{# if isEditing }}
+				{{# autoForm collection="Posts" id="projectPostsUpdateForm" type="update" doc=this }}
+					{{# each afFieldNames fields="content" }}
+						{{> afQuickField name=this.name options=afOptionsFromSchema}}
+					{{/ each }}
+					<a class="btn btn-default btn-cancel" href="#">Back</a>
+					<button class="btn btn-primary" type="submit">Save</button>
+				{{/ autoForm }}
+			{{ else }}
+				{{{ parse text=content showImages=true }}}
+			{{/ if }}
 		</div>
 	</div>
 </template>

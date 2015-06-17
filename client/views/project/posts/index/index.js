@@ -9,3 +9,28 @@ Template.projectPostsIndex.helpers({
 		});
 	}
 });
+
+Template.projectPostsIndexItem.onRendered(function() {
+  Session.set('isEditing' + this.data._id, false);
+})
+
+Template.projectPostsIndexItem.helpers({
+  isEditing: function () {
+    return Session.get('isEditing' + this._id);
+  }
+});
+
+Template.projectPostsIndexItem.events({
+  'click .edit-btn': function() {
+    Session.set('isEditing' + this._id, !Session.get('isEditing' + this._id));
+  },
+  'click .btn-cancel': function() {
+    Session.set('isEditing' + this._id, false);
+  }
+});
+
+AutoForm.addHooks('projectPostsUpdateForm', {
+  onSuccess: function() {
+    Session.set('isEditing' + this.docId, false);
+  }
+});
