@@ -44,6 +44,9 @@
 				{{# if typeIs 'untag' }}
 					{{> projectTasksShowEventUntag }}
 				{{/ if }}
+				{{# if typeIs 'setduedate' }}
+					{{> projectTasksShowEventSetDueDate }}
+				{{/ if }}
 			{{/ each }}
 			{{> projectTasksShowComment }}
 		</div>
@@ -84,12 +87,25 @@
 					<b>{{ name }}</b> commented
 				{{/ with }}
 				{{ livestamp createdAt }}
+				<span class="pull-right">
+					<a href="#" class="edit-btn" style="color: white">Edit</a>
+				</span>
 			</div>
 		</div>
 		<div class="panel-body">
 
 			<div class="comment">
-				{{{ parse comment }}}
+				{{# if isEditing }}
+					{{# autoForm collection="TasksEvents" id="projectTaskCommentUpdateForm" type="update" doc=this }}
+						{{# each afFieldNames fields="comment" }}
+							{{> afQuickField name=this.name options=afOptionsFromSchema}}
+						{{/ each }}
+						<a class="btn btn-default btn-cancel" href="#">Back</a>
+						<button class="btn btn-primary" type="submit">Save</button>
+					{{/ autoForm }}
+				{{ else }}
+					{{{ parse text=comment showImages=true }}}
+				{{/ if }}
 			</div>
 		</div>
 	</div>
@@ -224,6 +240,26 @@
 					<b>{{ name }}</b> removed the
 				{{/ with }}
 				<span class="label label-primary">{{ tag }}</span> tag
+				{{ livestamp createdAt }}
+			</div>
+		</div>
+	</div>
+	<br>
+</template>
+<template name="projectTasksShowEventSetDueDate">
+	<div class="row">
+		<div class="col-xs-2 text-center">
+			<span class="fa-stack fa-lg">
+				<i class="fa fa-fw fa-circle fa-stack-2x fa-inverse"></i>
+				<i class="fa fa-fw fa-calendar fa-stack-1x"></i>
+			</span>
+		</div>
+		<div class="col-xs-10">
+			<div class="user" style="margin-top: 6px;">
+				{{# with getUser userId }}
+					<b>{{ name }}</b> set the due date to
+				{{/ with }}
+				<b>{{ shortDate newDate }}</b>
 				{{ livestamp createdAt }}
 			</div>
 		</div>

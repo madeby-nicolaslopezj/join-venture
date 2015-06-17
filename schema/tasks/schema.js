@@ -1,7 +1,7 @@
 TasksEventsSchema = new SimpleSchema({
 	type: {
 		type: String,
-		allowedValues: ['comment', 'close', 'reopen', 'assign', 'unassign', 'tag', 'untag'],
+		allowedValues: ['comment', 'close', 'reopen', 'assign', 'unassign', 'tag', 'untag', 'setduedate'],
 	},
 	tag: {
 		type: String,
@@ -11,9 +11,16 @@ TasksEventsSchema = new SimpleSchema({
 		type: String,
 		optional: true
 	},
+	newDate: {
+		type: Date,
+		optional: true
+	},
 	comment: {
 		type: String,
-		optional: true
+		optional: true,
+		autoform: {
+			type: 'parseTextarea'
+		}
 	},
 	taskId: {
 		type: String

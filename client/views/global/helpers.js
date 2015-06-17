@@ -43,7 +43,7 @@ Template.registerHelper('parse', function(options) {
 	var users = str.match(/(^|\s)@([A-Za-z_][A-Za-z0-9_]*)/g);
 	if (users) {
 		users.map(function(exp) {
-			var id = exp.replace('@', '');
+			var id = exp.replace('@', '').trim();
 			var user = Meteor.users.findOne(id);
 			var template = Blaze.toHTMLWithData(Template[userTemplate], user);
 			str = str.replace(exp, template);
@@ -53,8 +53,9 @@ Template.registerHelper('parse', function(options) {
 	var files = str.match(/(^|\s)#([A-Za-z_][A-Za-z0-9_]*)/g);
 	if (files) {
 		files.map(function(exp) {
-			var id = exp.replace('#', '');
-			var file = Files.findOne(id);
+			var id = exp.replace('#', '').trim();
+			var file = Files.findOne({ _id: id });
+			console.log(file, { _id: id });
 			file.shouldShowImage = file.isImage() && showImages;
 			var template = Blaze.toHTMLWithData(Template[fileTemplate], file);
 			str = str.replace(exp, template);
@@ -64,8 +65,8 @@ Template.registerHelper('parse', function(options) {
 	var tasks = str.match(/(^|\s)$([A-Za-z_][A-Za-z0-9_]*)/g);
 	if (tasks) {
 		tasks.map(function(exp) {
-			var id = exp.replace('$', '');
-			var task = Tasks.findOne(id);
+			var id = exp.replace('$', '').trim();
+			var task = Tasks.findOne({ _id: id });
 			var template = Blaze.toHTMLWithData(Template[taskTemplate], task);
 			str = str.replace(exp, template);
 		});
@@ -74,7 +75,7 @@ Template.registerHelper('parse', function(options) {
 	var indicators = str.match(/(^|\s)%([A-Za-z_][A-Za-z0-9_]*)/g);
 	if (indicators) {
 		indicators.map(function(exp) {
-			var id = exp.replace('%', '');
+			var id = exp.replace('%', '').trim();
 			var indicator = Indicators.findOne(id);
 			var template = Blaze.toHTMLWithData(Template[indicatorTemplate], indicator);
 			str = str.replace(exp, template);

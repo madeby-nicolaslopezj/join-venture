@@ -143,5 +143,40 @@ Template.projectTasksShow.rendered = function () {
     .on('changeDate', function (ev) {
 		var date = template.$('.datetimepick').val();
 		Tasks.update(Router.current().data().task._id, { $set: { dueDate: date } });
+		TasksEvents.insert({
+				taskId: Router.current().data().task._id,
+				userId: Meteor.userId(),
+				type: 'setduedate',
+				newDate: date
+			})
 	});
 };
+
+
+Template.projectTasksShowEventComment.onRendered(function() {
+  Session.set('isEditing' + this.data._id, false);
+})
+
+Template.projectTasksShowEventComment.helpers({
+  isEditing: function () {
+    return Session.get('isEditing' + this._id);
+  }
+});
+
+Template.projectTasksShowEventComment.events({
+  'click .edit-btn': function() {
+    Session.set('isEditing' + this._id, !Session.get('isEditing' + this._id));
+  },
+  'click .btn-cancel': function() {
+    Session.set('isEditing' + this._id, false);
+  }
+});
+
+AutoForm.addHooks('projectTaskCommentUpdateForm', {
+  onSuccess: function() {
+    Session.set('isEditing' + this.docId, false);
+  }
+});
+
+
+
