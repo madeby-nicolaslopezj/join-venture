@@ -1,6 +1,11 @@
 <template name="projectSidebar">
 	{{> sidebarHeader }}
 	<div class="oc-sidebar-content" id="collapseAvatarLeft">
+		<div class="oc-partial-hidden">
+			<div class="padded">
+				<p style="color: #737d83" class="text-center">{{ description.name }}</p>
+			</div>
+		</div>
 		<ul class="nav nav-stacked oc-sidebar-nav" id="collapseNavbarLeft2">
 			{{# if itsApproved }}
 			<li class="{{ isActiveRoute regex='project.indicators' }}">
