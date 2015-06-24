@@ -4,6 +4,15 @@ Template.interestedProjects.onRendered(function() {
       Session.set('projectsFromHome', response.data);
     }
   });
+
+  this.autorun(function() {
+    Session.get('projectsFromHome');
+    Tracker.afterFlush(function () {
+      $('.masonry').masonry({
+        itemSelector: '.masonry-item',
+      });
+    });
+  })
 })
 
 Template.interestedProjects.helpers({
