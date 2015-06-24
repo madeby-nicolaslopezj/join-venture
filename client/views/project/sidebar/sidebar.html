@@ -68,6 +68,7 @@
 					</span>
 				</a>
 			</li>
+			{{# unless itsApproved }}
 			<li class="{{ isActiveRoute regex='project.review' }}">
 				<a class="collapsed"
 				href="{{ pathFor 'project.review.index' }}">
@@ -77,6 +78,7 @@
 					</span>
 				</a>
 			</li>
+			{{/ unless }}
 			<li class="{{ isActiveRoute regex='project.roles' }}">
 				<a class="collapsed"
 				href="{{ pathFor 'project.roles.index' }}">
