@@ -2,16 +2,19 @@ Meteor.publishComposite('projects', function() {
 	return {
 		find: function() {
 			return Roles.find({ userId: this.userId });
-        },
-        children: [
-            {
-	            find: function(role) {
-	            	return Projects.find({ _id: role.projectId });
-	            }
-	        }
-        ]
+		},
+		children: [{
+			find: function(role) {
+				return Projects.find({ _id: role.projectId });
+			},
+			children: [{
+				find: function(project) {
+					return Reviews.find({ projectId: project._id }, { limit: 1, sort: { createdAt: -1 } });
+				}
+			}]
+		}]
 	}
-});
+})
 
 Meteor.publishComposite('project', function(projectId) {
 	var userId = this.userId;

@@ -23,7 +23,16 @@
 				{{/ each }}
 				{{# each currentUser.projects }}
 					{{# unless itsApproved }}
-						{{> adminProjectsInReviewIndexItem }}
+						{{# unless lastestReview.isDenied }}
+							{{> adminProjectsInReviewIndexItem }}
+						{{/ unless }}
+					{{/ unless }}
+				{{/ each }}
+				{{# each currentUser.projects }}
+					{{# unless itsApproved }}
+						{{# if lastestReview.isDenied }}
+							{{> adminProjectsInReviewIndexItem }}
+						{{/ if }}
 					{{/ unless }}
 				{{/ each }}
 				{{# each currentUser.invitations }}
@@ -65,7 +74,7 @@
 
 <template name="adminProjectsInReviewIndexItem">
 	<div class="col-sm-6 col-md-4 col-lg-3 masonry-item">
-		<div class="panel panel-white">
+		<div class="panel {{# if lastestReview.isDenied }}panel-danger{{ else }}panel-white{{/ if }}">
 			<div class="panel-body panel-colorize gradient-diag1">
 				<div class="padded">
 					<h3>{{ description.name }}</h3>
@@ -75,6 +84,9 @@
 						href="{{ pathFor 'project.index' }}">Go</a>
 					</div>
 					<p><i>{{ nextReviewType }} review</i></p>
+					{{# if lastestReview.isDenied }}
+						Review Denied
+					{{/ if }}
 				</div>
 			</div>
 		</div>
