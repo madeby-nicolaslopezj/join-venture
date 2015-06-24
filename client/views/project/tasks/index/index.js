@@ -27,28 +27,40 @@ Template.projectTasksIndex.helpers({
 			return Tasks.find({ 
 				projectId: Router.current().params._id,
 				tags: { $in: Session.get('projectTasksIndexFilterTags') },
-				assignees: { $in: Session.get('projectTasksIndexFilterAssignees') }
+				assignees: { $in: Session.get('projectTasksIndexFilterAssignees'),
+				isOpen: !Session.get('showClosedTasks') }
 			}, {
 				sort: { createdAt: -1 }
 			});
 		} else if (Session.get('projectTasksIndexFilterTags')) {
 			return Tasks.find({ 
 				projectId: Router.current().params._id,
-				tags: { $in: Session.get('projectTasksIndexFilterTags') }
+				tags: { $in: Session.get('projectTasksIndexFilterTags') },
+				isOpen: !Session.get('showClosedTasks')
 			}, {
 				sort: { createdAt: -1 }
 			});
 		} else if (Session.get('projectTasksIndexFilterAssignees')) {
 			return Tasks.find({ 
 				projectId: Router.current().params._id,
-				assignees: { $in: Session.get('projectTasksIndexFilterAssignees') }
+				assignees: { $in: Session.get('projectTasksIndexFilterAssignees') }, 
+				isOpen: !Session.get('showClosedTasks')
 			}, {
 				sort: { createdAt: -1 }
 			});
 		} else {
-			return Tasks.find({ projectId: Router.current().params._id }, {
+			return Tasks.find({ projectId: Router.current().params._id, isOpen: !Session.get('showClosedTasks') }, {
 				sort: { createdAt: -1 }
 			});
 		}
+	},
+	showClosed: function() {
+		return Session.get('showClosedTasks');
+	}
+});
+
+Template.projectTasksIndex.events({
+	'change .show-closed-checkbox': function(event, template) {
+		Session.set('showClosedTasks', $(event.currentTarget).is(':checked'));
 	}
 });
