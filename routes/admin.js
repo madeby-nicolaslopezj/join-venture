@@ -18,16 +18,16 @@ Router.map(function() {
 		path: '/'
 	});
 
-	this.route('admin.users.invest', {
+	/*this.route('admin.users.invest', {
 		layoutTemplate: 'adminLayout',
 		path: '/invest'
-	});
+	});*/
 
 	this.route('admin.users.password', {
 		layoutTemplate: 'adminLayout',
 		path: '/change-password'
 	});
-	
+
 });
 
 Router.plugin('ensureSignedIn', {
