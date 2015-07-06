@@ -5,7 +5,7 @@ ProjectController = RouteController.extend({
     		subs.subscribe('project', this.params._id)
     	];
     },
-	data: function () { 
+	data: function () {
 		return Projects.findOne(this.params._id)
 	},
 });
@@ -14,7 +14,7 @@ var mustBeApproved = function() {
 	var project = Projects.findOne(this.params._id);
 	if (project) {
 		if (!project.itsApproved()) {
-			this.redirect('project.description.edit', this.params)
+			this.router.go('project.description.edit', this.params, { replaceState: true });
 		} else {
 			this.next();
 		}
@@ -25,7 +25,7 @@ Router.route('project/:_id', {
 	name: 'project.index',
 	controller: 'ProjectController',
 	onBeforeAction: function() {
-		this.redirect('project.indicators.index', this.params)
+		this.router.go('project.indicators.index', this.params, { replaceState: true });
 	}
 });
 
@@ -57,7 +57,7 @@ Router.route('project/:_id/review/history', {
 Router.route('project/:_id/review/:reviewId', {
 	name: 'project.review.show',
 	controller: 'ProjectController',
-	data: function () { 
+	data: function () {
 		var project = Projects.findOne(this.params._id);
 		if (project) {
 			project.review = Reviews.findOne(this.params.reviewId);
@@ -80,7 +80,7 @@ Router.route('project/:_id/conversations/new', {
 Router.route('project/:_id/conversations/:conversationSlug', {
 	name: 'project.messages.conversation',
 	controller: 'ProjectController',
-	data: function () { 
+	data: function () {
 		var project = Projects.findOne(this.params._id);
 		if (project) {
 			project.messages = Messages.find({ projectId: this.params._id, conversationSlug: this.params.conversationSlug }, { orderBy: { createdAt: -1 } });
@@ -105,7 +105,7 @@ Router.route('project/:_id/files/create', {
 Router.route('project/:_id/files/:fileId', {
 	name: 'project.files.show',
 	controller: 'ProjectController',
-	data: function () { 
+	data: function () {
 		var project = Projects.findOne(this.params._id);
 		if (project) {
 			project.file = Files.findOne(this.params.fileId);
@@ -129,7 +129,7 @@ Router.route('project/:_id/tasks/create', {
 Router.route('project/:_id/tasks/:taskId', {
 	name: 'project.tasks.show',
 	controller: 'ProjectController',
-	data: function () { 
+	data: function () {
 		var project = Projects.findOne(this.params._id);
 		if (project) {
 			project.task = Tasks.findOne(this.params.taskId);
@@ -166,7 +166,7 @@ Router.route('project/:_id/indicators/new', {
 Router.route('project/:_id/indicators/:indicatorId', {
 	name: 'project.indicators.show',
 	controller: 'ProjectController',
-	data: function () { 
+	data: function () {
 		var project = Projects.findOne(this.params._id);
 		if (project) {
 			project.indicator = Indicators.findOne(this.params.indicatorId);
@@ -179,7 +179,7 @@ Router.route('project/:_id/indicators/:indicatorId', {
 Router.route('project/:_id/indicators/:indicatorId/edit', {
 	name: 'project.indicators.edit',
 	controller: 'ProjectController',
-	data: function () { 
+	data: function () {
 		var project = Projects.findOne(this.params._id);
 		if (project) {
 			project.indicator = Indicators.findOne(this.params.indicatorId);
@@ -192,7 +192,7 @@ Router.route('project/:_id/indicators/:indicatorId/edit', {
 Router.route('project/:_id/indicators/:indicatorId/edit-data', {
 	name: 'project.indicators.addData',
 	controller: 'ProjectController',
-	data: function () { 
+	data: function () {
 		var project = Projects.findOne(this.params._id);
 		if (project) {
 			project.indicator = Indicators.findOne(this.params.indicatorId);
@@ -216,7 +216,7 @@ Router.route('project/:_id/inbox/compose', {
 Router.route('project/:_id/inbox/:mailId', {
 	name: 'project.mails.show',
 	controller: 'ProjectController',
-	data: function () { 
+	data: function () {
 		var project = Projects.findOne(this.params._id);
 		if (project) {
 			project.mail = Mails.findOne(this.params.mailId);
