@@ -16,7 +16,7 @@
 				<div class="panel-body">
 					{{# if lastestReview.isDenied }}
 						<p>
-							Comments from review 
+							Comments from review
 							<a href="{{ pathFor 'project.review.show' reviewId=lastestReview._id }}">
 								<b>
 									#{{ lastestReview._id }}
@@ -32,7 +32,7 @@
 							{{/ unless }}
 						{{/ with }}
 					{{/ if }}
-					
+
 					{{# autoForm collection="Projects" doc=this id="projectDescriptionEditForm" type="update" }}
 						{{> afQuickField name='description.name' }}
 						<hr>
@@ -65,6 +65,7 @@
 							{{/ each }}
 						{{/ if }}
 						<button class="projectDescriptionEditFormSubmit btn btn-primary" type="submit">Save</button>
+						<a href="{{ pathFor 'project.review.index' }}" class="btn btn-info">Send to review</a>
 					{{/ autoForm }}
 				</div>
 			</div>

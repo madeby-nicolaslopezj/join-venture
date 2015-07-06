@@ -36,5 +36,14 @@ Template.projectDescriptionEdit.onRendered(function() {
   $('a').click(function() {
     if (Router.current().route.getName() != 'project.description.edit') return;
     $('.projectDescriptionEditFormSubmit').click();
-  }) 
+  })
 })
+
+AutoForm.addHooks('projectDescriptionEditForm', {
+	onSuccess: function(formType, result) {
+		toastr.success('The project was successfully saved', 'Project saved');
+	},
+  onError: function(formType, error) {
+		toastr.error('There was an error saving the project', 'Error');
+	}
+});
