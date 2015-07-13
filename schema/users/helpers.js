@@ -9,17 +9,17 @@ Meteor.users.helpers({
 	},
 	projects: function() {
 		var roles = Roles.find({ userId: this._id, accepted: true }).fetch();
-		var projectIds =_.pluck(roles, 'projectId'); 
+		var projectIds =_.pluck(roles, 'projectId');
 		return Projects.find({ _id: { $in: projectIds } });
 	},
 	invitations: function() {
 		var roles = Roles.find({ userId: this._id, accepted: false }).fetch();
-		var projectIds =_.pluck(roles, 'projectId'); 
+		var projectIds =_.pluck(roles, 'projectId');
 		return Projects.find({ _id: { $in: projectIds } });
 	},
 	projectsAndInvitations: function() {
 		var roles = Roles.find({ userId: this._id }).fetch();
-		var projectIds =_.pluck(roles, 'projectId'); 
+		var projectIds =_.pluck(roles, 'projectId');
 		return Projects.find({ _id: { $in: projectIds } });
 	},
 	roles: function() {
@@ -40,7 +40,7 @@ Meteor.users.helpers({
 	isAdmin: function() {
 		var found = false;
 		this.emails.map(function (email) {
-			var admins = ['cristian@weeshing.com', 'nicolaslopezj@me.com', 'javier@venturecapital.cl', 'talu999@gmail.com'];
+			var admins = Meteor.settings.public.admins;
 			if (_.contains(admins, email.address)) {
 				found = true;
 			}

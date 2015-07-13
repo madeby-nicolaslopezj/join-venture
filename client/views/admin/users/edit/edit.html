@@ -19,7 +19,9 @@
 						{{> afQuickFields name="profile"}}
 
 						<button type="submit" class="btn btn-primary">Save</button>
-						<a href="{{ pathFor 'admin.users.invest' }}" class="btn btn-danger">Invest</a>
+						{{# if Meteor.settings.public.showInvest }}
+							<a href="{{ pathFor 'admin.users.invest' }}" class="btn btn-danger">Invest</a>
+						{{/ if }}
 					{{/ autoForm }}
 				</div>
 			</div>

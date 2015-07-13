@@ -20,15 +20,17 @@
 					</span>
 				</a>
 			</li>
-			<li class="{{ isActiveRoute regex='backend.investors' }}">
-				<a class="collapsed"
-				href="{{ pathFor 'backend.investors.index' }}">
-					<i class="oc-partial-icon fa fa-money"></i>
-					<span class="oc-partial-menu-item">
-						Investors
-					</span>
-				</a>
-			</li>
+			{{# if Meteor.settings.public.showInvest }}
+				<li class="{{ isActiveRoute regex='backend.investors' }}">
+					<a class="collapsed"
+					href="{{ pathFor 'backend.investors.index' }}">
+						<i class="oc-partial-icon fa fa-money"></i>
+						<span class="oc-partial-menu-item">
+							Investors
+						</span>
+					</a>
+				</li>
+			{{/ if }}
 		</ul>
 	</div>
 	<div class="oc-partial-hidden">

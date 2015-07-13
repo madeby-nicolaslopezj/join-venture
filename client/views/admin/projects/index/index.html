@@ -1,6 +1,8 @@
 <template name="adminProjectsIndex">
-	{{# if currentUser.isInvestor }}
-		{{> interestedProjects }}
+	{{# if Meteor.settings.public.showInvest }}
+		{{# if currentUser.isInvestor }}
+			{{> interestedProjects }}
+		{{/ if }}
 	{{/ if }}
 	<div class="row">
 		<div class="col-sm-6">
