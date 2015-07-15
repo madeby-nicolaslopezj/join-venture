@@ -1,9 +1,14 @@
+Projects.allow({
+	update: function(userId, doc, fields, modifier) {
+		if (_.isEqual(fields, ['description'])) {
+			return true;
+		}
+	}
+})
+
 Projects.deny({
 	update: function (userId, doc, fields, modifier) {
 		var user = Meteor.users.findOne(userId);
-		if (user.isAdmin()) {
-			return false;
-		}
 		if (_.contains(fields, 'description')) {
 			var project = Projects.findOne(doc);
 
@@ -15,6 +20,5 @@ Projects.deny({
 				return true;
 			}
 		}
-		return false;
 	},
 });

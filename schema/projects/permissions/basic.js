@@ -3,19 +3,9 @@ Projects.allow({
 		return userId;
 	},
 	update: function (userId, doc, fields, modifier) {
-		if (!userId) {
-			return false;
-		}
 		if (Meteor.users.findOne(userId).isAdmin()) {
 			return true;
 		}
-
-		// If its only updating the description
-		if (!_.isEqual(fields, ['description'])) {
-			return false;
-		}
-
-		return true;
 	}
 });
 
@@ -26,3 +16,11 @@ Projects.allow({
 		}
 	}
 });
+
+Projects.deny({
+	update: function(userId, doc, fields, modifier) {
+		if (!userId) {
+			return true;
+		}
+	}
+})

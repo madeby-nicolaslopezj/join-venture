@@ -34,7 +34,7 @@
 					{{/ if }}
 
 					{{# autoForm collection="Projects" doc=this id="projectDescriptionEditForm" type="update" }}
-						{{> afQuickField name='description.name' }}
+						{{> afQuickField name='description.name' disabled=doesntHavePermissions }}
 						<hr>
 						<div class="form-categories">
 							{{# each getCategories }}
@@ -46,7 +46,7 @@
 							{{# each afFieldNames name=getActiveCategory }}
 									<div class="row">
 										<div class="col-sm-8">
-											{{> afQuickField name=this.name options=afOptionsFromSchema }}
+											{{> afQuickField name=this.name options=afOptionsFromSchema disabled=doesntHavePermissions }}
 										</div>
 										<div class="col-sm-4">
 											{{# with getReview }}
@@ -64,8 +64,10 @@
 									<hr>
 							{{/ each }}
 						{{/ if }}
-						<button class="projectDescriptionEditFormSubmit btn btn-primary" type="submit">Save</button>
-						<a href="{{ pathFor 'project.review.index' }}" class="btn btn-info">Send to review</a>
+						{{# if hasPermissions }}
+							<button class="projectDescriptionEditFormSubmit btn btn-primary" type="submit">Save</button>
+							<a href="{{ pathFor 'project.review.index' }}" class="btn btn-info">Send to review</a>
+						{{/ if }}
 					{{/ autoForm }}
 				</div>
 			</div>

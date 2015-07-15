@@ -1,4 +1,15 @@
+var hasPermissions = function() {
+	var role = Meteor.user().roleInProject(Router.current().params._id);
+	return role && role.type == 'entrepreneur';
+}
+
 Template.projectDescriptionEdit.helpers({
+	hasPermissions: function() {
+		return hasPermissions();
+	},
+	doesntHavePermissions: function() {
+		return !hasPermissions()
+	},
 	getReview: function() {
 		var review = Router.current().data().lastestReview();
 		if (review) {
@@ -26,7 +37,6 @@ Template.projectDescriptionEdit.helpers({
 
 Template.projectDescriptionEdit.events({
   'click .btn[category]': function () {
-    $('.projectDescriptionEditFormSubmit').click();
     Session.set('projectDescriptionEditFormActiveCategory', this.key);
   }
 });

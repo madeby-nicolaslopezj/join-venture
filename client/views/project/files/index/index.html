@@ -4,10 +4,12 @@
 		 	<h3 class="em-page-header v-mid-row thin">
 		 		<i class="fa fa-files-o text-gradient-info-dk"></i>
 		 		<span class="text-gradient-info-dk">
-		 			Files 
+		 			Files
+					{{# if currentUser.canEditProject _id }}
 		 			<small>
 		 				<a class="" href="{{ pathFor 'project.files.create' }}">Upload</a>
 		 			</small>
+					{{/ if }}
 		 		</span>
 		 	</h3>
 		</div>

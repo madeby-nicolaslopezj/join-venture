@@ -28,6 +28,13 @@ Meteor.users.helpers({
 	roleInProject: function(projectId) {
 		return Roles.findOne({ projectId: projectId, userId: this._id });
 	},
+	canEditProject: function(projectId) {
+		var role = this.roleInProject(projectId);
+		return role && role.type == 'entrepreneur';
+	},
+	cantEditProject: function(projectId) {
+		return !this.canEditProject(projectId);
+	},
 	isInvestor: function() {
 		return !!this.investorProfile;
 	},
