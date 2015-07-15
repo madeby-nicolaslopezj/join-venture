@@ -504,9 +504,17 @@ ProjectsDescriptionSchema = new SimpleSchema({
 		type: String,
 		label: 'Name'
 	},
+	'legalBasics.shareHolders.$.email': {
+		type: String,
+		label: 'Email'
+	},
 	'legalBasics.shareHolders.$.shares': {
 		type: String,
 		label: 'Shares'
+	},
+	'legalBasics.shareHolders.$.percentage': {
+		type: String,
+		label: 'Percentage'
 	},
 	'legalBasics.actualDirectors': {
 		type: [String],
