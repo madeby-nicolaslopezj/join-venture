@@ -55,14 +55,14 @@
 				</small>
 			</div>
 			<span class="pull-right text-semi">
-				<i class="icm icm-clock"></i> 
+				<i class="icm icm-clock"></i>
 				<span>{{ livestamp createdAt }}</span>
 			</span>
 		</div>
 		<div class="panel-body panel-colorize">
 			{{# if isEditing }}
 				{{# autoForm collection="Posts" id="projectPostsUpdateForm" type="update" doc=this }}
-					{{# each afFieldNames fields="content" }}
+					{{# each afFieldNames fields="title,content" }}
 						{{> afQuickField name=this.name options=afOptionsFromSchema}}
 					{{/ each }}
 					<a class="btn btn-default btn-cancel" href="#">Back</a>
