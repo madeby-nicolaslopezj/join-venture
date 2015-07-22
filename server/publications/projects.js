@@ -20,11 +20,12 @@ Meteor.publishComposite('project', function(projectId) {
 	var userId = this.userId;
 	return {
 		find: function() {
-			if ((Meteor.users.findOne(userId).isAdmin()) ||
+			var user = Meteor.users.findOne(userId);
+			if ((user && user.isAdmin()) ||
 				(Roles.find({ projectId: projectId, userId: userId, accepted: true }).count() != 0)) {
 				return Projects.find({ _id: projectId });
 			} else {
-				return;
+				return [];
 			}
         },
         children: [
