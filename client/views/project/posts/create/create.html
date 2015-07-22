@@ -10,6 +10,7 @@
 		</div>
 	</div>
 	<div class="row">
+		{{# if currentUser.canEditProject _id }}
 		<div class="col-sm-8 col-sm-offset-2">
 			<div class="panel panel-default">
 				<div class="panel-body">
@@ -25,5 +26,6 @@
 				</div>
 			</div>
 		</div>
+		{{/ if }}
 	</div>
 </template>

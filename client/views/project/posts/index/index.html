@@ -5,11 +5,13 @@
 		 		<i class="fa fa-rss text-gradient-info-dk"></i>
 		 		<span class="text-gradient-info-dk">
 		 			Timeline
+					{{# if currentUser.canEditProject _id }}
 		 			<small>
 		 				<a href="{{ pathFor 'project.posts.create' }}">
 		 					New
 		 				</a>
 		 			</small>
+					{{/ if }}
 		 		</span>
 		 	</h3>
 		</div>
@@ -50,9 +52,11 @@
 						<small class="text-muted">{{ name }}</small>
 					{{/ with }}
 				</span>
+				{{# if currentUser.canEditProject _id }}
 				<small>
 					<a href="#" class="edit-btn">Edit</a>
 				</small>
+				{{/ if }}
 			</div>
 			<span class="pull-right text-semi">
 				<i class="icm icm-clock"></i>
