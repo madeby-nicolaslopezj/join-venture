@@ -86,6 +86,11 @@
 						href="{{ pathFor 'project.index' }}">Go</a>
 					</div>
 					<p><i>{{ nextReviewType }} review</i></p>
+					{{# if lastestReview.isPending }}
+						<p>
+							<b>In progress</b>
+						</p>
+					{{/ if }}
 					{{# if lastestReview.isDenied }}
 						Review Denied
 					{{/ if }}
