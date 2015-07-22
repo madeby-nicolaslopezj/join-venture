@@ -1,5 +1,5 @@
 Meteor.methods({
-	projectsInvite: function (projectId, email, role) {
+	projectsInvite: function (projectId, email, role, isInvestor) {
 		var user = Meteor.users.findOne({ emails: { $elemMatch: { address: email } } });
 		var project = Projects.findOne(projectId);
 
@@ -19,7 +19,7 @@ Meteor.methods({
 			accepted: false,
 			userId: user._id,
 			projectId: project._id,
-			type: 'entrepreneur',
+			type: isInvestor ? 'investor' : 'entrepreneur',
 			role: role
 		}
 

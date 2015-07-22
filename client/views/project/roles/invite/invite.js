@@ -1,9 +1,10 @@
 Template.projectRolesInvite.events({
-	'click [type="submit"]': function(event) {
+	'click [type="submit"]': function(event, template) {
 		var projectId = this._id;
-		var email = $("[name='email']").val();
-		var role = $("[name='role']").val();
-		Meteor.call('projectsInvite', projectId, email, role, function (error, result) {
+		var email = template.$("[name='email']").val();
+		var role = template.$("[name='role']").val();
+		var isInvestor = template.$('input[type=checkbox]').is(':checked')
+		Meteor.call('projectsInvite', projectId, email, role, isInvestor, function (error, result) {
 			if (error) {
 				console.log(error);
 				Session.set('projectRolesInviteError', error);
