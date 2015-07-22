@@ -5,11 +5,13 @@
 		 		<i class="fa fa-dashboard text-gradient-info-dk"></i>
 		 		<span class="text-gradient-info-dk">
 		 			Dashboard
+					{{# if currentUser.canEditProject _id }}
 		 			<small>
 		 				<a href="{{ pathFor 'project.indicators.create' }}">
 		 					Add indicators
 		 				</a>
 		 			</small>
+					{{/ if }}
 		 		</span>
 		 	</h3>
 		</div>
