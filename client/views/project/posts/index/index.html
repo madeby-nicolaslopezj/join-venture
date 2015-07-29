@@ -52,7 +52,7 @@
 						<small class="text-muted">{{ name }}</small>
 					{{/ with }}
 				</span>
-				{{# if currentUser.canEditProject _id }}
+				{{# if currentUser.canEditProject ../_id }}
 				<small>
 					<a href="#" class="edit-btn">Edit</a>
 				</small>
