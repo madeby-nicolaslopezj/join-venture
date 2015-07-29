@@ -44,7 +44,6 @@ UsersProfileSchema = new SimpleSchema({
     },
     website: {
         type: String,
-        regEx: SimpleSchema.RegEx.Url,
         optional: true
     },
     description: {
@@ -260,7 +259,7 @@ UsersInvestorProfileSchema = new SimpleSchema({
             type: 'textarea'
         }
     },
-    
+
 });
 
 UsersSchema = new SimpleSchema({
