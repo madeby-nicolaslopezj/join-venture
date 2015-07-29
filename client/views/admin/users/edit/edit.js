@@ -6,3 +6,12 @@ Template.adminUsersEdit.helpers({
 		return Meteor.user();
 	}
 });
+
+AutoForm.addHooks('adminUsersEditForm', {
+	onSuccess: function(formType, result) {
+		toastr.success('Your profile was successfully saved', 'Profile Saved');
+	},
+  onError: function(formType, error) {
+		toastr.error('There was an error saving your profile', 'Error');
+	}
+});
