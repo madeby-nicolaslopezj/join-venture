@@ -4,7 +4,7 @@
       <h3 class="em-page-header v-mid-row thin">
         <i class="fa fa-dashboard text-gradient-info-dk"></i>
         <span class="text-gradient-info-dk">
-          Available Projects
+          {{ _ "projects.index.interested.title" }}
         </span>
       </h3>
     </div>
@@ -21,28 +21,28 @@
                   <h5>{{ subtitle }}</h5>
                   {{# if currentUser.isInterested patformId }}
                     <p>
-                      You are interested in this project
+                      {{ _ "projects.index.interested.youAreInterested" }}
                     </p>
                   {{/ if }}
                   {{# if currentUser.isInterested patformId }}
                     <div class="vpadded">
                       <a class="btn panel-lt btn-long btn-sm deinterest-btn btn-block" href="#">
-                        Not interested anymore
+                        {{ _ "projects.index.interested.cancelInterestBtn" }}
                       </a>
                     </div>
                     <div class="vpadded">
                       {{# if currentUser.canIView patformId }}
                         <a class="btn panel-lt btn-long btn-sm btn-block" href="{{ pathFor 'public.viewProject' _id=patformId }}">
-                          View Project Details
+                          {{ _ "projects.index.interested.viewDetails" }}
                         </a>
                       {{ else }}
-                        <p class="text-center">You can't view project details right now, we are reviewing your request.</p>
+                        <p class="text-center">{{ _ "projects.index.interested.reviewingInterest" }}</p>
                       {{/ if }}
                     </div>
                   {{ else }}
                     <div class="vpadded">
                       <a class="btn panel-lt btn-long btn-sm interest-btn btn-block" href="#">
-                        Mark as interesting
+                        {{ _ "projects.index.interested.markInterestBtn" }}
                       </a>
                     </div>
                   {{/ if }}

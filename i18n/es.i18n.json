@@ -1,5 +1,53 @@
 {
+  "global": {
+    "create": "Crear",
+    "go": "Ir",
+    "deny": "Denegar",
+    "accept": "Aceptar",
+    "inProgress": "En progreso",
+    "configuration": "Configuración"
+  },
   "projects": {
-    "title": "Proyectos"
+    "title": "Proyectos",
+    "review": {
+      "names": {
+        "analist": "Revisión de analista"
+      },
+      "status": {
+        "denied": "Revisión denegada"
+      }
+    },
+    "create": {
+      "title": "Crear un proyecto",
+      "labels": {
+        "name": "Nombre del proyecto"
+      },
+      "errors": {
+        "noName": "Por favor escribe un nombre. Puedes cambiarlo despues"
+      }
+    },
+    "index": {
+      "title": "Mis Proyectos",
+      "createProject": "Nuevo Proyecto",
+      "invest": "Invertir en un proyecto",
+      "interested": {
+        "title": "Proyectos disponibles",
+        "youAreInterested": "Estas interesado en este proyecto",
+        "viewDetails": "Ver el proyecto en detalle",
+        "cancelInterestBtn": "Dejar de estar interesado",
+        "markInterestBtn": "Marcar como interesante",
+        "reviewingInterest": "No puedes ver los detalles de este proyecto ahora, estamos revisando tu solicitud."
+      }
+    }
+  },
+  "users": {
+    "investor": {
+      "update": {
+        "title": "Perfil de Inversionista"
+      }
+    },
+    "update": {
+      "title": "Información Personal"
+    }
   }
 }

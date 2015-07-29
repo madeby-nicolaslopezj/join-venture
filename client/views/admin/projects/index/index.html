@@ -9,7 +9,7 @@
 		 	<h3 class="em-page-header v-mid-row thin">
 		 		<i class="fa fa-dashboard text-gradient-info-dk"></i>
 		 		<span class="text-gradient-info-dk">
-		 			My Projects
+		 			{{ _ "projects.index.title" }}
 		 		</span>
 		 	</h3>
 		</div>
@@ -45,9 +45,9 @@
 			<p>
 				<i>
 					<a href="{{ pathFor 'admin.projects.create' }}" class="btn btn-primary">
-						New Project
+						{{ _ "projects.index.createProject" }}
 					</a>
-					<a href="{{ pathFor 'admin.users.invest' }}" class="btn btn-danger">Invest on a project</a>
+					<a href="{{ pathFor 'admin.users.invest' }}" class="btn btn-danger">{{ _ "projects.index.invest" }}</a>
 				</i>
 			</p>
 		</div>
@@ -66,7 +66,7 @@
 					<h5>{{ myRole.role }}</h5>
 					<div class="vpadded">
 						<a class="btn panel-lt btn-long btn-sm"
-						href="{{ pathFor 'project.index' }}">Go</a>
+						href="{{ pathFor 'project.index' }}">{{ _ "global.go" }}</a>
 					</div>
 				</div>
 			</div>
@@ -83,16 +83,16 @@
 					<h5>{{ myRole.role }}</h5>
 					<div class="vpadded">
 						<a class="btn panel-lt btn-long btn-sm"
-						href="{{ pathFor 'project.index' }}">Go</a>
+						href="{{ pathFor 'project.index' }}">{{ _ "global.go" }}</a>
 					</div>
-					<p><i>{{ nextReviewType }} review</i></p>
+					<p><i>{{ nextReviewTypeName }}</i></p>
 					{{# if lastestReview.isPending }}
 						<p>
-							<b>In progress</b>
+							<b>{{ _ "global.inProgress" }}</b>
 						</p>
 					{{/ if }}
 					{{# if lastestReview.isDenied }}
-						Review Denied
+						{{ _ "project.review.status.denied" }}
 					{{/ if }}
 				</div>
 			</div>
@@ -108,8 +108,8 @@
 					<h3>{{ description.name }}</h3>
 					<h5>{{ myRole.type }} - {{ myRole.role }}</h5>
 					<div class="vpadded text-right">
-						<button class="btn panel-lt btn-sm btn-deny">Deny</button>
-						<button class="btn panel-lt btn-sm btn-accept">Accept</button>
+						<button class="btn panel-lt btn-sm btn-deny">{{ _ "global.deny" }}</button>
+						<button class="btn panel-lt btn-sm btn-accept">{{ _ "global.accept" }}</button>
 					</div>
 				</div>
 			</div>

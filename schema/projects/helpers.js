@@ -61,6 +61,9 @@ Projects.helpers({
 		}
 		return null
 	},
+	nextReviewTypeName: function() {
+		return TAPi18n.__('projects.review.names.' + this.nextReviewType());
+	},
 	itsApproved: function() {
 		return this.reviewStatus.analist && this.reviewStatus.expert && this.reviewStatus.comission
 	},

@@ -1,5 +1,14 @@
 {
+  "global": {
+    "create": "Create"
+  },
   "projects": {
+    "create": {
+      "title": "Create a Project",
+      "labels": {
+        "name": "Project name"
+      }
+    },
     "title": "Projects"
   }
 }
