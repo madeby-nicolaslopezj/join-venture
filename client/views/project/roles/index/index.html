@@ -25,6 +25,7 @@
 							<tr class="row-mid">
 								<th>Role</th>
 								<th>Name</th>
+								<th>Email</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -44,7 +45,7 @@
 										<small>
 											<span class="text-gradient-info-dk">{{ type }}</span>
 										</small>
-										
+
 									</td>
 									<td>
 										{{ user.profile.firstName }} {{ user.profile.lastName }}
@@ -62,6 +63,11 @@
 												{{/ unless }}
 											{{/ if }}
 										{{/ if }}
+									</td>
+									<td>
+										{{# each user.emails }}
+											{{ address }}
+										{{/ each }}
 									</td>
 								</tr>
 							{{/ each }}
