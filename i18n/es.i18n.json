@@ -7,7 +7,17 @@
     "inProgress": "En progreso",
     "configuration": "Configuración",
     "save": "Guardar",
-    "invest": "Invertir"
+    "invest": "Invertir",
+    "goBack": "Ir atrás",
+    "change": "Cambiar",
+    "remove": "Eliminar",
+    "cancel": "Cancelar",
+    "upload": "Subir",
+    "delete": "Eliminar",
+    "back": "Atrás",
+    "new": "Nuevo",
+    "invite": "Invitar",
+    "pending": "Pendiente"
   },
   "projects": {
     "title": "Proyectos",
@@ -16,7 +26,9 @@
         "analist": "Revisión de analista"
       },
       "status": {
-        "denied": "Revisión denegada"
+        "denied": "Revisión denegada",
+        "pending": "Revisión pendiente",
+        "approved": "Revisión aprobada"
       }
     },
     "create": {
@@ -24,7 +36,7 @@
       "labels": {
         "name": "Nombre del proyecto"
       },
-      "errors": {
+      "errors":  {
         "noName": "Por favor escribe un nombre. Puedes cambiarlo despues"
       }
     },
@@ -56,6 +68,161 @@
     },
     "password": {
       "title": "Cambiar Contraseña"
+    }
+  },
+  "global": {
+    "autoform": {
+      "file": {
+        "placeholder": "Para seleccionar un archivo cargalo en la pestaña archivos"
+      }
+    },
+    "textarea": {
+      "titles":  {
+        "person": "Insertar una persona",
+        "file": "Insertar un archivo",
+        "task": "Insertar una tarea"
+      }
+    }
+  },
+  "project": {
+    "description": {
+      "edit": {
+        "title": "Descripción",
+        "commentsFromReview": "Comentarios de la revisión",
+        "noComments": "No hay comentarios",
+        "sendToReview": "Enviar a la revisión"
+      },
+      "show": {
+        "title": "Descripción",
+        "editTitle": "Editar"
+      }
+    },
+    "files": {
+      "labels": {
+        "name": "Nombre",
+        "tags": "Tags",
+        "file": "Archivo",
+        "selectFile": "Seleccionar Archivo",
+        "change": "Cambiar",
+        "url": "Url"
+      },
+      "create": {
+        "title": "Subir un archivo"
+      },
+      "index": {
+        "title": "Archivos"
+      },
+      "show": {
+        "title": "Archivo"
+      }
+    },
+    "indicators": {
+      "add-data": {
+        "title": "Editar Datos"
+      },
+      "create": {
+        "title": "Crear un indicador"
+      },
+      "edit": {
+        "title": "Editar Indicador"
+      },
+      "index": {
+        "title": "Dashboard",
+        "add": "Agregar indicadores"
+      },
+      "show": {
+        "title": "Indicador"
+      }
+    },
+    "posts": {
+      "create": {
+        "title": "Nuevo Post"
+      },
+      "index": {
+        "title": "Timeline"
+      }
+    },
+    "review": {
+      "comments":  {
+        "title": "Comments",
+        "noGeneralComments": "No hay comentarios generales"
+      },
+      "create": {
+        "title": "Enviar a la siguente revisión"
+      },
+      "history": {
+        "title": "Historial de revisiones"
+      },
+      "index": {
+        "title": "Revisión",
+        "viewHistory": "Ver historial",
+        "mustBeReviewed": "El proyecto debe estar aprobado para usar el sitio completo",
+        "reviews":  {
+          "analist": "Revisión de analista",
+          "expert": "Revisión de experto",
+          "comission": "Revisión de la comisión"
+        }
+      },
+      "show": {
+        "review": "Revisión"
+      }
+    },
+    "roles": {
+      "labels": {
+        "role": "Rol",
+        "name": "Nombre",
+        "email": "Email",
+        "inversionist": "Inversionista"
+      },
+      "index": {
+        "title": "Roles"
+      },
+      "invite": {
+        "title": "Invitar"
+      }
+    },
+    "tasks": {
+      "labels": {
+        "title": "Título",
+        "description": "Descripción",
+        "tags": "Tags",
+        "asignees": "Asignados",
+        "selectUsers": "Seleccionar Usuarios",
+        "dueDate": "Fecha Final"
+      },
+      "create": {
+        "title": "Crear una tarea"
+      },
+      "index": {
+        "title": "Tareas",
+        "create": "Crear"
+      },
+      "show": {
+        "open": "abierta",
+        "closed": "cerrada",
+        "commented": "comentó",
+        "closedThisTask": "cerró esta tarea",
+        "reopenedThisTask": "re-abrió esta tarea",
+        "selfAssignedThis": "se auto asignó esta tarea",
+        "wasAssignedBy": "fué asignado por",
+        "removedThierAssignment": "removió su asignación",
+        "wasUnassignedBy": "fué desasignado por",
+        "addedTheTag": "agregó el tag",
+        "removedTheTag": "removó el tag",
+        "setTheDueDateTo": "cambió la fecha de termino a",
+        "closeTask": "Cerrar tarea",
+        "reopenTask": "Reabrir tarea",
+        "comment": "Comentar"
+      }
+    },
+    "sidebar":  {
+      "dashboard": "Dashboard",
+      "timeline": "Timeline",
+      "description": "Descripción",
+      "tasks": "Tareas",
+      "files": "Archivos",
+      "review": "Revisión",
+      "roles": "Roles"
     }
   }
 }

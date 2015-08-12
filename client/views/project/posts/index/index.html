@@ -4,11 +4,11 @@
 		 	<h3 class="em-page-header v-mid-row thin">
 		 		<i class="fa fa-rss text-gradient-info-dk"></i>
 		 		<span class="text-gradient-info-dk">
-		 			Timeline
+		 			{{ _ "project.posts.index.title" }}
 					{{# if currentUser.canEditProject _id }}
 		 			<small>
 		 				<a href="{{ pathFor 'project.posts.create' }}">
-		 					New
+		 					{{ _ "global.new" }}
 		 				</a>
 		 			</small>
 					{{/ if }}
@@ -54,7 +54,7 @@
 				</span>
 				{{# if currentUser.canEditProject ../_id }}
 				<small>
-					<a href="#" class="edit-btn">Edit</a>
+					<a href="#" class="edit-btn">{{ _ "global.edit" }}</a>
 				</small>
 				{{/ if }}
 			</div>
@@ -69,8 +69,8 @@
 					{{# each afFieldNames fields="title,content" }}
 						{{> afQuickField name=this.name options=afOptionsFromSchema}}
 					{{/ each }}
-					<a class="btn btn-default btn-cancel" href="#">Back</a>
-					<button class="btn btn-primary" type="submit">Save</button>
+					<a class="btn btn-default btn-cancel" href="#">{{ _ "global.back" }}</a>
+					<button class="btn btn-primary" type="submit">{{ _ "global.save" }}</button>
 				{{/ autoForm }}
 			{{ else }}
 				{{{ parse text=content showImages=true }}}

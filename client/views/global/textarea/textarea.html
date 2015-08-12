@@ -4,7 +4,7 @@
 	{{ else }}
 		<textarea name="{{ name }}" placeholder="{{ placeholder }}" rows="{{ rows }}" class="mention form-control">{{this.value}}</textarea>
 	{{/ if }}
-	<p class="help-block text-right insert-help"><span title="Insert a person">@</span> <span title="Insert a file">#</span> <span title="Insert a task">$</span></p>
+	<p class="help-block text-right insert-help"><span title="{{ _ "global.textarea.titles.person" }}">@</span> <span title="{{ _ "global.textarea.titles.file" }}">#</span> <span title="{{ _ "global.textarea.titles.task" }}">$</span></p>
 </template>
 
 <template name="parseUser">

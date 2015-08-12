@@ -4,9 +4,9 @@
 		 	<h3 class="em-page-header v-mid-row thin">
 		 		<i class="fa fa-check-square-o text-gradient-info-dk"></i>
 		 		<span class="text-gradient-info-dk">
-		 			Tasks 
+		 			{{ _ "project.tasks.index.title" }}
 		 			<small>
-		 				<a href="{{ pathFor 'project.tasks.create' }}">Create</a>
+		 				<a href="{{ pathFor 'project.tasks.create' }}">{{ _ "project.tasks.index.create" }}</a>
 		 			</small>
 		 		</span>
 		 	</h3>
@@ -82,7 +82,7 @@
 				    </label>
 					</div>
 					<div class="form-group">
-						<label>Tags</label>
+						<label>{{ _ "project.tasks.labels.tags" }}</label>
 						<select name="tags[]" class="form-control" multiple placeholder="Filter by tags">
 							{{# each tasksTags }}
 								<option value="{{ this }}">
@@ -92,7 +92,7 @@
 						</select>
 					</div>
 					<div class="form-group">
-						<label>Asignees</label>
+						<label>{{ _ "project.tasks.labels.asignees" }}</label>
 						<select name="assignees[]" class="form-control" multiple placeholder="Filter by assignees">
 							{{# each roles 'entrepreneur' }}
 								<option value="{{ userId }}" {{ isAssign }}>

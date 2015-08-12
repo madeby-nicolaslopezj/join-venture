@@ -4,7 +4,7 @@
 		 	<h3 class="em-page-header v-mid-row thin">
 		 		<i class="fa fa-edit text-gradient-info-dk"></i>
 		 		<span class="text-gradient-info-dk">
-		 			Description
+		 			{{ _ "project.description.edit.title" }}
 		 		</span>
 		 	</h3>
 		</div>
@@ -16,7 +16,7 @@
 				<div class="panel-body">
 					{{# if lastestReview.isDenied }}
 						<p>
-							Comments from review
+							{{ _ "project.description.edit.commentsFromReview" }}
 							<a href="{{ pathFor 'project.review.show' reviewId=lastestReview._id }}">
 								<b>
 									#{{ lastestReview._id }}
@@ -55,7 +55,7 @@
 														{{> projectReviewCommentsComment }}
 													{{/ each }}
 													{{# unless commentsForKey key }}
-														<p class="help-block"><i>No comments</i></p>
+														<p class="help-block"><i>{{ _ "project.description.edit.noComments" }}</i></p>
 													{{/ unless }}
 												{{/ if }}
 											{{/ with }}
@@ -65,8 +65,8 @@
 							{{/ each }}
 						{{/ if }}
 						{{# if hasPermissions }}
-							<button class="projectDescriptionEditFormSubmit btn btn-primary" type="submit">Save</button>
-							<a href="{{ pathFor 'project.review.index' }}" class="btn btn-info">Send to review</a>
+							<button class="projectDescriptionEditFormSubmit btn btn-primary" type="submit">{{ _ "global.save" }}</button>
+							<a href="{{ pathFor 'project.review.index' }}" class="btn btn-info">{{ _ "project.description.edit.sendToReview" }}</a>
 						{{/ if }}
 					{{/ autoForm }}
 				</div>

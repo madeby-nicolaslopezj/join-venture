@@ -4,11 +4,11 @@
 		 	<h3 class="em-page-header v-mid-row thin">
 		 		<i class="fa fa-dashboard text-gradient-info-dk"></i>
 		 		<span class="text-gradient-info-dk">
-		 			Dashboard
+		 			{{ _ "project.indicators.index.title" }}
 					{{# if currentUser.canEditProject _id }}
 		 			<small>
 		 				<a href="{{ pathFor 'project.indicators.create' }}">
-		 					Add indicators
+		 					{{ _ "project.indicators.index.add" }}
 		 				</a>
 		 			</small>
 					{{/ if }}

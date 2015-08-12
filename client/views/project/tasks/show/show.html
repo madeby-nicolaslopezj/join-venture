@@ -8,14 +8,14 @@
 		 		</span>
 		 		<small>
 		 			{{# if task.isOpen }}
-			 		<span class="label label-success">open</span>
+			 		<span class="label label-success">{{ _ "project.tasks.show.open" }}</span>
 			 		{{ else }}
-			 		<span class="label label-danger">closed</span>
+			 		<span class="label label-danger">{{ _ "project.tasks.show.closed" }}</span>
 			 		{{/ if }}
 		 		</small>
 		 	</h3>
 		 	<p>
-		 		
+
 		 	</p>
 		</div>
 	</div>
@@ -54,12 +54,12 @@
 			<div class="panel panel-primary">
 				<div class="panel-body">
 					<div class="form-group">
-						<label>Tags</label>
+						<label>{{ _ "project.tasks.labels.tags" }}</label>
 						<input name="tags" class="form-control" value="{{ task.joinedTags }}">
 					</div>
 					<div class="form-group">
-						<label>Asignees</label>
-						<select name="assignees[]" class="form-control" multiple placeholder="Select Users">
+						<label>{{ _ "project.tasks.labels.asigneed" }}</label>
+						<select name="assignees[]" class="form-control" multiple placeholder="{{ _ 'project.tasks.labels.selectUsers' }}">
 							{{# each roles 'entrepreneur' }}
 								<option value="{{ userId }}" {{ isAssign }}>
 									{{# with getUser userId }}
@@ -70,7 +70,7 @@
 						</select>
 					</div>
 					<div class="form-group">
-						<label>Due Date</label>
+						<label>{{ _ "project.tasks.labels.dueDate" }}</label>
 						<input id="datetimepicker1" type="text" class="form-control datetimepick" value="{{ dueDate }}">
 					</div>
 				</div>
@@ -84,11 +84,11 @@
 		<div class="panel-heading">
 			<div class="user">
 				{{# with getUser userId }}
-					<b>{{ name }}</b> commented
+					<b>{{ name }}</b> {{ _ "project.tasks.show.commented" }}
 				{{/ with }}
 				{{ livestamp createdAt }}
 				<span class="pull-right">
-					<a href="#" class="edit-btn" style="color: white">Edit</a>
+					<a href="#" class="edit-btn" style="color: white">{{ _ "global.edit" }}</a>
 				</span>
 			</div>
 		</div>
@@ -100,8 +100,8 @@
 						{{# each afFieldNames fields="comment" }}
 							{{> afQuickField name=this.name options=afOptionsFromSchema}}
 						{{/ each }}
-						<a class="btn btn-default btn-cancel" href="#">Back</a>
-						<button class="btn btn-primary" type="submit">Save</button>
+						<a class="btn btn-default btn-cancel" href="#">{{ _ "global.back" }}</a>
+						<button class="btn btn-primary" type="submit">{{ _ "global.save" }}</button>
 					{{/ autoForm }}
 				{{ else }}
 					{{{ parse text=comment showImages=true }}}
@@ -121,7 +121,7 @@
 		<div class="col-xs-10">
 			<div class="user" style="margin-top: 6px;">
 				{{# with getUser userId }}
-					<b>{{ name }}</b> closed this task
+					<b>{{ name }}</b> {{ _ "project.tasks.show.closedThisTask" }}
 				{{/ with }}
 				{{ livestamp createdAt }}
 			</div>
@@ -140,7 +140,7 @@
 		<div class="col-xs-10">
 			<div class="user" style="margin-top: 6px;">
 				{{# with getUser userId }}
-					<b>{{ name }}</b> reopened this task
+					<b>{{ name }}</b>  {{ _ "project.tasks.show.reopenedThisTask" }}
 				{{/ with }}
 				{{ livestamp createdAt }}
 			</div>
@@ -160,11 +160,11 @@
 			<div class="user" style="margin-top: 6px;">
 				{{# if selfAssign }}
 					{{# with getUser userId }}
-						<b>{{ name }}</b> self-assigned this
+						<b>{{ name }}</b> {{ _ "project.tasks.show.selfAssignedThis" }}
 					{{/ with }}
 				{{ else }}
 					{{# with getUser assignedId }}
-						<b>{{ name }}</b> was assigned by
+						<b>{{ name }}</b> {{ _ "project.tasks.show.wasAssignedBy" }}
 					{{/ with }}
 					{{# with getUser userId }}
 						<b>{{ name }}</b>
@@ -189,11 +189,11 @@
 			<div class="user" style="margin-top: 6px;">
 				{{# if selfAssign }}
 					{{# with getUser userId }}
-						<b>{{ name }}</b> removed their assignment
+						<b>{{ name }}</b> {{ _ "project.tasks.show.removedThierAssignment" }}
 					{{/ with }}
 				{{ else }}
 					{{# with getUser assignedId }}
-						<b>{{ name }}</b> was unassigned by
+						<b>{{ name }}</b> {{ _ "project.tasks.show.wasUnassignedBy" }}
 					{{/ with }}
 					{{# with getUser userId }}
 						<b>{{ name }}</b>
@@ -216,9 +216,9 @@
 		<div class="col-xs-10">
 			<div class="user" style="margin-top: 6px;">
 				{{# with getUser userId }}
-					<b>{{ name }}</b> added the
+					<b>{{ name }}</b> {{ _ "project.tasks.show.addedTheTag" }}
 				{{/ with }}
-				<span class="label label-primary">{{ tag }}</span> tag
+				<span class="label label-primary">{{ tag }}</span>
 				{{ livestamp createdAt }}
 			</div>
 		</div>
@@ -237,9 +237,9 @@
 		<div class="col-xs-10">
 			<div class="user" style="margin-top: 6px;">
 				{{# with getUser userId }}
-					<b>{{ name }}</b> removed the
+					<b>{{ name }}</b> {{ _ "project.tasks.show.removedTheTag" }}
 				{{/ with }}
-				<span class="label label-primary">{{ tag }}</span> tag
+				<span class="label label-primary">{{ tag }}</span>
 				{{ livestamp createdAt }}
 			</div>
 		</div>
@@ -257,7 +257,7 @@
 		<div class="col-xs-10">
 			<div class="user" style="margin-top: 6px;">
 				{{# with getUser userId }}
-					<b>{{ name }}</b> set the due date to
+					<b>{{ name }}</b> {{ _ "project.tasks.show.setTheDueDateTo" }}
 				{{/ with }}
 				<b>{{ shortDate newDate }}</b>
 				{{ livestamp createdAt }}
@@ -271,15 +271,15 @@
 	<div class="panel panel-default">
 		<div class="panel-body">
 			<div class="form-group">
-				{{> textarea name="comment" placeholder="Leave a comment" }}
+				{{> textarea name="comment" }}
 			</div>
 			<div class="form-group pull-right">
 				{{# if task.isOpen }}
-					<button class="btn btn-default">Close task</button>
+					<button class="btn btn-default">{{ _ "project.tasks.show.closeTask" }}</button>
 				{{ else }}
-					<button class="btn btn-default">Reopen task</button>
+					<button class="btn btn-default">{{ _ "project.tasks.show.reopenTask" }}</button>
 				{{/ if }}
-				<button class="btn btn-primary">Comment</button>
+				<button class="btn btn-primary">{{ _ "project.tasks.show.comment" }}</button>
 			</div>
 		</div>
 	</div>

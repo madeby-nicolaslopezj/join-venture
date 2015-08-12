@@ -1,7 +1,7 @@
 <template name="publicViewProject">
   {{# with project }}
     <h1 class="text-center">{{ description.name }}</h1>
-    <p class="text-center"><a href="{{ pathFor 'admin.projects.index' }}">go back</a></p>
+    <p class="text-center"><a href="{{ pathFor 'admin.projects.index' }}">{{ _ "global.goBack" }}</a></p>
     <div class="row">
       <div class="col-sm-8 col-sm-offset-2">
         <div class="panel panel-default">

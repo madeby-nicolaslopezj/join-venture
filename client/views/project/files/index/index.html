@@ -4,10 +4,10 @@
 		 	<h3 class="em-page-header v-mid-row thin">
 		 		<i class="fa fa-files-o text-gradient-info-dk"></i>
 		 		<span class="text-gradient-info-dk">
-		 			Files
+		 			{{ _ "project.files.index.title" }}
 					{{# if currentUser.canEditProject _id }}
 		 			<small>
-		 				<a class="" href="{{ pathFor 'project.files.create' }}">Upload</a>
+		 				<a class="" href="{{ pathFor 'project.files.create' }}">{{ _ "global.upload" }}</a>
 		 			</small>
 					{{/ if }}
 		 		</span>
@@ -24,8 +24,8 @@
 							<thead>
 								<tr class="row-mid">
 									<th>Id</th>
-									<th>Name</th>
-									<th>Tags</th>
+									<th>{{ _ "project.files.labels.name" }}</th>
+									<th>{{ _ "project.files.labels.tags" }}</th>
 								</tr>
 							</thead>
 							<tbody>

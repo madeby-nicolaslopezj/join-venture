@@ -13,7 +13,7 @@
 				href="{{ pathFor 'project.indicators.index' }}">
 					<i class="oc-partial-icon fa fa-dashboard"></i>
 					<span class="oc-partial-menu-item">
-						Dashboard
+						{{ _ "project.sidebar.dashboard" }}
 					</span>
 				</a>
 			</li>
@@ -24,7 +24,7 @@
 				href="{{ pathFor 'project.posts.index' }}">
 					<i class="oc-partial-icon fa fa-rss"></i>
 					<span class="oc-partial-menu-item">
-						Timeline
+						{{ _ "project.sidebar.timeline" }}
 					</span>
 				</a>
 			</li>
@@ -34,7 +34,7 @@
 				href="{{ pathFor 'project.description.edit' }}">
 					<i class="oc-partial-icon fa fa-info"></i>
 					<span class="oc-partial-menu-item">
-						Description
+						{{ _ "project.sidebar.description" }}
 					</span>
 				</a>
 			</li>
@@ -54,7 +54,7 @@
 				href="{{ pathFor 'project.tasks.index' }}">
 					<i class="oc-partial-icon fa fa-check-square-o"></i>
 					<span class="oc-partial-menu-item">
-						Tasks
+						{{ _ "project.sidebar.tasks" }}
 					</span>
 				</a>
 			</li>
@@ -64,7 +64,7 @@
 				href="{{ pathFor 'project.files.index' }}">
 					<i class="oc-partial-icon fa fa-files-o"></i>
 					<span class="oc-partial-menu-item">
-						Files
+						{{ _ "project.sidebar.files" }}
 					</span>
 				</a>
 			</li>
@@ -74,7 +74,7 @@
 				href="{{ pathFor 'project.review.index' }}">
 					<i class="oc-partial-icon fa fa-check"></i>
 					<span class="oc-partial-menu-item">
-						Review
+						{{ _ "project.sidebar.review" }}
 					</span>
 				</a>
 			</li>
@@ -84,7 +84,7 @@
 				href="{{ pathFor 'project.roles.index' }}">
 					<i class="oc-partial-icon fa fa-users"></i>
 					<span class="oc-partial-menu-item">
-						Roles
+						{{ _ "project.sidebar.roles" }}
 					</span>
 				</a>
 			</li>
@@ -93,7 +93,7 @@
 	<div class="oc-partial-hidden">
 		<div class="padded">
 			<a class="btn btn-black-dk btn-block" href="{{ pathFor 'admin.projects.index' }}">
-				<span class="text-dark-lt">Back</span>
+				<span class="text-dark-lt">{{ _ "global.back" }}</span>
 			</a>
 		</div>
 	</div>

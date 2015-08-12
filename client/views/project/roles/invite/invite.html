@@ -4,7 +4,7 @@
 		 	<h3 class="em-page-header v-mid-row thin">
 		 		<i class="fa fa-flask text-gradient-info-dk"></i>
 		 		<span class="text-gradient-info-dk">
-		 			Invite
+		 			{{ _ "project.roles.invite.title" }}
 		 		</span>
 		 	</h3>
 		</div>
@@ -21,20 +21,20 @@
 						{{/ if }}
 					</div>
 					<div class="form-group">
-						<label>Email</label>
+						<label>{{ _ "project.roles.labels.email" }}</label>
 						<input class="form-control" name="email">
 					</div>
 					<div class="form-group">
-						<label>Role</label>
+						<label>{{ _ "project.roles.labels.roles" }}</label>
 						<input class="form-control" name="role">
 					</div>
 					<div class="checkbox">
 				    <label>
-				      <input type="checkbox"> Inversionista
+				      <input type="checkbox"> {{ _ "project.roles.labels.inversionist" }}
 				    </label>
 				  </div>
-					<a class="btn btn-danger" href="{{ pathFor 'project.roles.index' }}">Cancel</a>
-					<button class="btn btn-primary" type="submit">Invite</button>
+					<a class="btn btn-danger" href="{{ pathFor 'project.roles.index' }}">{{ _ "global.cancel" }}</a>
+					<button class="btn btn-primary" type="submit">{{ _ "global.invite" }}</button>
 				</div>
 			</div>
 		</div>

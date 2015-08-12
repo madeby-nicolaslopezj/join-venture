@@ -4,7 +4,7 @@
 		 	<h3 class="em-page-header v-mid-row thin">
 		 		<i class="fa fa-files-o text-gradient-info-dk"></i>
 		 		<span class="text-gradient-info-dk">
-		 			File 
+		 			{{ _ "project.files.show.title" }}
 		 			<small>
 		 				{{ file.name }}
 		 			</small>
@@ -35,23 +35,23 @@
 								</h4>
 							</div>
 							<div class="form-group">
-								<label>Name</label>
+								<label>{{ _ "project.files.labels.name" }}</label>
 								<p><b>{{ file.name }}</b></p>
 							</div>
 							<div class="form-group">
-								<label>Url</label>
+								<label>{{ _ "project.files.labels.url" }}</label>
 								<p>
 									<a href="{{ file.url }}">{{ file.url }}</a>
 								</p>
 							</div>
 							<div class="form-group">
-								<label>Tags</label>
+								<label>{{ _ "project.files.labels.tags" }}</label>
 								<input name="tags" class="form-control" value="{{ file.joinedTags }}">
 							</div>
 							<br>
 							<div class="form-group">
-								<a class="btn btn-default" href="{{ pathFor 'project.files.index' }}">Back</a>
-								<button class="btn btn-danger btn-delete">Delete</button>
+								<a class="btn btn-default" href="{{ pathFor 'project.files.index' }}">{{ _ "global.back" }}</a>
+								<button class="btn btn-danger btn-delete">{{ _ "global.delete" }}</button>
 							</div>
 						</div>
 					</div>

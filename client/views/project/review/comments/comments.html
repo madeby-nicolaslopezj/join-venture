@@ -6,7 +6,7 @@
 					{{> projectReviewCommentsComment }}
 				{{/ each }}
 				{{# unless commentsForKey 'general' }}
-					<p class="help-block"><i>No general comments</i></p>
+					<p class="help-block"><i>{{ _ "project.review.comments.noGeneralComments" }}</i></p>
 				{{/ unless }}
 				{{# if shouldRespond }}
 					{{> projectReviewCommentsInput key='general' }}
@@ -40,7 +40,7 @@
 		<div class="form-group">
 			<textarea rel="autosize" placeholder="Comment" class="form-control"></textarea>
 		</div>
-		<button class="btn btn-danger">Comment</button>
+		<button class="btn btn-danger">{{ _ "project.review.comments.title" }}</button>
 	</div>
 </template>
 

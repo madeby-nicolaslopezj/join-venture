@@ -4,11 +4,11 @@
 		 	<h3 class="em-page-header v-mid-row thin">
 		 		<i class="fa fa-flask text-gradient-info-dk"></i>
 		 		<span class="text-gradient-info-dk">
-		 			Roles
+		 			{{ _ "project.review.index.title" }}
 		 			{{# if canInvite }}
 			 			<small>
 			 				<a href="{{ pathFor 'project.roles.invite' }}">
-			 					Invite
+			 					{{ _ "global.invite" }}
 			 				</a>
 			 			</small>
 		 			{{/ if }}
@@ -23,9 +23,9 @@
 					<table class="table table-hover">
 						<thead>
 							<tr class="row-mid">
-								<th>Role</th>
-								<th>Name</th>
-								<th>Email</th>
+								<th>{{ _ "project.roles.labels.role" }}</th>
+								<th>{{ _ "project.roles.labels.name" }}</th>
+								<th>{{ _ "project.roles.labels.email" }}</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -51,7 +51,7 @@
 										{{ user.profile.firstName }} {{ user.profile.lastName }}
 										{{# unless accepted }}
 											<small>
-												<span class="text-gradient-danger-dk">pending</span>
+												<span class="text-gradient-danger-dk">{{ _ "global.pending" }}</span>
 											</small>
 										{{/ unless }}
 										{{# if project.canInvite }}

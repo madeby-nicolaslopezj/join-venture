@@ -2,16 +2,16 @@
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			{{# if review.isApproved }}
-				<span class="pull-right label label-success">approved</span>
+				<span class="pull-right label label-success">{{ _ "projects.review.status.approved" }}</span>
 			{{/ if }}
 			{{# if review.isDenied }}
-				<span class="pull-right label label-danger">denied</span>
+				<span class="pull-right label label-danger">{{ _ "projects.review.status.denied" }}</span>
 			{{/ if }}
 			{{# if review.isPending }}
-				<span class="pull-right label label-default">pending</span>
+				<span class="pull-right label label-default">{{ _ "projects.review.status.pending" }}</span>
 			{{/ if }}
 			<h3 class="panel-title">
-				Review <b>#{{ review._id }}</b>
+				{{ _ "project.review.show.review" }} <b>#{{ review._id }}</b>
 			</h3>
 		</div>
 		<div class="panel-body">
@@ -42,15 +42,15 @@
 									<p>Unknown name</p>
 									<p class="help-block">Not in the project anymore</p>
 								{{/ if }}
-								
+
 							</div>
 						{{/ each }}
 					</div>
 					<div class="text-center">
 						{{# if shouldRespond }}
 							<p class="response">
-								<button class="btn btn-danger btn-lg">Deny</button>
-								<button class="btn btn-success btn-lg">Accept</button>
+								<button class="btn btn-danger btn-lg">{{ _ "global.deny" }}</button>
+								<button class="btn btn-success btn-lg">{{ _ "global.accept" }}</button>
 							</p>
 							<br>
 						{{/ if }}

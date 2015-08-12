@@ -4,7 +4,7 @@
 		 	<h3 class="em-page-header v-mid-row thin">
 		 		<i class="fa fa-dashboard text-gradient-info-dk"></i>
 		 		<span class="text-gradient-info-dk">
-		 			Edit Data
+		 			{{ _ "project.indicators.add-data.title" }}
 		 			<small>
 		 				{{ indicator.title }}
 		 			</small>
@@ -25,8 +25,8 @@
 								{{> afQuickField name=this.name options=afOptionsFromSchema}}
 							{{/ each }}
 
-							<a class="btn btn-default" href="{{ pathFor 'project.indicators.index' }}">Back</a>
-							<button class="btn btn-primary" type="submit">Save</button>
+							<a class="btn btn-default" href="{{ pathFor 'project.indicators.index' }}">{{ _ "global.back" }}</a>
+							<button class="btn btn-primary" type="submit">{{ _ "global.save" }}</button>
 						{{/ autoForm }}
 					{{ else }}
 						{{# autoForm collection="IndicatorsStates" doc=indicator.currentData id="projectIndicatorsAddDataForm" type="insert" }}
@@ -37,8 +37,8 @@
 								{{> afQuickField name=this.name options=afOptionsFromSchema}}
 							{{/ each }}
 
-							<a class="btn btn-default" href="{{ pathFor 'project.indicators.index' }}">Back</a>
-							<button class="btn btn-primary" type="submit">Save</button>
+							<a class="btn btn-default" href="{{ pathFor 'project.indicators.index' }}">{{ _ "global.back" }}</a>
+							<button class="btn btn-primary" type="submit">{{ _ "global.save" }}</button>
 						{{/ autoForm }}
 					{{/ if }}
 				</div>

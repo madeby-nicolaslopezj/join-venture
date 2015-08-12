@@ -4,7 +4,7 @@
 		 	<h3 class="em-page-header v-mid-row thin">
 		 		<i class="fa fa-rss text-gradient-info-dk"></i>
 		 		<span class="text-gradient-info-dk">
-		 			New Post
+		 			{{ _ "project.posts.create.title" }}
 		 		</span>
 		 	</h3>
 		</div>
@@ -20,8 +20,8 @@
 						{{# each afFieldNames omitFields="projectId,userId" }}
 							{{> afQuickField name=this.name options=afOptionsFromSchema}}
 						{{/ each }}
-						<a class="btn btn-default" href="{{ pathFor 'project.posts.index' }}">Back</a>
-						<button class="btn btn-primary" type="submit">Post</button>
+						<a class="btn btn-default" href="{{ pathFor 'project.posts.index' }}">{{ _ "global.back" }}</a>
+						<button class="btn btn-primary" type="submit">{{ _ "global.create" }}</button>
 					{{/ autoForm }}
 				</div>
 			</div>

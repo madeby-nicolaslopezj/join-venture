@@ -4,7 +4,7 @@
 		 	<h3 class="em-page-header v-mid-row thin">
 		 		<i class="fa fa-flask text-gradient-info-dk"></i>
 		 		<span class="text-gradient-info-dk">
-		 			Review History
+		 			{{ _ "project.review.history.title" }}
 		 		</span>
 		 	</h3>
 		</div>
@@ -23,15 +23,15 @@
 							</a>
 						</p>
 						<p>
-							<span class="label label-primary">{{ type }}</span>
+							<span class="label label-primary">{{ type }}</span> - 
 							{{# if isApproved }}
-								<span class="label label-success">approved</span>
+								<span class="label label-success">{{ _ "projects.review.status.approved" }}</span>
 							{{/ if }}
 							{{# if isDenied }}
-								<span class="label label-danger">denied</span>
+								<span class="label label-danger">{{ _ "projects.review.status.denied" }}</span>
 							{{/ if }}
 							{{# if isPending }}
-								<span class="label label-default">pending</span>
+								<span class="label label-default">{{ _ "projects.review.status.pending" }}</span>
 							{{/ if }}
 						</p>
 					</div>

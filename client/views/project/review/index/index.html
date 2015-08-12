@@ -4,7 +4,7 @@
 		 	<h3 class="em-page-header v-mid-row thin">
 		 		<i class="fa fa-flask text-gradient-info-dk"></i>
 		 		<span class="text-gradient-info-dk">
-		 			Review
+		 			{{ _ "project.review.index.title" }}
 		 		</span>
 		 	</h3>
 		</div>
@@ -13,20 +13,20 @@
 		<div class="col-sm-12">
 			<div class="wizard-steps">
 				<div class="wizard-step">
-					<div class="badge {{# if reviewStatus.analist }}badge-success{{ else }}badge-danger{{/ if }} badge-empty" title="Analist Review"></div>
+					<div class="badge {{# if reviewStatus.analist }}badge-success{{ else }}badge-danger{{/ if }} badge-empty" title="{{ _ 'project.review.index.reviews.analist' }}"></div>
 				</div>
 				<div class="wizard-step">
-					<div class="badge {{# if reviewStatus.expert }}badge-success{{ else }}badge-danger{{/ if }} badge-empty" title="Expert Review"></div>
+					<div class="badge {{# if reviewStatus.expert }}badge-success{{ else }}badge-danger{{/ if }} badge-empty" title="{{ _ 'project.review.index.reviews.expert' }}"></div>
 				</div>
 				<div class="wizard-step">
-					<div class="badge {{# if reviewStatus.comission }}badge-success{{ else }}badge-danger{{/ if }} badge-empty" title="Comission Review"></div>
+					<div class="badge {{# if reviewStatus.comission }}badge-success{{ else }}badge-danger{{/ if }} badge-empty" title="{{ _ 'project.review.index.reviews.comission' }}"></div>
 				</div>
 			</div>
 			{{# if lastestReview }}
 				{{> projectReviewShow review=lastestReview }}
 			{{ else }}
 				<div class="alert alert-danger">
-					<p>You project must be reviewed to active the full site</p>
+					<p>{{ _ "project.review.index.mustBeReviewed" }}</p>
 				</div>
 			{{/ if }}
 			{{# if canSubmitReview }}
@@ -36,7 +36,7 @@
 	</div>
 	<p class="text-center">
 		<a href="{{ pathFor 'project.review.history' }}">
-			View History
+			{{ _ "project.review.index.viewHistory" }}
 		</a>
 	</p>
 </template>
