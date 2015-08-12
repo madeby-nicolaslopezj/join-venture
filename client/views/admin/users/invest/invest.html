@@ -4,7 +4,7 @@
 		 	<h3 class="em-page-header v-mid-row thin">
 		 		<i class="fa fa-suitcase text-gradient-info-dk"></i>
 		 		<span class="text-gradient-info-dk">
-		 			Investor Profile
+		 			{{ _ "users.investor.update.title" }}
 		 		</span>
 		 	</h3>
 		</div>
@@ -13,12 +13,12 @@
 		<div class="col-sm-6 col-sm-offset-3">
 			<div class="panel panel-default">
 				<div class="panel-body">
-					<h3>Save your interests and we will contact you</h3>
-					<p><a class="btn btn-xs btn-primary" href="{{ pathFor 'admin.projects.index' }}">Select interested projects</a></p>
+					<h3>{{ _ "users.investor.update.subtitle" }}</h3>
+					<p><a class="btn btn-xs btn-primary" href="{{ pathFor 'admin.projects.index' }}">{{ _ "users.investor.update.selectProject" }}</a></p>
 					<hr>
 					{{# autoForm collection=collection doc=doc id="adminUsersInvestForm" type="update" }}
 						{{> afQuickFields name="investorProfile"}}
-						<button type="submit" class="btn btn-primary">Save</button>
+						<button type="submit" class="btn btn-primary">{{ _ "global.save" }}</button>
 					{{/ autoForm }}
 				</div>
 			</div>

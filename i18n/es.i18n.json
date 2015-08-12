@@ -5,7 +5,9 @@
     "deny": "Denegar",
     "accept": "Aceptar",
     "inProgress": "En progreso",
-    "configuration": "Configuración"
+    "configuration": "Configuración",
+    "save": "Guardar",
+    "invest": "Invertir"
   },
   "projects": {
     "title": "Proyectos",
@@ -43,11 +45,17 @@
   "users": {
     "investor": {
       "update": {
-        "title": "Perfil de Inversionista"
+        "title": "Perfil de Inversionista",
+        "subtitle": "Guarda tus intereses y te contactaremos",
+        "selectProject": "Selecciona los proyectos que te interesen"
       }
     },
     "update": {
-      "title": "Información Personal"
+      "title": "Información Personal",
+      "subtitle": "Guarda tu perfil para que te contactemos"
+    },
+    "password": {
+      "title": "Cambiar Contraseña"
     }
   }
 }
