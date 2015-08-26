@@ -14,7 +14,7 @@
 					</p>
 				{{/ with }}
 			{{ else }}
-				<p class="help-block">No file</p>
+				<p class="help-block">{{ _ "misc.autoform.file.noFile" }}</p>
 			{{/ if }}
 		{{ else }}
 		<select class="selectize" {{ this.atts }} placeholder="{{ _ "misc.autoform.file.placeholder" }}"></select>

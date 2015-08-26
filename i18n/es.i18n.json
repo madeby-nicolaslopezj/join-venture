@@ -74,7 +74,8 @@
   "misc": {
     "autoform": {
       "file": {
-        "placeholder": "Para seleccionar un archivo cargalo en la pestaña archivos"
+        "placeholder": "Para seleccionar un archivo cargalo en la pestaña archivos",
+        "noFile": "Sin archivo"
       }
     },
     "textarea": {
