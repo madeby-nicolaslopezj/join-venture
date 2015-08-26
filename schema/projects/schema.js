@@ -36,17 +36,7 @@ ProjectsDescriptionSchema = new SimpleSchema({
 		type: String,
 		optional: true,
 		autoform: {
-			noselect: true,
-			options: {
-				'Retail': 'Retail',
-				'services': 'Services',
-				'Biotecnology': 'Biotecnology',
-				'Health': 'Health',
-				'Basic Services': 'Basic Services',
-				'Energy Efficiency': 'Energy Efficiency',
-				'General Services': 'General Services',
-				'TICS': 'TICS'
-			}
+			noselect: true
 		}
 	},
 	'marketAndOpportunity.referencesLinksOfTheMarket': {
@@ -252,19 +242,11 @@ ProjectsDescriptionSchema = new SimpleSchema({
 		type: String,
 		optional: true,
 		autoform: {
-			noselect: true,
-			options: {
-				'Concept': 'Concept',
-				'Seed': 'Seed (prototype)',
-				'Early Stage': 'Early Stage',
-				'Growing': 'Growing',
-				'Consolidated': 'Consolidated',
-			}
+			noselect: true
 		}
 	},
 	'actualStateAndProyections.employeesNumber': {
 		type: Number,
-
 		optional: true,
 	},
 	'actualStateAndProyections.mensualIncome': {
@@ -303,14 +285,7 @@ ProjectsDescriptionSchema = new SimpleSchema({
 		type: String,
 		optional: true,
 		autoform: {
-			noselect: true,
-			options: {
-				'No Sales': 'No Sales',
-				'First Sales': 'First Sales',
-				'Breakeven': 'Breakeven',
-				'Rentable': 'Rentable',
-				'Growing': 'Growing',
-			}
+			noselect: true
 		}
 	},
 	finances: {

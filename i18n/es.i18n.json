@@ -296,7 +296,17 @@
         "label": "Describe la oportunidad"
       },
       "description_marketAndOpportunity_industry": {
-        "label": "Industria"
+        "label": "Industria",
+        "options": {
+          "Retail": "Retail",
+          "services": "Servicios",
+          "Biotecnology": "Biotecnología",
+  				"Health": "Salud",
+          "Basic Services": "Servicios Básicos",
+          "Energy Efficiency": "Eficiencia energetica",
+          "General Services": "Servicios Generales",
+          "TICS": "TICS"
+        }
       },
       "description_marketAndOpportunity_referencesLinksOfTheMarket": {
         "label": "Links de referencias del mercado"
@@ -401,7 +411,14 @@
         "label": "Estrategia comercial"
       },
       "description_actualStateAndProyections_investmentStage": {
-        "label": "Estado de inversión"
+        "label": "Estado de inversión",
+        "options": {
+          "Concept": "Concepto",
+          "Seed": "Semilla",
+          "Early Stage": "Primeras Etapas",
+          "Growing": "En Crecimiento",
+          "Consolidated": "Consolidado"
+        }
       },
       "description_actualStateAndProyections_employeesNumber": {
         "label": "Numero de empleados"
@@ -413,7 +430,14 @@
         "label": "Numero de clientes"
       },
       "description_actualStateAndProyections_commercialStatus": {
-        "label": "Estado comercial"
+        "label": "Estado comercial",
+        "options": {
+          "No Sales": "Sin ventas",
+  				"First Sales": "Primeras ventas",
+  				"Breakeven": "Breakeven",
+  				"Rentable": "Rentable",
+  				"Growing": "En Crecimiento"
+        }
       },
       "description_finances": {
         "label": "Finanzas"
