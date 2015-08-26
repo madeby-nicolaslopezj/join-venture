@@ -31,7 +31,8 @@ aldeed:autoform-bs-datepicker
 sjors:meteor-masonry
 chrismbeckett:toastr
 4commerce:meteor-namespace-template-helper
-gwendall:simple-schema-i18n
 tap:i18n
+gwendall:autoform-i18n
+gwendall:simple-schema-i18n
 softwarerero:accounts-t9n
 useraccounts:iron-routing

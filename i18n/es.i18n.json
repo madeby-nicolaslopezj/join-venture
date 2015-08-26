@@ -17,7 +17,8 @@
     "back": "Atrás",
     "new": "Nuevo",
     "invite": "Invitar",
-    "pending": "Pendiente"
+    "pending": "Pendiente",
+    "edit": "Editar"
   },
   "projects": {
     "title": "Proyectos",
@@ -37,7 +38,7 @@
         "name": "Nombre del proyecto"
       },
       "errors":  {
-        "noName": "Por favor escribe un nombre. Puedes cambiarlo despues"
+        "noName": "Por favor escribe un nombre_ Puedes cambiarlo despues"
       }
     },
     "index": {
@@ -50,7 +51,7 @@
         "viewDetails": "Ver el proyecto en detalle",
         "cancelInterestBtn": "Dejar de estar interesado",
         "markInterestBtn": "Marcar como interesante",
-        "reviewingInterest": "No puedes ver los detalles de este proyecto ahora, estamos revisando tu solicitud."
+        "reviewingInterest": "No puedes ver los detalles de este proyecto ahora, estamos revisando tu solicitud_"
       }
     }
   },
@@ -70,7 +71,7 @@
       "title": "Cambiar Contraseña"
     }
   },
-  "global": {
+  "misc": {
     "autoform": {
       "file": {
         "placeholder": "Para seleccionar un archivo cargalo en la pestaña archivos"
@@ -195,7 +196,10 @@
       },
       "index": {
         "title": "Tareas",
-        "create": "Crear"
+        "create": "Crear",
+        "showClosed": "Mostrar completadas",
+        "filterByTags": "Filtrar por tags",
+        "filterByAsignees": "Filtrar por asignados"
       },
       "show": {
         "open": "abierta",
@@ -223,6 +227,374 @@
       "files": "Archivos",
       "review": "Revisión",
       "roles": "Roles"
+    }
+  },
+  "schemas": {
+    "files": {
+      "url": {
+        "label": "Url"
+      },
+      "name": {
+        "label": "Nombre"
+      },
+      "tags": {
+        "label": "Tags"
+      }
+    },
+    "indicatorsStates": {
+      "text": {
+        "label": "Texto"
+      },
+      "linegraph_$_title": {
+        "label": "Título"
+      }
+    },
+    "indicators": {
+      "title": {
+        "label": "Título"
+      },
+      "type": {
+        "label": "Tipo"
+      },
+      "position": {
+        "label": "Posición"
+      },
+      "size": {
+        "label": "Tamaño"
+      },
+      "color": {
+        "label": "Color"
+      }
+    },
+    "posts": {
+      "title": {
+        "label": "Título"
+      },
+      "content": {
+        "label": "Contenido"
+      }
+    },
+    "projectsReviewStatus": {
+      "analist": {
+        "label": "Aprobado por el analista"
+      },
+      "expert": {
+        "label": "Aprobado por el experto"
+      },
+      "comission": {
+        "label": "Aprobado por la comisión"
+      }
+    },
+    "projects": {
+      "description_name": {
+        "label": "Nombre"
+      },
+      "description_marketAndOpportunity": {
+        "label": "Mercado y oportunidad"
+      },
+      "description_marketAndOpportunity_opportunity": {
+        "label": "Describe la oportunidad"
+      },
+      "description_marketAndOpportunity_industry": {
+        "label": "Industria"
+      },
+      "description_marketAndOpportunity_referencesLinksOfTheMarket": {
+        "label": "Links de referencias del mercado"
+      },
+      "description_marketAndOpportunity_referencesLinksOfTheMarket_$_link": {
+        "label": "Link"
+      },
+      "description_marketAndOpportunity_referencesLinksOfTheMarket_$_description": {
+        "label": "Descripción"
+      },
+      "description_business": {
+        "label": "Proyecto"
+      },
+      "description_business_logo": {
+        "label": "Logo"
+      },
+      "description_business_tweet": {
+        "label": "Tweet del proyecto"
+      },
+      "description_business_businessPresentation": {
+        "label": "Presentación"
+      },
+      "description_business_description": {
+        "label": "Describe el proyecto brevemente"
+      },
+      "description_team": {
+        "label": "Equipo"
+      },
+      "description_team_members": {
+        "label": "Miembros"
+      },
+      "description_team_members_$_firstName": {
+        "label": "Nombre"
+      },
+      "description_team_members_$_lastName": {
+        "label": "Apellido"
+      },
+      "description_team_members_$_rut": {
+        "label": "Rut"
+      },
+      "description_team_members_$_linkedin": {
+        "label": "Linkedin"
+      },
+      "description_team_members_$_role": {
+        "label": "Rol"
+      },
+      "description_team_members_$_experience": {
+        "label": "Años de experiencia"
+      },
+      "description_team_members_$_relevantExperience": {
+        "label": "Experiencia relevante"
+      },
+      "description_team_members_$_dedication": {
+        "label": "Dedicación (min 1%, max 100%)"
+      },
+      "description_team_members_$_profesion": {
+        "label": "Profesión"
+      },
+      "description_history": {
+        "label": "Hitos y hechos relevantes"
+      },
+      "description_history_founded": {
+        "label": "Fundado"
+      },
+      "description_history_history": {
+        "label": "Historia"
+      },
+      "description_history_milestones": {
+        "label": "Hitos"
+      },
+      "description_history_milestones_$_date": {
+        "label": "Fecha"
+      },
+      "description_history_milestones_$_description": {
+        "label": "Descripción"
+      },
+      "description_history_interestingLinks": {
+        "label": "Links de interés"
+      },
+      "description_history_interestingLinks_$_link": {
+        "label": "Link"
+      },
+      "description_history_interestingLinks_$_description": {
+        "label": "Descripción"
+      },
+      "description_history_references": {
+        "label": "Referencias"
+      },
+      "description_history_references_$_email": {
+        "label": "Email"
+      },
+      "description_history_references_$_phone": {
+        "label": "Teléfono"
+      },
+      "description_history_references_$_description": {
+        "label": "Descripción"
+      },
+      "description_actualStateAndProyections": {
+        "label": "Estado actual y proyecciones"
+      },
+      "description_actualStateAndProyections_commercialStrategy": {
+        "label": "Estrategia comercial"
+      },
+      "description_actualStateAndProyections_investmentStage": {
+        "label": "Estado de inversión"
+      },
+      "description_actualStateAndProyections_employeesNumber": {
+        "label": "Numero de empleados"
+      },
+      "description_actualStateAndProyections_mensualIncome": {
+        "label": "Ingresos en los últimos 12 meses"
+      },
+      "description_actualStateAndProyections_numberOfClients": {
+        "label": "Numero de clientes"
+      },
+      "description_actualStateAndProyections_commercialStatus": {
+        "label": "Estado comercial"
+      },
+      "description_finances": {
+        "label": "Finanzas"
+      },
+      "description_finances_plansToSpendTheCapital": {
+        "label": "Plan para gastar el capital"
+      },
+      "description_finances_plansToSpendTheCapital_$_plan": {
+        "label": "Plan"
+      },
+      "description_finances_plansToSpendTheCapital_$_percentage": {
+        "label": "Porcentage"
+      },
+      "description_finances_businessModel": {
+        "label": "Modelo de negocios"
+      },
+      "description_finances_payback": {
+        "label": "Payback en meses"
+      },
+      "description_finances_npd5YearsPercetage": {
+        "label": "Valor neto presente (razon de descuento)"
+      },
+      "description_finances_npd5YearsNumber": {
+        "label": "Valor neto presente"
+      },
+      "description_finances_actualOperationalMargin": {
+        "label": "Margen de operación actual"
+      },
+      "description_finances_stableOperationalMargin": {
+        "label": "Margen de operación estable"
+      },
+      "description_finances_averageMonthlyClientsInTheLast12Months": {
+        "label": "Numero de clientes aproximado en los útimos 12 meses"
+      },
+      "description_finances_averageMonthlyBillingInTheLast12Months": {
+        "label": "Ingresos mensuales aproximados en los últimos 12 meses"
+      },
+      "description_finances_averageMonthlyCapitalBurnRate": {
+        "label": "Gasto mensual de capital"
+      },
+      "description_finances_eerr": {
+        "label": "EERR"
+      },
+      "description_finances_balance": {
+        "label": "Balance"
+      },
+      "description_finances_proyection": {
+        "label": "Proyección"
+      },
+      "description_finances_ivaPayment": {
+        "label": "Pago de IVA"
+      },
+      "description_finances_fixedAssets": {
+        "label": "Fixed assets"
+      },
+      "description_finances_fixedAssetsFile": {
+        "label": "Fixed assets file"
+      },
+      "description_finances_debts": {
+        "label": "Deudas"
+      },
+      "description_finances_debtsFile": {
+        "label": "Archivo de deudas"
+      },
+      "description_offerToTheInvestors": {
+        "label": "Oferta a los inversionistas"
+      },
+      "description_offerToTheInvestors_percentageToOffer": {
+        "label": "Porcentage a ofrecer"
+      },
+      "description_offerToTheInvestors_directorsToOffer": {
+        "label": "Directorios a ofrecer (Ejemplo: 1 de 3)"
+      },
+      "description_offerToTheInvestors_capitalToRaise": {
+        "label": "Capital a levantar"
+      },
+      "description_offerToTheInvestors_capitalContributionOfEntrepeneurs": {
+        "label": "Capital que aportan los emprendedores"
+      },
+      "description_offerToTheInvestors_workingHoursContributionOfEntrepeneursAtMarketPrice": {
+        "label": "Horas de trabajo de los emprendedores a precio de mercado"
+      },
+      "description_offerToTheInvestors_dividendPerStatutes": {
+        "label": "Dividendo por estatutos"
+      },
+      "description_legalBasics": {
+        "label": "Legal Básico"
+      },
+      "description_legalBasics_website": {
+        "label": "Sitio Web"
+      },
+      "description_legalBasics_phone": {
+        "label": "Teléfono"
+      },
+      "description_legalBasics_legalName": {
+        "label": "Nombre legal de la empresa"
+      },
+      "description_legalBasics_direction": {
+        "label": "Dirección"
+      },
+      "description_legalBasics_legalRepresentativeRut": {
+        "label": "Rut del representante legal"
+      },
+      "description_legalBasics_legalRepresentativeName": {
+        "label": "Nombre del representante legal"
+      },
+      "description_legalBasics_razonSocial": {
+        "label": "Razón social"
+      },
+      "description_legalBasics_enterpriseRut": {
+        "label": "Rut de la empresa"
+      },
+      "description_legalBasics_shareHolders": {
+        "label": "Accionistas"
+      },
+      "description_legalBasics_shareHolders_$_name": {
+        "label": "Nombre"
+      },
+      "description_legalBasics_shareHolders_$_email": {
+        "label": "Email"
+      },
+      "description_legalBasics_shareHolders_$_shares": {
+        "label": "Acciones"
+      },
+      "description_legalBasics_shareHolders_$_percentage": {
+        "label": "Porcentage"
+      },
+      "description_legalBasics_actualDirectors": {
+        "label": "Directores"
+      },
+      "description_legal": {
+        "label": "Legal Especifico"
+      },
+      "description_legal_inscriptionInTheCommerce": {
+        "label": "Inscripción en el Registro de Comercio con vigencia, del  extracto de escritura de constitución (Máximo 30 dÃ­a de antigüedad)*"
+      },
+      "description_legal_societyVigency": {
+        "label": "Certificado de vigencia de la sociedad*"
+      },
+      "description_legal_authorizedCopyOfWriteOfConstitution": {
+        "label": "Copia autorizada Escritura de Constitución**"
+      },
+      "description_legal_statutesInscriptionInTheCommerce": {
+        "label": "Inscripción en Registro de Comercio*"
+      },
+      "description_legal_officialPublication": {
+        "label": "Publicación en Diario Oficial"
+      },
+      "description_legal_rutPhoto": {
+        "label": "Fotocopia del RUT"
+      },
+      "description_legal_antecedentsInvestors": {
+        "label": "Antecedentes accionistas personas naturales (RUT, Estado civil, Certificado de matrimonio, Profesión u oficio)"
+      },
+      "description_legal_antecedentsInvestorsJuridics": {
+        "label": "Antecedentes accionistas personas jurídicas (Copia autorizada Escritura de Constitución**, Inscripción en Registro de Comercio*, Publicación en Diario Oficial, RUT)"
+      },
+      "description_legal_powersReduction": {
+        "label": "Reducción a escritura pública Junta de Accionistas donde consta la composición del Directorio que otorgó poderes"
+      },
+      "description_legal_powersSubsidy": {
+        "label": "En subsidio de lo anterior, certificado del gerente general, otorgado en virtud del art_ 135 L_ 18_046 que de cuenta de la composición del Directorio que otorgó poderes"
+      },
+      "description_legal_powersWritingReduction": {
+        "label": "Reducción a escritura pública del acta de Directorio en que se otorgaron poderes"
+      },
+      "description_legal_investorsRegistry": {
+        "label": "Registro de accionistas"
+      },
+      "description_legal_tributaryCarole": {
+        "label": "Cartola de situación tributaria***"
+      },
+      "description_legal_antecedentsLaboral": {
+        "label": "Antecedentes laborales y previsionales (Certificado de Antecedentes Laborales y Previsionales, Certificado de Cumplimiento de Obligaciones laborales y Previsionales)"
+      },
+      "description_legal_pendingJudges": {
+        "label": "Juicios Pendientes"
+      },
+      "description_legal_subjectsOrBusinessWithProblems": {
+        "label": "Asuntos o negocios que potencialmente pueden dar lugar a un litigio con terceros"
+      }
     }
   }
 }

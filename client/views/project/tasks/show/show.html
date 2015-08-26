@@ -58,7 +58,7 @@
 						<input name="tags" class="form-control" value="{{ task.joinedTags }}">
 					</div>
 					<div class="form-group">
-						<label>{{ _ "project.tasks.labels.asigneed" }}</label>
+						<label>{{ _ "project.tasks.labels.asignees" }}</label>
 						<select name="assignees[]" class="form-control" multiple placeholder="{{ _ 'project.tasks.labels.selectUsers' }}">
 							{{# each roles 'entrepreneur' }}
 								<option value="{{ userId }}" {{ isAssign }}>

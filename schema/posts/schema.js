@@ -10,7 +10,6 @@ PostsSchema = new SimpleSchema({
 	},
 	content: {
 		type: String,
-		label: 'Content',
 		autoform: {
 			type: 'parseTextarea'
 		}

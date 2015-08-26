@@ -11,15 +11,15 @@ IndicatorsStatesSchema = new SimpleSchema({
 		optional: true
 	},
 	"linegraph.$.title": {
-        type: String,
-    },
+    type: String,
+  },
 	"linegraph.$.x": {
-        type: String,
-    },
-    "linegraph.$.y": {
-        type: Number,
-        decimal: true
-    },
+    type: String,
+  },
+  "linegraph.$.y": {
+    type: Number,
+    decimal: true
+  },
 	indicatorId: {
 		type: String,
 	},

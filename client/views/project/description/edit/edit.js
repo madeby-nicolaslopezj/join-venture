@@ -22,7 +22,7 @@ Template.projectDescriptionEdit.helpers({
     return categories.map(function (category) {
       return {
         key: category,
-        title: ProjectsDescriptionSchema._schema[category].label
+        title: TAPi18n.__('schemas.projects.description_' + category + '.label')
       }
     });
   },

@@ -1,20 +1,32 @@
+doth = function() {
+	var toLang = {};
+	_.each(ProjectsDescriptionSchema.label(), function(label, key) {
+		toLang[key] = { label: label }
+	});
+	return toLang;
+}
+
+Meteor.startup(function() {
+	Router.route('asdf', function() {
+		this.response.end(JSON.stringify(doth(), null, 2));
+	}, { where: 'server' });
+})
+
 ProjectsDescriptionSchema = new SimpleSchema({
 	name: {
 		type: String,
 		max: 50,
 		autoform: {
-			label: false
+
 		}
 	},
 	marketAndOpportunity: {
 		type: Object,
-		optional: true,
-		label: 'Market and Opportunity'
+		optional: true
 	},
 	'marketAndOpportunity.opportunity': {
 		type: String,
 		optional: true,
-		label: 'Describe the opportunity',
 		max: 1200,
 		autoform: {
 			type: 'textarea'
@@ -43,12 +55,10 @@ ProjectsDescriptionSchema = new SimpleSchema({
 	},
 	'marketAndOpportunity.referencesLinksOfTheMarket.$.link': {
 		type: String,
-		label: "Link",
 		optional: true,
 	},
 	'marketAndOpportunity.referencesLinksOfTheMarket.$.description': {
 		type: String,
-		label: "Description",
 		optional: true,
 		autoform: {
 			type: 'textarea'
@@ -57,7 +67,6 @@ ProjectsDescriptionSchema = new SimpleSchema({
 	business: {
 		type: Object,
 		optional: true,
-		label: 'Business',
 	},
 	'business.logo': {
 		type: String,
@@ -68,7 +77,6 @@ ProjectsDescriptionSchema = new SimpleSchema({
 	},
 	'business.tweet': {
 		type: String,
-		label: "Tweet of the business",
 		optional: true,
 		max: 140,
 		autoform: {
@@ -84,7 +92,6 @@ ProjectsDescriptionSchema = new SimpleSchema({
 	},
 	'business.description': {
 		type: String,
-		label: "Describe the business shortly",
 		optional: true,
 		max: 1500,
 		autoform: {
@@ -93,7 +100,6 @@ ProjectsDescriptionSchema = new SimpleSchema({
 	},
 	team: {
 		type: Object,
-		label: 'Team',
 		optional: true,
 	},
 	'team.members': {
@@ -122,7 +128,7 @@ ProjectsDescriptionSchema = new SimpleSchema({
 	},
 	'team.members.$.experience': {
 		type: Number,
-		label: 'Years of experience',
+
 		optional: true,
 	},
 	'team.members.$.relevantExperience': {
@@ -135,7 +141,7 @@ ProjectsDescriptionSchema = new SimpleSchema({
 	},
 	'team.members.$.dedication': {
 		type: Number,
-		label: 'Dedication (min 1%, max 100%)',
+
 		optional: true,
 		max: 100,
 		min: 1,
@@ -150,7 +156,7 @@ ProjectsDescriptionSchema = new SimpleSchema({
 	history: {
 		type: Object,
 		optional: true,
-		label: 'Milestones and Relevant History',
+
 	},
 	'history.founded': {
 		type: Date,
@@ -196,12 +202,12 @@ ProjectsDescriptionSchema = new SimpleSchema({
 	},
 	'history.interestingLinks.$.link': {
 		type: String,
-		label: "Link",
+
 		optional: true,
 	},
 	'history.interestingLinks.$.description': {
 		type: String,
-		label: "Description",
+
 		optional: true,
 		autoform: {
 			type: 'textarea'
@@ -213,17 +219,17 @@ ProjectsDescriptionSchema = new SimpleSchema({
 	},
 	'history.references.$.email': {
 		type: String,
-		label: "Email",
+
 		optional: true,
 	},
 	'history.references.$.phone': {
 		type: String,
-		label: "Phone",
+
 		optional: true,
 	},
 	'history.references.$.description': {
 		type: String,
-		label: "Description",
+
 		optional: true,
 		autoform: {
 			type: 'textarea'
@@ -232,7 +238,7 @@ ProjectsDescriptionSchema = new SimpleSchema({
 	actualStateAndProyections: {
 		type: Object,
 		optional: true,
-		label: 'Actual State and Proyections',
+
 	},
 	'actualStateAndProyections.commercialStrategy': {
 		type: String,
@@ -258,12 +264,12 @@ ProjectsDescriptionSchema = new SimpleSchema({
 	},
 	'actualStateAndProyections.employeesNumber': {
 		type: Number,
-		label: 'Employees Number',
+
 		optional: true,
 	},
 	'actualStateAndProyections.mensualIncome': {
 		type: String,
-		label: 'Mensual Income of the last 12 months',
+
 		optional: true,
 		autoform: {
 			noselect: true,
@@ -310,7 +316,7 @@ ProjectsDescriptionSchema = new SimpleSchema({
 	finances: {
 		type: Object,
 		optional: true,
-		label: 'Finances',
+
 	},
 	'finances.plansToSpendTheCapital': {
 		type: [Object],
@@ -335,21 +341,21 @@ ProjectsDescriptionSchema = new SimpleSchema({
 	'finances.payback': {
 		type: Number,
 		optional: true,
-		label: 'Payback in months',
+
 		min: 1,
 		max: 60,
 	},
 	'finances.npd5YearsPercetage': {
 		type: Number,
 		optional: true,
-		label: 'Net Present Value (rate of discount)',
+
 		min: 1,
 		max: 100,
 	},
 	'finances.npd5YearsNumber': {
 		type: String,
 		optional: true,
-		label: 'Net Present Value',
+
 	},
 	'finances.actualOperationalMargin': {
 		type: Number,
@@ -377,7 +383,7 @@ ProjectsDescriptionSchema = new SimpleSchema({
 	},
 	'finances.eerr': {
 		type: String,
-		label: 'EERR',
+
 		autoform: {
 			type: 'venture_file'
 		},
@@ -429,7 +435,7 @@ ProjectsDescriptionSchema = new SimpleSchema({
 	offerToTheInvestors: {
 		type: Object,
 		optional: true,
-		label: 'Offer to the investors',
+
 	},
 	'offerToTheInvestors.percentageToOffer': {
 		type: String,
@@ -437,7 +443,7 @@ ProjectsDescriptionSchema = new SimpleSchema({
 	},
 	'offerToTheInvestors.directorsToOffer': {
 		type: String,
-		label: 'Directors to offer (Example: 1 of 3)',
+
 		optional: true,
 	},
 	'offerToTheInvestors.capitalToRaise': {
@@ -460,7 +466,7 @@ ProjectsDescriptionSchema = new SimpleSchema({
 	},
 	legalBasics: {
 		type: Object,
-		label: 'Legal Basics',
+
 		optional: true,
 	},
 	'legalBasics.website': {
@@ -473,7 +479,7 @@ ProjectsDescriptionSchema = new SimpleSchema({
 	},
 	'legalBasics.legalName': {
 		type: String,
-		label: 'Legal Company Name',
+
 		optional: true,
 	},
 	'legalBasics.direction': {
@@ -502,19 +508,19 @@ ProjectsDescriptionSchema = new SimpleSchema({
 	},
 	'legalBasics.shareHolders.$.name': {
 		type: String,
-		label: 'Name'
+
 	},
 	'legalBasics.shareHolders.$.email': {
 		type: String,
-		label: 'Email'
+
 	},
 	'legalBasics.shareHolders.$.shares': {
 		type: String,
-		label: 'Shares'
+
 	},
 	'legalBasics.shareHolders.$.percentage': {
 		type: String,
-		label: 'Percentage'
+
 	},
 	'legalBasics.actualDirectors': {
 		type: [String],
@@ -522,12 +528,12 @@ ProjectsDescriptionSchema = new SimpleSchema({
 	},
 	legal: {
 		type: Object,
-		label: 'Legal Specific',
+
 		optional: true,
 	},
 	'legal.inscriptionInTheCommerce': {
 		type: String,
-		label: 'Inscripción en el Registro de Comercio con vigencia, del  extracto de escritura de constitución (Máximo 30 día de antigüedad)*',
+
 		optional: true,
 		autoform: {
 			type: 'venture_file'
@@ -535,7 +541,7 @@ ProjectsDescriptionSchema = new SimpleSchema({
 	},
 	'legal.societyVigency': {
 		type: String,
-		label: 'Certificado de vigencia de la sociedad*',
+
 		optional: true,
 		autoform: {
 			type: 'venture_file'
@@ -543,7 +549,7 @@ ProjectsDescriptionSchema = new SimpleSchema({
 	},
 	'legal.authorizedCopyOfWriteOfConstitution': {
 		type: String,
-		label: 'Copia autorizada Escritura de Constitución**',
+
 		optional: true,
 		autoform: {
 			type: 'venture_file'
@@ -551,7 +557,7 @@ ProjectsDescriptionSchema = new SimpleSchema({
 	},
 	'legal.statutesInscriptionInTheCommerce': {
 		type: String,
-		label: 'Inscripción en Registro de Comercio*',
+
 		optional: true,
 		autoform: {
 			type: 'venture_file'
@@ -559,7 +565,7 @@ ProjectsDescriptionSchema = new SimpleSchema({
 	},
 	'legal.officialPublication': {
 		type: String,
-		label: 'Publicación en Diario Oficial',
+
 		optional: true,
 		autoform: {
 			type: 'venture_file'
@@ -567,7 +573,7 @@ ProjectsDescriptionSchema = new SimpleSchema({
 	},
 	'legal.rutPhoto': {
 		type: String,
-		label: 'Fotocopia del RUT',
+
 		optional: true,
 		autoform: {
 			type: 'venture_file'
@@ -575,7 +581,7 @@ ProjectsDescriptionSchema = new SimpleSchema({
 	},
 	'legal.antecedentsInvestors': {
 		type: String,
-		label: 'Antecedentes accionistas personas naturales (RUT, Estado civil, Certificado de matrimonio, Profesión u oficio)',
+
 		optional: true,
 		autoform: {
 			type: 'venture_file'
@@ -583,7 +589,7 @@ ProjectsDescriptionSchema = new SimpleSchema({
 	},
 	'legal.antecedentsInvestorsJuridics': {
 		type: String,
-		label: 'Antecedentes accionistas personas jurídicas (Copia autorizada Escritura de Constitución**, Inscripción en Registro de Comercio*, Publicación en Diario Oficial, RUT)',
+
 		optional: true,
 		autoform: {
 			type: 'venture_file'
@@ -591,7 +597,7 @@ ProjectsDescriptionSchema = new SimpleSchema({
 	},
 	'legal.powersReduction': {
 		type: String,
-		label: 'Reducción a escritura pública Junta de Accionistas donde consta la composición del Directorio que otorgó poderes',
+
 		optional: true,
 		autoform: {
 			type: 'venture_file'
@@ -599,7 +605,7 @@ ProjectsDescriptionSchema = new SimpleSchema({
 	},
 	'legal.powersSubsidy': {
 		type: String,
-		label: 'En subsidio de lo anterior, certificado del gerente general, otorgado en virtud del art. 135 L. 18.046 que de cuenta de la composición del Directorio que otorgó poderes',
+
 		optional: true,
 		autoform: {
 			type: 'venture_file'
@@ -607,7 +613,7 @@ ProjectsDescriptionSchema = new SimpleSchema({
 	},
 	'legal.powersWritingReduction': {
 		type: String,
-		label: 'Reducción a escritura pública del acta de Directorio en que se otorgaron poderes',
+
 		optional: true,
 		autoform: {
 			type: 'venture_file'
@@ -615,7 +621,7 @@ ProjectsDescriptionSchema = new SimpleSchema({
 	},
 	'legal.investorsRegistry': {
 		type: String,
-		label: 'Registro de accionistas',
+
 		optional: true,
 		autoform: {
 			type: 'venture_file'
@@ -623,7 +629,7 @@ ProjectsDescriptionSchema = new SimpleSchema({
 	},
 	'legal.tributaryCarole': {
 		type: String,
-		label: 'Cartola de situación tributaria***',
+
 		optional: true,
 		autoform: {
 			type: 'venture_file'
@@ -631,7 +637,7 @@ ProjectsDescriptionSchema = new SimpleSchema({
 	},
 	'legal.antecedentsLaboral': {
 		type: String,
-		label: 'Antecedentes laborales y previsionales (Certificado de Antecedentes Laborales y Previsionales, Certificado de Cumplimiento de Obligaciones laborales y Previsionales)',
+
 		optional: true,
 		autoform: {
 			type: 'venture_file'
@@ -639,7 +645,7 @@ ProjectsDescriptionSchema = new SimpleSchema({
 	},
 	'legal.pendingJudges': {
 		type: String,
-		label: 'Juicios Pendientes',
+
 		optional: true,
 		autoform: {
 			type: 'venture_file'
@@ -647,7 +653,7 @@ ProjectsDescriptionSchema = new SimpleSchema({
 	},
 	'legal.subjectsOrBusinessWithProblems': {
 		type: String,
-		label: 'Asuntos o negocios que potencialmente pueden dar lugar a un litigio con terceros',
+
 		optional: true,
 		autoform: {
 			type: 'venture_file'
@@ -657,16 +663,13 @@ ProjectsDescriptionSchema = new SimpleSchema({
 
 ProjectsReviewStatusSchema = new SimpleSchema({
 	analist: {
-		type: Boolean,
-		label: "Analist Approved"
+		type: Boolean
 	},
 	expert: {
-		type: Boolean,
-		label: "Expert Approved"
+		type: Boolean
 	},
 	comission: {
-		type: Boolean,
-		label: "Comission Approved"
+		type: Boolean
 	}
 })
 
