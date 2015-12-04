@@ -11,8 +11,8 @@ UsersProfileSchema = new SimpleSchema({
     },
     country: {
         type: String,
-        allowedValues: ["Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla","Antigua &amp; Barbuda","Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan","Bahamas"
-        ,"Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Bosnia &amp; Herzegovina","Botswana","Brazil","British Virgin Islands"
+        allowedValues: ["Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla","Antigua & Barbuda","Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan","Bahamas"
+        ,"Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Bosnia & Herzegovina","Botswana","Brazil","British Virgin Islands"
         ,"Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Cape Verde","Cayman Islands","Chad","Chile","China","Colombia","Congo","Cook Islands","Costa Rica"
         ,"Cote D Ivoire","Croatia","Cruise Ship","Cuba","Cyprus","Czech Republic","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea"
         ,"Estonia","Ethiopia","Falkland Islands","Faroe Islands","Fiji","Finland","France","French Polynesia","French West Indies","Gabon","Gambia","Georgia","Germany","Ghana"
@@ -21,10 +21,10 @@ UsersProfileSchema = new SimpleSchema({
         ,"Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Macau","Macedonia","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Mauritania"
         ,"Mauritius","Mexico","Moldova","Monaco","Mongolia","Montenegro","Montserrat","Morocco","Mozambique","Namibia","Nepal","Netherlands","Netherlands Antilles","New Caledonia"
         ,"New Zealand","Nicaragua","Niger","Nigeria","Norway","Oman","Pakistan","Palestine","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal"
-        ,"Puerto Rico","Qatar","Reunion","Romania","Russia","Rwanda","Saint Pierre &amp; Miquelon","Samoa","San Marino","Satellite","Saudi Arabia","Senegal","Serbia","Seychelles"
-        ,"Sierra Leone","Singapore","Slovakia","Slovenia","South Africa","South Korea","Spain","Sri Lanka","St Kitts &amp; Nevis","St Lucia","St Vincent","St. Lucia","Sudan"
-        ,"Suriname","Swaziland","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Timor L'Este","Togo","Tonga","Trinidad &amp; Tobago","Tunisia"
-        ,"Turkey","Turkmenistan","Turks &amp; Caicos","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States","Uruguay","Uzbekistan","Venezuela","Vietnam","Virgin Islands (US)"
+        ,"Puerto Rico","Qatar","Reunion","Romania","Russia","Rwanda","Saint Pierre & Miquelon","Samoa","San Marino","Satellite","Saudi Arabia","Senegal","Serbia","Seychelles"
+        ,"Sierra Leone","Singapore","Slovakia","Slovenia","South Africa","South Korea","Spain","Sri Lanka","St Kitts & Nevis","St Lucia","St Vincent","St. Lucia","Sudan"
+        ,"Suriname","Swaziland","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Timor L'Este","Togo","Tonga","Trinidad & Tobago","Tunisia"
+        ,"Turkey","Turkmenistan","Turks & Caicos","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States","Uruguay","Uzbekistan","Venezuela","Vietnam","Virgin Islands (US)"
         ,"Yemen","Zambia","Zimbabwe"],
         optional: true
     },
@@ -89,19 +89,11 @@ UsersInvestorProfileSchema = new SimpleSchema({
         type: [String],
         optional: false,
         autoform: {
-            noselect: true,
-            options: {
-                'Idea': 'Ideas',
-                'Start Up': 'Start Up',
-                'Profitable': 'Profitable',
-                'Growing': 'Growing',
-                'Mature': 'Mature',
-            }
+          noselect: true
         }
     },
     employeesNumber: {
         type: String,
-        label: 'Company Employees Number',
         optional: false,
         autoform: {
             noselect: true,
@@ -116,7 +108,6 @@ UsersInvestorProfileSchema = new SimpleSchema({
     },
     mensualIncome: {
         type: String,
-        label: 'Average mensual income of the company',
         optional: false,
         autoform: {
             noselect: true,
@@ -135,30 +126,15 @@ UsersInvestorProfileSchema = new SimpleSchema({
         optional: false,
         autoform: {
             noselect: true,
-            options: {
-                'No Sales': 'No Sales',
-                'First Sales': 'First Sales',
-                'Breakeven': 'Breakeven',
-                'Rentable': 'Rentable',
-                'Growing': 'Growing',
-            }
+            type: 'select-checkbox'
         }
     },
     interestAreas: {
         type: [String],
         optional: false,
         autoform: {
-            noselect: true,
-            options: {
-                'Retail': 'Retail',
-                'services': 'Services',
-                'Biotecnology': 'Biotecnology',
-                'Health': 'Health',
-                'Basic Services': 'Basic Services',
-                'Energy Efficiency': 'Energy Efficiency',
-                'General Services': 'General Services',
-                'TICS': 'TICS'
-            }
+          noselect: true,
+          type: 'select-checkbox'
         }
     },
     team: {
@@ -166,40 +142,27 @@ UsersInvestorProfileSchema = new SimpleSchema({
         optional: false,
         autoform: {
             noselect: true,
-            options: {
-                'In Formation': 'In Formation',
-                'Formed': 'Formed'
-            }
+            type: 'select-checkbox'
         }
     },
     experience: {
         type: Number,
-        label: 'Team experience in the industry (entrepreneur or employee) in years',
         optional: false,
     },
     directory: {
         type: [String],
-        label: 'Board and Advisory Team',
         optional: false,
         autoform: {
             noselect: true,
-            options: {
-                'None': 'None',
-                'In Formation': 'In Formation',
-                'Formed': 'Formed'
-            }
+            type: 'select-checkbox'
         }
     },
     legal: {
         type: [String],
-        label: 'Legal',
         optional: false,
         autoform: {
             noselect: true,
-            options: {
-                'No Company': 'No Company',
-                'Formed Company': 'Formed Company',
-            }
+            type: 'select-checkbox'
         }
     },
     localization: {
@@ -207,39 +170,25 @@ UsersInvestorProfileSchema = new SimpleSchema({
         optional: false,
         autoform: {
             noselect: true,
-            options: {
-                'Chile': 'Chile',
-                'Latin America': 'Latin America',
-                'World': 'World'
-            }
+            type: 'select-checkbox'
         }
     },
     coInversion: {
         type: String,
         optional: false,
         autoform: {
-            noselect: true,
-            options: {
-                'yes': 'Yes',
-                'no': 'No',
-            }
+            noselect: true
         }
     },
     investorType: {
         type: String,
         optional: false,
         autoform: {
-            noselect: true,
-            options: {
-                'active': 'Active (director, management support and contacts)',
-                'semi active': 'Semi active (director and contacts)',
-                'passive': 'Passive (contacts)',
-            }
+            noselect: true
         }
     },
     anualRetability: {
         type: Number,
-        label: 'Desired Anual Profitalibity (in %)',
         min: 1,
         max: 100,
         optional: false,
@@ -247,67 +196,64 @@ UsersInvestorProfileSchema = new SimpleSchema({
     payback: {
         type: Number,
         optional: false,
-        label: 'Payback (in months)',
         min: 1,
         max: 60,
     },
     comment: {
         type: String,
-        label: 'Tell us what are you looking',
         optional: true,
         autoform: {
             type: 'textarea'
         }
-    },
-
+    }
 });
 
 UsersSchema = new SimpleSchema({
-	username: {
-        type: String,
-        regEx: /^[a-z0-9A-Z_]{3,15}$/,
-        optional: true
-    },
-    emails: {
-        type: [Object]
-    },
-    "emails.$.address": {
-        type: String,
-        regEx: SimpleSchema.RegEx.Email
-    },
-    "emails.$.verified": {
-        type: Boolean
-    },
-    createdAt: {
-        type: Date
-    },
-    profile: {
-        type: UsersProfileSchema,
-        optional: true
-    },
-    investorProfile: {
-        type: UsersInvestorProfileSchema,
-        optional: true
-    },
-    viewableProjects: {
-        type: [String],
-        optional: true
-    },
-    status: {
-        type: Object,
-        optional: true,
-        blackbox: true
-    },
-    services: {
-        type: Object,
-        optional: true,
-        blackbox: true
-    },
-    roles: {
-        type: Object,
-        optional: true,
-        blackbox: true
-    }
+  username: {
+    type: String,
+    regEx: /^[a-z0-9A-Z_]{3,15}$/,
+    optional: true
+  },
+  emails: {
+    type: [Object]
+  },
+  "emails.$.address": {
+    type: String,
+    regEx: SimpleSchema.RegEx.Email
+  },
+  "emails.$.verified": {
+    type: Boolean
+  },
+  createdAt: {
+    type: Date
+  },
+  profile: {
+    type: UsersProfileSchema,
+    optional: true
+  },
+  investorProfile: {
+    type: UsersInvestorProfileSchema,
+    optional: true
+  },
+  viewableProjects: {
+    type: [String],
+    optional: true
+  },
+  status: {
+    type: Object,
+    optional: true,
+    blackbox: true
+  },
+  services: {
+    type: Object,
+    optional: true,
+    blackbox: true
+  },
+  roles: {
+    type: Object,
+    optional: true,
+    blackbox: true
+  }
 })
 
 Meteor.users.attachSchema(UsersSchema);

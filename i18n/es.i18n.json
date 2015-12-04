@@ -620,6 +620,140 @@
       "description_legal_subjectsOrBusinessWithProblems": {
         "label": "Asuntos o negocios que potencialmente pueden dar lugar a un litigio con terceros"
       }
+    },
+    "users": {
+      "profile_firstName": {
+        "label": "Nombre"
+      },
+      "profile_lastName": {
+        "label": "Apellido"
+      },
+      "profile_country": {
+        "label": "País",
+        "placeholder": "Selecciona un país"
+      },
+      "profile_gender": {
+        "label": "Género",
+        "placeholder": "Selecciona un género",
+        "options": {
+          "Male": "Masculino",
+          "Female": "Femenino"
+        }
+      },
+      "profile_rut": {
+        "label": "RUT"
+      },
+      "profile_phone": {
+        "label": "Teléfono"
+      },
+      "profile_website": {
+        "label": "Sitio Web"
+      },
+      "profile_description": {
+        "label": "Descripción"
+      },
+      "profile_picture": {
+        "label": "Foto"
+      },
+      "investorProfile_investventRank": {
+        "label": "Rango de inversión"
+      },
+      "investorProfile_projectsStatus": {
+        "label": "Estado del proyecto",
+        "options": {
+          "Idea": "Idea",
+          "Start Up": "Start Up",
+          "Profitable": "Rentable",
+          "Growing": "En Crecimiento",
+          "Mature": "Maduro"
+        }
+      },
+      "investorProfile_employeesNumber": {
+        "label": "Numero de empleados"
+      },
+      "investorProfile_mensualIncome": {
+        "label": "Ingresos mensuales promedio de la empresa"
+      },
+      "investorProfile_commercialStatus": {
+        "label": "Estado comercial",
+        "options": {
+          "No Sales": "Sin Ventas",
+          "First Sales": "Primeras Ventas",
+          "Breakeven": "Breakeven",
+          "Rentable": "Rentable",
+          "Growing": "En Crecimiento"
+        }
+      },
+      "investorProfile_interestAreas": {
+        "label": "Áreas de interés",
+        "options": {
+          "Retail": "Retail",
+          "services": "Servicios",
+          "Biotecnology": "Biotecnología",
+          "Health": "Salud",
+          "Basic Services": "Servicios Básicos",
+          "Energy Efficiency": "Eficiencia Energética",
+          "General Services": "Servicios Generales",
+          "Technology": "Tecnología"
+        }
+      },
+      "investorProfile_team": {
+        "label": "Equipo",
+        "options": {
+          "In Formation": "En Formación",
+          "Formed": "Formado"
+        }
+      },
+      "investorProfile_experience": {
+        "label": "Años de experiencia en la industria (del emprendedor o empleado)"
+      },
+      "investorProfile_directory": {
+        "label": "Directorio",
+        "options": {
+          "None": "Sin directorio",
+          "In Formation": "En Formación",
+          "Formed": "Formado"
+        }
+      },
+      "investorProfile_legal": {
+        "label": "Legal",
+        "options": {
+          "No Company": "Sin empresa",
+          "Formed Company": "Empresa formada"
+        }
+      },
+      "investorProfile_localization": {
+        "label": "Ubicación",
+        "options": {
+          "Chile": "Chile",
+          "Latin America": "Latino-America",
+          "World": "Mundo"
+        }
+      },
+      "investorProfile_coInversion": {
+        "label": "Co-inversión",
+        "options": {
+          "yes": "Si",
+          "no": "No"
+        }
+      },
+      "investorProfile_investorType": {
+        "label": "Tipo de inversionista",
+        "options": {
+          "active": "Activo (director, ayuda con la administración y contactos)",
+          "semi active": "Semi activo (director and contactos)",
+          "passive": "Pasivo (contactos)"
+        }
+      },
+      "investorProfile_anualRetability": {
+        "label": "Rentabilidad anual deseada (en %)"
+      },
+      "investorProfile_payback": {
+        "label": "Payback en meses"
+      },
+      "investorProfile_comment": {
+        "label": "Cuentanos que buscas"
+      }
     }
   }
 }
