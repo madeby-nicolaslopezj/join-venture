@@ -1,5 +1,5 @@
 Template.interestedProjects.onRendered(function() {
-  HTTP.get(Meteor.settings.public.homeUrl + 'api/enterprises', function(error, response) {
+  HTTP.get(Meteor.settings.public.homeUrl + '/api/enterprises', function(error, response) {
     if (!error) {
       Session.set('projectsFromHome', response.data);
     }
